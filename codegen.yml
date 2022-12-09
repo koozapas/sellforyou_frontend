@@ -1,0 +1,5 @@
+schema: https://api.sellforyou.itez.io/graphql
+generates:
+  ./src/types.ts:
+    plugins:
+      - typescript
