@@ -7,7 +7,7 @@ import { ApolloProvider } from "@apollo/client";
 import "antd/dist/antd.css";
 import "src/assets/styles/common/index.css";
 
-const ANT_COLOR_PRIMARY = "#2988FF"
+const ANT_COLOR_PRIMARY = "#0288d1";
 
 const App = () => {
   (window as any).less

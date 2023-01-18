@@ -6,26 +6,28 @@ import UserRoute from "./user-route";
 import { BackTop } from "antd";
 import OrderItemRoute from "./order-item-route";
 import Test from "../pages/user/payment/Test.jsx";
-import { UpOutlined } from '@ant-design/icons';
+import { UpOutlined } from "@ant-design/icons";
 
 const PublicRoutes = () => {
   return (
     <>
       <BackTop>
-        <div style={{
-          height: 50,
-          width: 50,
-          lineHeight: '50px',
-          borderRadius: 30,
-          backgroundColor: '#1088e9',
-          color: '#fff',
-          textAlign: 'center',
-          fontSize: 20,
-        }}>
+        <div
+          style={{
+            height: 50,
+            width: 50,
+            lineHeight: "50px",
+            borderRadius: 30,
+            border: "1px solid lightgray",
+            backgroundColor: "white",
+            textAlign: "center",
+            fontSize: 20,
+          }}
+        >
           <UpOutlined />
         </div>
       </BackTop>
-      
+
       <Router>
         <Switch>
           <Route exact path="/" component={Main} />

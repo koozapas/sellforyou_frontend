@@ -16,19 +16,17 @@ const Main = () => {
   const { data: whoAmI } = useQuery<{ whoami: String }>(QUERIES.WHO_AM_I);
 
   return (
-    <Layout
-      style={{ minHeight: "100vh" }}
-    >
+    <>
       <Affix offsetTop={0}>
         <HeaderComponent />
       </Affix>
-      
+
       <Content>
         <LandingPage />
       </Content>
 
       <FooterComponent />
-    </Layout>
+    </>
   );
 };
 

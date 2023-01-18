@@ -36,10 +36,7 @@ const HeaderComponent = () => {
 
   const nowLocation = window.location.pathname;
 
-  const [createUserLogByUserMutation] = useMutation<
-    { createUserLogByUser: boolean },
-    MutationCreateUserLogArgs
-  >(MUTATIONS.CREATE_USER_LOG_BY_USER, {});
+  const [createUserLogByUserMutation] = useMutation<{ createUserLogByUser: boolean }, MutationCreateUserLogArgs>(MUTATIONS.CREATE_USER_LOG_BY_USER, {});
 
   useEffect(() => {
     if (localStorage.getItem("accessToken") === null) {
@@ -66,24 +63,16 @@ const HeaderComponent = () => {
     data: subscriptionData,
     loading: subscriptionLoading,
     error: subscriptionError,
-  } = useSubscription<{ subscribeUserEvent: UserLog }>(
-    SUBSCRIPTIONS.PRODUCT_COLLECTION_SUBSCRIPTION,
-    {
-      fetchPolicy: "no-cache",
-      skip: !(
-        whoAmiData?.whoami !== undefined && whoAmiData?.whoami.includes("User")
-      ),
-    }
-  );
+  } = useSubscription<{ subscribeUserEvent: UserLog }>(SUBSCRIPTIONS.PRODUCT_COLLECTION_SUBSCRIPTION, {
+    fetchPolicy: "no-cache",
+    skip: !(whoAmiData?.whoami !== undefined && whoAmiData?.whoami.includes("User")),
+  });
   const dispatch = useDispatch();
 
   const [reset, setReset] = useState<UserLogPayload>();
 
   useEffect(() => {
-    if (
-      whoAmiData?.whoami !== undefined &&
-      whoAmiData?.whoami.includes("User")
-    ) {
+    if (whoAmiData?.whoami !== undefined && whoAmiData?.whoami.includes("User")) {
       if (subscriptionLoading) {
         return;
       }
@@ -103,10 +92,7 @@ const HeaderComponent = () => {
   useEffect(() => {
     if (reset !== undefined && reset.renewedAccessToken) {
       localStorage.setItem("accessToken", reset.renewedAccessToken);
-      if (
-        nowLocation === "/user/product/product-delivery" ||
-        nowLocation === "/user/order/order-list"
-      ) {
+      if (nowLocation === "/user/product/product-delivery" || nowLocation === "/user/order/order-list") {
         window.location.reload();
       }
     }
@@ -119,164 +105,91 @@ const HeaderComponent = () => {
       <Header className="header">
         <div
           style={{
-            textAlign: "center",
-            width: history.location.pathname === "/" ? "100%" : "",
+            width: 1200,
+            margin: "0 auto",
           }}
         >
-          <div
-            style={{
-              width: history.location.pathname === "/" ? "1320px" : "",
-              margin: "0 auto",
-            }}
-          >
-            <Row justify={"space-between"}>
-              <Col
-                style={{ 
-                  paddingTop: 3
+          <Row>
+            <Col
+              span={18}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "left",
+              }}
+            >
+              <img
+                src={FOOTTER_LOGO}
+                style={{
+                  cursor: "pointer",
+                  height: 40,
+                  marginRight: 25,
+                }}
+                alt="logo"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              />
+
+              <div
+                className="navigators-menu"
+                onClick={() => {
+                  window.scrollTo({ top: 5150, behavior: "smooth" });
                 }}
               >
-                <Row align="middle">
-                  <Col
-                    style={{
-                      // width: 125
-                    }}
-                    onClick={() => {
-                      window.location.href = "/";
-                    }}
-                  >
-                    <img
-                      src={FOOTTER_LOGO}
-                      style={{ 
-                        cursor: "pointer",
-                      }}
-                      alt="logo"
-                    />
-                  </Col>
+                이용요금
+              </div>
 
-                  <Col style={{ width: 50 }} />
-                  
-                  {history.location.pathname === "/" ? <>
-                    <Col className="navigators-menu"
-                      style={{
-                        width: 125
-                      }}
-                      onClick={() => {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      셀포유란?
-                    </Col>
+              <div
+                className="navigators-menu"
+                onClick={() => {
+                  window.open("https://open.kakao.com/o/gWfPuzDe");
+                }}
+              >
+                오픈카톡방
+              </div>
 
-                    <Col className="navigators-menu"
-                      style={{
-                        width: 125
-                      }}
-                      onClick={() => {
-                        window.scrollTo({ top: 2250, behavior: "smooth" });
-                      }}
-                    >
-                      셀포유 장점
-                    </Col>
+              <div
+                className="navigators-menu"
+                onClick={() => {
+                  window.open("https://cafe.naver.com/sellfor");
+                }}
+              >
+                네이버카페
+              </div>
 
-                    <Col className="navigators-menu"
-                      style={{
-                        width: 125
-                      }}
-                      onClick={() => {
-                        window.scrollTo({ top: 4950, behavior: "smooth" });
-                      }}
-                    >
-                      이용 요금
-                    </Col>
+              <div
+                className="navigators-menu"
+                onClick={() => {
+                  window.open("https://panoramic-butternut-291.notion.site/2619a31e8a93438fa308dcfaae76666a");
+                }}
+              >
+                이용가이드
+              </div>
+            </Col>
 
-                    <Col className="navigators-menu"
-                      style={{
-                        width: 125
-                      }}
-                      onClick={() => {
-                        window.scrollTo({ top: 7000, behavior: "smooth" });
-                      }}
-                    >
-                      시작하기
-                    </Col>
-                  </> : null}
-                </Row>
-              </Col>
-
-              {history.location.pathname === "/" ? (
-                <Row gutter={14}>
-                  <Col>
-                    <a target="_blank" href="https://cafe.naver.com/sellfor">
-                      <Button type="default" size="large" style={{
-                      }}>
-                        네이버 카페
-                      </Button>
-                    </a>
-                  </Col>
-
-                  <Col>
-                    <a target="_blank" href="https://panoramic-butternut-291.notion.site/2619a31e8a93438fa308dcfaae76666a">
-                      <Button type="default" size="large" style={{
-                      }}>
-                        유저 가이드
-                      </Button>
-                    </a>
-                  </Col>
-
-                  <Col>
-                    {localStorage.getItem("accessToken") === null ? <Button
-                      style={{
-                      }}
-
-                      type="primary"
-                      size="large"
-
-                      onClick={() => {
-                        setLoginModal(true);
-                      }}
-                    >
-                      로그인
-                    </Button>
-                    :
-                    <Button
-                      style={{
-                      }}
-
-                      type="primary"
-                      size="large"
-
-                      onClick={() => {
-                        confirmLogout();
-                      }}
-                    >
-                      로그아웃
-                    </Button>}
-                  </Col>
-                </Row>
-              ) : null}
-            </Row>
-          </div>
+            <Col
+              span={6}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "right",
+              }}
+            >
+              <Button
+                type="primary"
+                onClick={() => {
+                  window.open("https://chrome.google.com/webstore/detail/%EC%85%80%ED%8F%AC%EC%9C%A0/cdghhijdbghkgklajgahabkbbpijddlo?hl=ko");
+                }}
+              >
+                무료 체험 시작하기
+              </Button>
+            </Col>
+          </Row>
         </div>
       </Header>
 
-      <LoginModal
-        visible={loginModal}
-        closeLoginModal={() => setLoginModal(false)}
-        openFindModal={() => setFindModal(true)}
-        openJoinModal={() => setJoinModal(true)}
-      />
-
-      <FindAccountModal
-        visible={findModal}
-        closeFindModal={() => setFindModal(false)}
-        openLoginModal={() => setLoginModal(true)}
-      />
-
-      <JoinModal
-        visible={joinModal}
-        closeJoinModal={() => setJoinModal(false)}
-        openLoginModal={() => setLoginModal(true)}
-      />
+      <JoinModal visible={joinModal} closeJoinModal={() => setJoinModal(false)} openLoginModal={() => setLoginModal(true)} />
     </>
   );
 };

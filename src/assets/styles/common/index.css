@@ -49,9 +49,10 @@ button {
   transition: width 0.2s, height 0.2s;
 }
 .header {
-  background-color: white !important;
+  background: white !important;
+  border-bottom: 1px solid rgb(219, 219, 219);
 
-  height: 100px;
+  height: 60px;
 
   display: flex;
   align-items: center;
@@ -65,23 +66,25 @@ button {
 }
 
 .navigators-menu {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
+  /* font-weight: bold; */
 
   color: #444444;
   cursor: pointer;
-  
+
+  width: 100px;
   height: 36px;
-  
+
+  text-align: center;
+
   line-height: 36px;
 
-  margin: 5px;
+  margin: 0 10px;
 }
 
 .navigators-menu:hover {
-  background: whitesmoke;
+  background: #f4faff;
   color: #2988ff;
-
 }
 
 .header-manager-btn {
@@ -466,10 +469,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .collection-card > .ant-card-head {
   min-height: 40px;
 }
-.collection-card
-  > .ant-card-head
-  > .ant-card-head-wrapper
-  > .ant-card-head-title {
+.collection-card > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title {
   padding: 0;
 }
 .collection-card > .ant-card-body {
@@ -516,7 +516,7 @@ input[type="number"]::-webkit-inner-spin-button {
   text-decoration: underline;
 }
 .ant-table-taobaoNumIid:hover {
-  color: #2988FF;
+  color: #2988ff;
   text-decoration: underline;
 }
 .taps-label-style {
@@ -560,7 +560,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .table-detail-button {
   color: #fff;
-  background: #2988FF;
+  background: #2988ff;
 
   padding: 4px 17px 7px 19px;
   border-radius: 2px;
@@ -573,7 +573,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* 랜딩페이지 시작 */
 .landing-page-form {
-  /* background: red; */
+  background: white;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .lading-page-slick-item {
   height: max-content;
@@ -609,7 +611,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .ladingpage-slick-btn {
   margin-top: 70px;
-  width: 226px;
   height: 77px;
   background: #2988ff;
   color: #fff;
@@ -644,19 +645,17 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 24px;
   font-weight: 700;
   color: #ffffff;
+  text-align: center;
 }
 .landing-form3 {
   width: 350px;
   font-weight: 500;
   font-size: 30px;
   line-height: 43px;
+  text-align: center;
 }
 .lading-from4-underline {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 55%,
-    rgba(41, 136, 255, 0.3) 45%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgba(41, 136, 255, 0.3) 45%);
 }
 
 .info-download-btn {
@@ -687,8 +686,8 @@ input[type="number"]::-webkit-inner-spin-button {
   transition-duration: 0.3s;
 }
 .add-product-data-button:hover {
-  color: #2988FF;
-  border: 1px solid #2988FF;
+  color: #2988ff;
+  border: 1px solid #2988ff;
   transition-duration: 0.3s;
 }
 
@@ -869,7 +868,7 @@ input[type="number"]::-webkit-inner-spin-button {
   left: 0;
   width: 100%;
   height: 3px;
-  background: #2988FF;
+  background: #2988ff;
 }
 
 /* 오픈마켓 계정목록 */
