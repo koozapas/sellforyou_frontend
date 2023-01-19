@@ -30,6 +30,14 @@ export interface UserLogPayload {
 const HeaderComponent = () => {
   const history = useHistory();
 
+  const [width, setWidth] = React.useState<number>(window.innerWidth);
+
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  }, []);
+
   const [loginModal, setLoginModal] = useState<boolean>(false); // 로그인용
   const [findModal, setFindModal] = useState<boolean>(false); // 계정찾기용
   const [joinModal, setJoinModal] = useState<boolean>(false); //회원가입용
@@ -105,8 +113,8 @@ const HeaderComponent = () => {
       <Header className="header">
         <div
           style={{
-            width: 1200,
             margin: "0 auto",
+            width: 1200,
           }}
         >
           <Row>
@@ -131,41 +139,45 @@ const HeaderComponent = () => {
                 }}
               />
 
-              <div
-                className="navigators-menu"
-                onClick={() => {
-                  window.scrollTo({ top: 5150, behavior: "smooth" });
-                }}
-              >
-                이용요금
-              </div>
+              {width > 1200 ? (
+                <>
+                  <div
+                    className="navigators-menu"
+                    onClick={() => {
+                      window.scrollTo({ top: 5150, behavior: "smooth" });
+                    }}
+                  >
+                    이용요금
+                  </div>
 
-              <div
-                className="navigators-menu"
-                onClick={() => {
-                  window.open("https://open.kakao.com/o/gWfPuzDe");
-                }}
-              >
-                오픈카톡방
-              </div>
+                  <div
+                    className="navigators-menu"
+                    onClick={() => {
+                      window.open("https://open.kakao.com/o/gWfPuzDe");
+                    }}
+                  >
+                    오픈카톡방
+                  </div>
 
-              <div
-                className="navigators-menu"
-                onClick={() => {
-                  window.open("https://cafe.naver.com/sellfor");
-                }}
-              >
-                네이버카페
-              </div>
+                  <div
+                    className="navigators-menu"
+                    onClick={() => {
+                      window.open("https://cafe.naver.com/sellfor");
+                    }}
+                  >
+                    네이버카페
+                  </div>
 
-              <div
-                className="navigators-menu"
-                onClick={() => {
-                  window.open("https://panoramic-butternut-291.notion.site/2619a31e8a93438fa308dcfaae76666a");
-                }}
-              >
-                이용가이드
-              </div>
+                  <div
+                    className="navigators-menu"
+                    onClick={() => {
+                      window.open("https://panoramic-butternut-291.notion.site/2619a31e8a93438fa308dcfaae76666a");
+                    }}
+                  >
+                    이용가이드
+                  </div>
+                </>
+              ) : null}
             </Col>
 
             <Col
@@ -188,8 +200,6 @@ const HeaderComponent = () => {
           </Row>
         </div>
       </Header>
-
-      <JoinModal visible={joinModal} closeJoinModal={() => setJoinModal(false)} openLoginModal={() => setLoginModal(true)} />
     </>
   );
 };

@@ -57,6 +57,7 @@ button {
   display: flex;
   align-items: center;
 }
+
 .header .trigger {
   font-size: 18px;
   line-height: 64px;
@@ -610,30 +611,34 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 .ladingpage-slick-btn {
-  margin-top: 70px;
+  margin-top: 50px;
   height: 77px;
   background: #2988ff;
   color: #fff;
   border-radius: 10px;
   font-size: 26px;
   font-weight: 700;
+  padding: 0 50px;
 }
 .ladingpage-slick-btn:focus {
   outline: none;
 }
 
 .landing-form1 {
-  margin-bottom: 15px;
+  background: ghostwhite;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 10px;
+  margin: 0px 10px 10px 10px;
   font-size: 25px;
   font-weight: 500;
   color: #34373b;
+  padding: 10px;
 }
 .landing-form1-img {
   display: inline-block;
   margin-right: 10px;
 }
 .landing-form1-text {
-  font-weight: 700;
   color: #2988ff;
 }
 

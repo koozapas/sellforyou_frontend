@@ -9,30 +9,43 @@ import LandingPage2 from "src/pages/user/payment/service-pay";
 import { Row, Col, Button } from "antd";
 
 const LandingPage = () => {
+  const [width, setWidth] = React.useState<number>(window.innerWidth);
+
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  }, []);
+
   return (
     <>
       <div className="landing-page-form">
         <Row
           style={{
-            padding: "120px 0px",
+            padding: width < 1200 ? "0px 0px 90px 0px" : "90px 0px",
           }}
           align="middle"
         >
-          <Col span={12}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+            }}
+          >
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "0px 0px",
-                width: "600px",
-                height: "600px",
-                background: "whitesmoke",
+                padding: "10px",
+                height: width < 1200 ? "auto" : "600px",
+                background: "ghostwhite",
               }}
             >
               <iframe
                 style={{ display: "flex", textAlign: "center" }}
-                width="600px"
+                width="100%"
                 height="400px"
                 src="https://www.youtube.com/embed/Dm3xx1y-Oa0"
                 title="YouTube video player"
@@ -41,15 +54,23 @@ const LandingPage = () => {
             </div>
           </Col>
 
-          <Col span={12}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+            }}
+          >
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                textAlign: width < 1200 ? "center" : "left",
+                marginLeft: width < 1200 ? 0 : 100,
               }}
             >
-              <div style={{ width: "100%", marginLeft: 100 }}>
+              <div style={{ width: "100%" }}>
                 <div
                   style={{
                     color: "#051A65",
@@ -93,7 +114,6 @@ const LandingPage = () => {
                 </div>
 
                 <br />
-                <br />
 
                 <div
                   style={{
@@ -102,7 +122,9 @@ const LandingPage = () => {
                     fontWeight: 700,
                   }}
                 >
-                  셀포유로 초간편 상품소싱, 판매관리까지 한번에!
+                  셀포유로 초간편 상품소싱,
+                  <br />
+                  판매관리까지 한번에!
                 </div>
 
                 <Button
@@ -121,183 +143,166 @@ const LandingPage = () => {
 
         <Row
           style={{
-            padding: "120px 0px",
+            padding: "90px 0px",
           }}
           align="middle"
         >
           <Col
-            span={12}
+            xs={24}
+            xl={12}
             style={{
+              margin: "30px 0px",
               textAlign: "center",
+              padding: 50,
             }}
           >
             <img src={ICON.CIRCLE_TEXT_ICON.default} style={{ margin: "auto" }} alt="" />
           </Col>
 
-          <Col span={12}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              textAlign: "center",
+            }}
+          >
             <div
               style={{
-                marginLeft: 100,
+                textAlign: "left",
+                marginLeft: width < 1200 ? 0 : 90,
               }}
             >
-              <Row className="landing-form1">
-                <Col>
-                  <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
-                </Col>
+              <div className="landing-form1">
+                <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
+                <span className="landing-form1-text">어떤 상품을 등록</span>
+                해야 될지 모르겠어요.
+              </div>
 
-                <Col>
-                  <span className="landing-form1-text">어떤 상품을 등록</span>
-                  해야 될지 모르겠어요.
-                </Col>
-              </Row>
+              <div className="landing-form1">
+                <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
+                <span className="landing-form1-text">상품 페이지</span>는 어떻게 만들어야 하죠?
+              </div>
 
-              <Row className="landing-form1">
-                <Col>
-                  <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
-                </Col>
+              <div className="landing-form1">
+                <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
+                <span className="landing-form1-text">가격 설정</span>
+                하기가 번거로워요.
+              </div>
 
-                <Col>
-                  <span className="landing-form1-text">상품 페이지</span>는 어떻게 만들어야 하죠?
-                </Col>
-              </Row>
+              <div className="landing-form1">
+                <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
+                <span className="landing-form1-text">상품을 보관할 창고</span>가 없어요.
+              </div>
 
-              <Row className="landing-form1">
-                <Col>
-                  <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
-                </Col>
+              <div className="landing-form1">
+                <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
+                <span className="landing-form1-text">해외 판매자와 소통</span>이 어려워요.
+              </div>
 
-                <Col>
-                  <span className="landing-form1-text">가격 설정</span>
-                  하기가 번거로워요.
-                </Col>
-              </Row>
-
-              <Row className="landing-form1">
-                <Col>
-                  <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
-                </Col>
-                <Col>
-                  <span className="landing-form1-text">상품을 보관할 창고</span>가 없어요.
-                </Col>
-              </Row>
-              <Row className="landing-form1">
-                <Col>
-                  <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
-                </Col>
-                <Col>
-                  <span className="landing-form1-text">해외 판매자와 소통</span>이 어려워요.
-                </Col>
-              </Row>
-              <Row className="landing-form1">
-                <Col>
-                  <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
-                </Col>
-                <Col>
-                  <span className="landing-form1-text">초기 세팅 비용</span>이 너무 비싸요.
-                </Col>
-              </Row>
+              <div className="landing-form1">
+                <img className="landing-form1-img" src={ICON.QUESTION_MARK.default} alt="" />
+                <span className="landing-form1-text">초기 세팅 비용</span>이 너무 비싸요.
+              </div>
             </div>
           </Col>
         </Row>
 
         <Row
           style={{
-            padding: "120px 0px",
+            padding: "90px 0px",
           }}
           align="middle"
         >
-          <div style={{ fontSize: "50px", fontWeight: 500, lineHeight: "70px", textAlign: "center" }}>
-            셀포유에서는 이런 걱정과
+          <div style={{ fontSize: width < 1200 ? "36px" : "50px", fontWeight: 500, lineHeight: "70px", textAlign: "center" }}>
+            셀포유에서는
             <br />
-            <span style={{ fontWeight: 700 }}>고민이 더이상 필요 없어요.</span>
+            <span style={{ fontWeight: 700 }}>이런 걱정과 고민이 없어요.</span>
             <img style={{ margin: "-0 auto" }} src={ICON.UNDERLINE_BLUE.default} alt="" />
             <br />
           </div>
 
           <div style={{ margin: "0 auto" }}>
-            <div style={{ fontSize: "26px", fontWeight: 500, color: "#6B6B6B", textAlign: "center" }}>더 이상 어려운 해외 구매대행 창업에 고민하지 마세요!</div>
-
-            <div style={{ marginTop: "60px" }}>
-              <Row justify="center" align="middle">
-                <Col
-                  span={6}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div className="landing-form2">STEP 1</div>
-
-                  <br />
-
-                  <div className="landing-form3">
-                    자유로운 상품 소싱
-                    <br />
-                    원클릭 상품등록
-                  </div>
-                </Col>
-
-                <Col
-                  span={3}
-                  style={{
-                    textAlign: "center",
-                  }}
-                >
-                  <img src={ICON.TRIPLE_RIGHT_ARROW.default} alt="" />
-                </Col>
-
-                <Col
-                  span={6}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div className="landing-form2">STEP 2</div>
-
-                  <br />
-
-                  <div className="landing-form3">
-                    다양한 오픈마켓
-                    <br />
-                    소셜커머스 지원
-                  </div>
-                </Col>
-
-                <Col
-                  span={3}
-                  style={{
-                    textAlign: "center",
-                  }}
-                >
-                  <img src={ICON.TRIPLE_RIGHT_ARROW.default} alt="" />
-                </Col>
-
-                <Col
-                  span={6}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div className="landing-form2">STEP 3</div>
-
-                  <br />
-
-                  <div className="landing-form3">
-                    흩어진 주문 수집
-                    <br />
-                    배송신청서 자동 작성
-                  </div>
-                </Col>
-              </Row>
+            <div
+              style={{
+                fontSize: width < 1200 ? "18px" : "25px",
+                fontWeight: 500,
+                color: "#6B6B6B",
+                textAlign: "center",
+                marginBottom: 30,
+                padding: "0px 100px",
+              }}
+            >
+              더 이상 어려운 해외 구매대행 창업에 고민하지 마세요!
             </div>
+
+            <Row justify="center" align="middle">
+              <Col
+                xs={24}
+                xl={8}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "30px 0px",
+                }}
+              >
+                <div className="landing-form2">STEP 1</div>
+
+                <br />
+
+                <div className="landing-form3">
+                  자유로운 상품 소싱
+                  <br />
+                  원클릭 상품등록
+                </div>
+              </Col>
+
+              <Col
+                xs={24}
+                xl={8}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "30px 0px",
+                }}
+              >
+                <div className="landing-form2">STEP 2</div>
+
+                <br />
+
+                <div className="landing-form3">
+                  다양한 오픈마켓
+                  <br />
+                  소셜커머스 지원
+                </div>
+              </Col>
+
+              <Col
+                xs={24}
+                xl={8}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "30px 0px",
+                }}
+              >
+                <div className="landing-form2">STEP 3</div>
+
+                <br />
+
+                <div className="landing-form3">
+                  흩어진 주문 수집
+                  <br />
+                  배송신청서 자동 작성
+                </div>
+              </Col>
+            </Row>
           </div>
         </Row>
 
@@ -329,52 +334,91 @@ const LandingPage = () => {
 
         <Row
           style={{
-            padding: "120px 0px",
+            padding: "90px 0px",
           }}
           align="middle"
         >
-          <Col span={8}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              padding: "0px 100px",
+            }}
+          >
+            <img
+              src={ICON.ITEM4.default}
+              alt=""
+              style={
+                {
+                  // maxWidth: 600,
+                }
+              }
+            />
+          </Col>
+
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              textAlign: width < 1200 ? "center" : "left",
+              padding: "0px 100px",
+            }}
+          >
             <div
               style={{
-                fontSize: "50px",
+                fontSize: width < 1200 ? "36px" : "50px",
                 fontWeight: 700,
               }}
             >
               원클릭으로 상품을
-              <br /> 소싱해보세요.
+              <br />
+              소싱해보세요.
             </div>
 
             <br />
 
             <div
               style={{
-                fontSize: "25px",
+                fontSize: width < 1200 ? "18px" : "25px",
                 fontWeight: 500,
               }}
             >
               판매할 상품을 <span style={{ color: "#2988FF" }}>해외쇼핑몰(타오바오, 티몰, 알리익스프레스, 1688, VVIC, 아마존)</span>에서 찾아 담기만 하면 끝!
             </div>
           </Col>
-
-          <Col span={16}>
-            <img src={ICON.ITEM4.default} alt="" />
-          </Col>
         </Row>
 
         <Row
           style={{
-            padding: "120px 0px",
+            padding: "90px 0px",
           }}
           align="middle"
         >
-          <Col span={16}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              padding: "0px 100px",
+            }}
+          >
             <img src={ICON.ITEM5.default} alt="" />
           </Col>
 
-          <Col span={8}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              textAlign: width < 1200 ? "center" : "left",
+              padding: "0px 100px",
+            }}
+          >
             <div
               style={{
-                fontSize: "50px",
+                fontSize: width < 1200 ? "36px" : "50px",
                 fontWeight: 700,
               }}
             >
@@ -387,36 +431,58 @@ const LandingPage = () => {
 
             <div
               style={{
-                fontSize: "25px",
+                fontSize: width < 1200 ? "18px" : "25px",
                 fontWeight: 500,
               }}
             >
-              셀포유에서는 상세페이지에 한글을 입력할 수 있을 뿐만 아니라 <span style={{ color: "#2988FF" }}>이미지 편집/번역</span> 기능이 함께 지원되요.
+              셀포유에서는 상세페이지에 한글을 입력할 수 있을 뿐만 아니라 <span style={{ color: "#2988FF" }}>이미지 편집/번역</span> 기능을 함께 지원하고
+              있어요.
             </div>
           </Col>
         </Row>
 
         <Row
           style={{
-            padding: "120px 0px",
+            padding: "90px 0px",
           }}
           align="middle"
         >
-          <Col span={8}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              padding: "0px 100px",
+            }}
+          >
+            <img src={ICON.ITEM7.default} alt="" />
+          </Col>
+
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              textAlign: width < 1200 ? "center" : "left",
+              padding: "0px 100px",
+            }}
+          >
             <div
               style={{
-                fontSize: "50px",
+                fontSize: width < 1200 ? "36px" : "50px",
                 fontWeight: 700,
               }}
             >
-              다양한 판매채널을 이용할 수 있어요.
+              다양한 판매채널을
+              <br />
+              이용할 수 있어요.
             </div>
 
             <br />
 
             <div
               style={{
-                fontSize: "25px",
+                fontSize: width < 1200 ? "18px" : "25px",
                 fontWeight: 500,
               }}
             >
@@ -424,31 +490,37 @@ const LandingPage = () => {
               수 있어요.
             </div>
           </Col>
-
-          <Col
-            span={16}
-            style={{
-              textAlign: "right",
-            }}
-          >
-            <img src={ICON.ITEM7.default} alt="" />
-          </Col>
         </Row>
 
         <Row
           style={{
-            padding: "120px 0px",
+            padding: "90px 0px",
           }}
           align="middle"
         >
-          <Col span={16}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              padding: "0px 100px",
+            }}
+          >
             <img src={ICON.ITEM9.default} alt="" />
           </Col>
 
-          <Col span={8}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              textAlign: width < 1200 ? "center" : "left",
+              padding: "0px 100px",
+            }}
+          >
             <div
               style={{
-                fontSize: "50px",
+                fontSize: width < 1200 ? "36px" : "50px",
                 fontWeight: 700,
               }}
             >
@@ -461,7 +533,7 @@ const LandingPage = () => {
 
             <div
               style={{
-                fontSize: "25px",
+                fontSize: width < 1200 ? "18px" : "25px",
                 fontWeight: 500,
               }}
             >
@@ -476,13 +548,21 @@ const LandingPage = () => {
 
         <Row
           style={{
-            padding: "120px 0px",
+            padding: "90px 0px",
           }}
         >
-          <Col span={8}>
+          <Col
+            xs={24}
+            xl={12}
+            style={{
+              margin: "30px 0px",
+              textAlign: width < 1200 ? "center" : "left",
+              padding: "0px 100px",
+            }}
+          >
             <div
               style={{
-                fontSize: "50px",
+                fontSize: width < 1200 ? "36px" : "50px",
                 fontWeight: 700,
               }}
             >
@@ -493,7 +573,7 @@ const LandingPage = () => {
 
             <div
               style={{
-                fontSize: "25px",
+                fontSize: width < 1200 ? "18px" : "25px",
                 fontWeight: 500,
               }}
             >
@@ -502,9 +582,11 @@ const LandingPage = () => {
           </Col>
 
           <Col
-            span={16}
+            xs={24}
+            xl={12}
             style={{
-              textAlign: "right",
+              margin: "30px 0px",
+              textAlign: "center",
             }}
           >
             <img src={PRICING} />
@@ -523,8 +605,7 @@ const LandingPage = () => {
           <div style={{ margin: "0 auto" }}>
             <div
               style={{
-                fontSize: "32px",
-                lineHeight: "71.5px",
+                fontSize: width < 1200 ? "20px" : "32px",
                 color: "#3c3c3c",
               }}
             >
