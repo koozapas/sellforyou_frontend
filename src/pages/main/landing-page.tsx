@@ -46,7 +46,7 @@ const LandingPage = () => {
               <iframe
                 style={{ display: "flex", textAlign: "center" }}
                 width="100%"
-                height="400px"
+                height={width < 1200 ? `275px` : `400px`}
                 src="https://www.youtube.com/embed/Dm3xx1y-Oa0"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -153,7 +153,7 @@ const LandingPage = () => {
             style={{
               margin: "30px 0px",
               textAlign: "center",
-              padding: 50,
+              padding: "0 25px",
             }}
           >
             <img src={ICON.CIRCLE_TEXT_ICON.default} style={{ margin: "auto" }} alt="" />
@@ -169,6 +169,7 @@ const LandingPage = () => {
           >
             <div
               style={{
+                fontSize: width < 1200 ? "18px" : "25px",
                 textAlign: "left",
                 marginLeft: width < 1200 ? 0 : 90,
               }}
@@ -214,7 +215,7 @@ const LandingPage = () => {
           }}
           align="middle"
         >
-          <div style={{ fontSize: width < 1200 ? "36px" : "50px", fontWeight: 500, lineHeight: "70px", textAlign: "center" }}>
+          <div style={{ fontSize: width < 1200 ? "36px" : "50px", fontWeight: 500, lineHeight: "70px", textAlign: "center", padding: "0 25px" }}>
             셀포유에서는
             <br />
             <span style={{ fontWeight: 700 }}>이런 걱정과 고민이 없어요.</span>
@@ -230,7 +231,7 @@ const LandingPage = () => {
                 color: "#6B6B6B",
                 textAlign: "center",
                 marginBottom: 30,
-                padding: "0px 100px",
+                padding: "0 50px",
               }}
             >
               더 이상 어려운 해외 구매대행 창업에 고민하지 마세요!
@@ -343,7 +344,7 @@ const LandingPage = () => {
             xl={12}
             style={{
               margin: "30px 0px",
-              padding: "0px 100px",
+              padding: "0px 40px",
             }}
           >
             <img
@@ -363,7 +364,7 @@ const LandingPage = () => {
             style={{
               margin: "30px 0px",
               textAlign: width < 1200 ? "center" : "left",
-              padding: "0px 100px",
+              padding: "0 40px",
             }}
           >
             <div
@@ -401,7 +402,7 @@ const LandingPage = () => {
             xl={12}
             style={{
               margin: "30px 0px",
-              padding: "0px 100px",
+              padding: "0px 40px",
             }}
           >
             <img src={ICON.ITEM5.default} alt="" />
@@ -413,7 +414,7 @@ const LandingPage = () => {
             style={{
               margin: "30px 0px",
               textAlign: width < 1200 ? "center" : "left",
-              padding: "0px 100px",
+              padding: "0 40px",
             }}
           >
             <div
@@ -452,7 +453,7 @@ const LandingPage = () => {
             xl={12}
             style={{
               margin: "30px 0px",
-              padding: "0px 100px",
+              padding: "0px 40px",
             }}
           >
             <img src={ICON.ITEM7.default} alt="" />
@@ -464,7 +465,7 @@ const LandingPage = () => {
             style={{
               margin: "30px 0px",
               textAlign: width < 1200 ? "center" : "left",
-              padding: "0px 100px",
+              padding: "0 40px",
             }}
           >
             <div
@@ -503,7 +504,7 @@ const LandingPage = () => {
             xl={12}
             style={{
               margin: "30px 0px",
-              padding: "0px 100px",
+              padding: "0px 40px",
             }}
           >
             <img src={ICON.ITEM9.default} alt="" />
@@ -515,7 +516,7 @@ const LandingPage = () => {
             style={{
               margin: "30px 0px",
               textAlign: width < 1200 ? "center" : "left",
-              padding: "0px 100px",
+              padding: "0 40px",
             }}
           >
             <div
@@ -557,7 +558,7 @@ const LandingPage = () => {
             style={{
               margin: "30px 0px",
               textAlign: width < 1200 ? "center" : "left",
-              padding: "0px 100px",
+              padding: "0 40px",
             }}
           >
             <div
@@ -587,6 +588,7 @@ const LandingPage = () => {
             style={{
               margin: "30px 0px",
               textAlign: "center",
+              padding: "0 10px",
             }}
           >
             <img src={PRICING} />
@@ -599,7 +601,7 @@ const LandingPage = () => {
             borderRadius: "30px",
             textAlign: "center",
             padding: "30px 0",
-            margin: "120px 0",
+            margin: "120px 0px",
           }}
         >
           <div style={{ margin: "0 auto" }}>
@@ -607,6 +609,7 @@ const LandingPage = () => {
               style={{
                 fontSize: width < 1200 ? "20px" : "32px",
                 color: "#3c3c3c",
+                padding: "0 40px",
               }}
             >
               <span style={{ fontWeight: 700 }}>
