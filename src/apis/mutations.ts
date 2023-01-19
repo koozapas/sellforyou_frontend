@@ -4,14 +4,8 @@ import { gql } from "@apollo/client";
 const MUTATIONS = {
   /** 옵션 체크 on/off */
   SET_VISIBLE_STATE_TO_PRODUCT_OPTION_VALUE_BY_SOMEONE: gql`
-    mutation SET_VISIBLE_STATE_TO_PRODUCT_OPTION_VALUE_BY_SOMEONE(
-      $productOptionValueId: Int!
-      $isActive: Boolean!
-    ) {
-      setVisibleStateToProductOptionValueBySomeone(
-        productOptionValueId: $productOptionValueId
-        isActive: $isActive
-      )
+    mutation SET_VISIBLE_STATE_TO_PRODUCT_OPTION_VALUE_BY_SOMEONE($productOptionValueId: Int!, $isActive: Boolean!) {
+      setVisibleStateToProductOptionValueBySomeone(productOptionValueId: $productOptionValueId, isActive: $isActive)
     }
   `,
   //??
@@ -20,36 +14,22 @@ const MUTATIONS = {
       setProductVisiblity(productId: $productId, isVisible: $isVisible)
     }
   `,
-  CARD_PAY_TEST : gql`
-    mutation cardPayTest($email: String!){
-  cardPayTest(email:$email)
-}
-`,
+  CARD_PAY_TEST: gql`
+    mutation cardPayTest($email: String!) {
+      cardPayTest(email: $email)
+    }
+  `,
   //시작
 
   SIGN_UP_USER: gql`
-    mutation (
-      $email: String!
-      $password: String!
-      $phone: String!
-      $verificationId: Int!
-    ) {
-      signUpUserByEveryone(
-        email: $email
-        password: $password
-        phone: $phone
-        verificationId: $verificationId
-      )
+    mutation ($email: String!, $password: String!, $phone: String!, $verificationId: Int!) {
+      signUpUserByEveryone(email: $email, password: $password, phone: $phone, verificationId: $verificationId)
     }
   `,
 
   SIGN_IN_USER: gql`
     mutation ($userType: UserSocialType!, $email: String!, $password: String!) {
-      signInUserByEveryone(
-        userType: $userType
-        email: $email
-        password: $password
-      ) {
+      signInUserByEveryone(userType: $userType, email: $email, password: $password) {
         accessToken
         refreshToken
       }
@@ -58,10 +38,7 @@ const MUTATIONS = {
 
   CHAGNE_PASSWORD: gql`
     mutation ($currentPassword: String!, $newPassword: String!) {
-      changePasswordByUser(
-        currentPassword: $currentPassword
-        newPassword: $newPassword
-      )
+      changePasswordByUser(currentPassword: $currentPassword, newPassword: $newPassword)
     }
   `,
 
@@ -189,10 +166,7 @@ const MUTATIONS = {
 
   VERIFY_PHONE: gql`
     mutation ($phoneNumber: String!, $verificationNumber: String!) {
-      verifyPhoneByEveryone(
-        phoneNumber: $phoneNumber
-        verificationNumber: $verificationNumber
-      )
+      verifyPhoneByEveryone(phoneNumber: $phoneNumber, verificationNumber: $verificationNumber)
     }
   `,
 
@@ -203,15 +177,7 @@ const MUTATIONS = {
   `,
 
   GET_TAOBAO_ITEM_WORD: gql`
-    mutation (
-      $query: String!
-      $orderBy: TaobaoItemOrderBy!
-      $startPrice: Float
-      $endPrice: Float
-      $pageCount: Int
-      $categoryCode: String
-      $siilCode: String
-    ) {
+    mutation ($query: String!, $orderBy: TaobaoItemOrderBy!, $startPrice: Float, $endPrice: Float, $pageCount: Int, $categoryCode: String, $siilCode: String) {
       getTaobaoItemsByUser(
         query: $query
         orderBy: $orderBy
@@ -249,54 +215,26 @@ const MUTATIONS = {
   `,
 
   GET_TAOBAO_ITEM_ID: gql`
-    mutation (
-      $taobaoIds: [String!]!
-      $categoryCode: String
-      $siilCode: String
-    ) {
-      getTaobaoItemUsingNumIidsByUser(
-        taobaoIds: $taobaoIds
-        categoryCode: $categoryCode
-        siilCode: $siilCode
-      )
+    mutation ($taobaoIds: [String!]!, $categoryCode: String, $siilCode: String) {
+      getTaobaoItemUsingNumIidsByUser(taobaoIds: $taobaoIds, categoryCode: $categoryCode, siilCode: $siilCode)
     }
   `,
 
   GET_TAOBAO_ITEM_ID_BY_ADMIN: gql`
-    mutation (
-      $taobaoIds: [String!]!
-      $categoryCode: String
-      $siilCode: String
-      $userId: Int
-    ) {
-      getTaobaoItemUsingNumIidsByAdmin(
-        taobaoIds: $taobaoIds
-        categoryCode: $categoryCode
-        siilCode: $siilCode
-        userId: $userId
-      )
+    mutation ($taobaoIds: [String!]!, $categoryCode: String, $siilCode: String, $userId: Int) {
+      getTaobaoItemUsingNumIidsByAdmin(taobaoIds: $taobaoIds, categoryCode: $categoryCode, siilCode: $siilCode, userId: $userId)
     }
   `,
 
   INIT_PRODUCT_IMAGE: gql`
-    mutation (
-      $productId: Int!
-    ) {
-      initProductImageByUser(
-        productId: $productId
-      )
+    mutation ($productId: Int!) {
+      initProductImageByUser(productId: $productId)
     }
   `,
-  
+
   UPDATE_PRODUCT_STORE_URL_DATA: gql`
-    mutation (
-      $productStoreId: Int!
-      $etcVendorItemId: String!
-    ) {
-      updateProductStoreUrlInfoBySomeone(
-        productStoreId: $productStoreId
-        etcVendorItemId: $etcVendorItemId
-      )
+    mutation ($productStoreId: Int!, $etcVendorItemId: String!) {
+      updateProductStoreUrlInfoBySomeone(productStoreId: $productStoreId, etcVendorItemId: $etcVendorItemId)
     }
   `,
 
@@ -418,58 +356,48 @@ const MUTATIONS = {
 
   UPDATE_MANY_PRODUCT_TAG: gql`
     mutation ($productIds: [Int!]!, $searchTags: String!) {
-      updateManyProductTagByUser(
-        productIds: $productIds
-        searchTags: $searchTags
-      )
+      updateManyProductTagByUser(productIds: $productIds, searchTags: $searchTags)
     }
   `,
 
   UPDATE_MANY_PRODUCT_NAME: gql`
     mutation ($productIds: [Int!]!, $headText: String!, $bodyText: String!, $tailText: String!) {
-      updateManyProductNameByUser(
-        productIds: $productIds
-        head: $headText,
-        body: $bodyText,
-        tail: $tailText
-      )
+      updateManyProductNameByUser(productIds: $productIds, head: $headText, body: $bodyText, tail: $tailText)
     }
   `,
 
   UPDATE_MANY_PRODUCT_SIIL_INFO: gql`
     mutation ($productIds: [Int!]!, $siilCode: String!) {
-      updateManyProductSiilInfoByUser(
-        productIds: $productIds
-        siilCode: $siilCode
-      )
+      updateManyProductSiilInfoByUser(productIds: $productIds, siilCode: $siilCode)
     }
   `,
 
   UPDATE_MANY_PRODUCT_CATEGORY: gql`
     mutation (
-      $productIds: [Int!]!, 
-      $categoryA077: String, 
-      $categoryA077Name: String, 
-      $categoryB378: String, 
-      $categoryB378Name: String, 
-      $categoryA112: String, 
-      $categoryA112Name: String, 
-      $categoryA027: String, 
-      $categoryA027Name: String, 
-      $categoryA001: String, 
-      $categoryA001Name: String, 
-      $categoryA006: String, 
-      $categoryA006Name: String,
-      $categoryB719: String,
-      $categoryB719Name: String,
-      $categoryA113: String,
-      $categoryA113Name: String,
-      $categoryA524: String,
-      $categoryA524Name: String,
-      $categoryA525: String,
-      $categoryA525Name: String,
-      $categoryB956: String,
-      $categoryB956Name: String) {
+      $productIds: [Int!]!
+      $categoryA077: String
+      $categoryA077Name: String
+      $categoryB378: String
+      $categoryB378Name: String
+      $categoryA112: String
+      $categoryA112Name: String
+      $categoryA027: String
+      $categoryA027Name: String
+      $categoryA001: String
+      $categoryA001Name: String
+      $categoryA006: String
+      $categoryA006Name: String
+      $categoryB719: String
+      $categoryB719Name: String
+      $categoryA113: String
+      $categoryA113Name: String
+      $categoryA524: String
+      $categoryA524Name: String
+      $categoryA525: String
+      $categoryA525Name: String
+      $categoryB956: String
+      $categoryB956Name: String
+    ) {
       updateManyProductCategoryByUser(
         productIds: $productIds
         categoryA077: $categoryA077
@@ -512,27 +440,13 @@ const MUTATIONS = {
 
   UPLOAD_EXCEL_FILE: gql`
     mutation ($data: Upload!, $categoryCode: String, $siilCode: String) {
-      getTaobaoItemUsingExcelFileByUser(
-        data: $data
-        categoryCode: $categoryCode
-        siilCode: $siilCode
-      )
+      getTaobaoItemUsingExcelFileByUser(data: $data, categoryCode: $categoryCode, siilCode: $siilCode)
     }
   `,
 
   UPLOAD_EXCEL_FILE_BY_ADMIN: gql`
-    mutation (
-      $data: Upload!
-      $categoryCode: String
-      $siilCode: String
-      $userId: Int
-    ) {
-      getTaobaoItemUsingExcelFileByAdmin(
-        data: $data
-        categoryCode: $categoryCode
-        siilCode: $siilCode
-        userId: $userId
-      )
+    mutation ($data: Upload!, $categoryCode: String, $siilCode: String, $userId: Int) {
+      getTaobaoItemUsingExcelFileByAdmin(data: $data, categoryCode: $categoryCode, siilCode: $siilCode, userId: $userId)
     }
   `,
 
@@ -555,10 +469,7 @@ const MUTATIONS = {
 
   SCRAP_ORDER: gql`
     mutation ($shopDataId: Int!, $collectNewOrder: Boolean!) {
-      scrapOrderByUser(
-        shopDataId: $shopDataId
-        collectNewOrder: $collectNewOrder
-      )
+      scrapOrderByUser(shopDataId: $shopDataId, collectNewOrder: $collectNewOrder)
     }
   `,
 
@@ -594,11 +505,7 @@ const MUTATIONS = {
 
   MODIFY_WORD_BY_USER: gql`
     mutation ($wordId: Int!, $findWord: String!, $replaceWord: String) {
-      modifyWordByUser(
-        wordId: $wordId
-        findWord: $findWord
-        replaceWord: $replaceWord
-      )
+      modifyWordByUser(wordId: $wordId, findWord: $findWord, replaceWord: $replaceWord)
     }
   `,
 
@@ -610,11 +517,7 @@ const MUTATIONS = {
 
   CREATE_USER_QUESTION_BY_USER: gql`
     mutation ($title: String!, $content: String!, $attachment: [Upload!]) {
-      createUserQuestionByUser(
-        title: $title
-        content: $content
-        attachment: $attachment
-      )
+      createUserQuestionByUser(title: $title, content: $content, attachment: $attachment)
     }
   `,
 
@@ -636,10 +539,7 @@ const MUTATIONS = {
 
   CHANGE_PASSWORD_BY_ADMIN: gql`
     mutation ($currentPassword: String!, $newPassword: String!) {
-      changeMyPasswordByAdmin(
-        currentPassword: $currentPassword
-        newPassword: $newPassword
-      )
+      changeMyPasswordByAdmin(currentPassword: $currentPassword, newPassword: $newPassword)
     }
   `,
 
@@ -655,20 +555,8 @@ const MUTATIONS = {
   `,
 
   UPDATE_PLAN_INFO_BY_ADMIN: gql`
-    mutation (
-      $planId: Int!
-      $name: String
-      $description: String
-      $price: Int
-      $isActive: Boolean
-    ) {
-      updatePlanInfoByAdmin(
-        planId: $planId
-        name: $name
-        description: $description
-        price: $price
-        isActive: $isActive
-      ) {
+    mutation ($planId: Int!, $name: String, $description: String, $price: Int, $isActive: Boolean) {
+      updatePlanInfoByAdmin(planId: $planId, name: $name, description: $description, price: $price, isActive: $isActive) {
         id
       }
     }
@@ -676,27 +564,13 @@ const MUTATIONS = {
 
   CREATE_NOTICE_BY_ADMIN: gql`
     mutation ($title: String!, $content: String!, $attachment: Upload) {
-      createNoticeByAdmin(
-        title: $title
-        content: $content
-        attachment: $attachment
-      )
+      createNoticeByAdmin(title: $title, content: $content, attachment: $attachment)
     }
   `,
 
   UPDATE_NOTICE_BY_ADMIN: gql`
-    mutation (
-      $noticeId: Int!
-      $title: String
-      $content: String
-      $attachment: Upload
-    ) {
-      updateNoticeByAdmin(
-        noticeId: $noticeId
-        title: $title
-        content: $content
-        attachment: $attachment
-      )
+    mutation ($noticeId: Int!, $title: String, $content: String, $attachment: Upload) {
+      updateNoticeByAdmin(noticeId: $noticeId, title: $title, content: $content, attachment: $attachment)
     }
   `,
 
@@ -728,11 +602,7 @@ const MUTATIONS = {
   //FAQ 카테고리 수정(탭)
   MODIFY_FAQ_CATEGORY_BY_ADMIN: gql`
     mutation ($faqCategoryId: Int!, $name: String, $isActive: Boolean) {
-      modifyFaqCategoryByAdmin(
-        faqCategoryId: $faqCategoryId
-        name: $name
-        isActive: $isActive
-      ) {
+      modifyFaqCategoryByAdmin(faqCategoryId: $faqCategoryId, name: $name, isActive: $isActive) {
         id
       }
     }
@@ -747,27 +617,13 @@ const MUTATIONS = {
   //FAQ 추가
   CREATE_FAQ_BY_ADMIN: gql`
     mutation ($faqCategoryId: Int!, $title: String!, $content: String!) {
-      createFaqByAdmin(
-        faqCategoryId: $faqCategoryId
-        title: $title
-        content: $content
-      )
+      createFaqByAdmin(faqCategoryId: $faqCategoryId, title: $title, content: $content)
     }
   `,
   //FAQ 수정
   UPDATE_FAQ_BY_ADMIN: gql`
-    mutation (
-      $faqId: Int!
-      $faqCategoryId: Int
-      $title: String
-      $content: String
-    ) {
-      updateFaqByAdmin(
-        faqId: $faqId
-        faqCategoryId: $faqCategoryId
-        title: $title
-        content: $content
-      )
+    mutation ($faqId: Int!, $faqCategoryId: Int, $title: String, $content: String) {
+      updateFaqByAdmin(faqId: $faqId, faqCategoryId: $faqCategoryId, title: $title, content: $content)
     }
   `,
 
@@ -781,32 +637,20 @@ const MUTATIONS = {
   //문의사항 답글
   UPDATE_USER_QUESTION_BY_ADMIN: gql`
     mutation ($userQuestionId: Int!, $answer: String!) {
-      updateUserQuestionByAdmin(
-        userQuestionId: $userQuestionId
-        answer: $answer
-      )
+      updateUserQuestionByAdmin(userQuestionId: $userQuestionId, answer: $answer)
     }
   `,
 
   //어드민 실코드 수정
   UPDATE_MANY_PRODUCT_SIIL_INFO_BY_ADMIN: gql`
     mutation ($productIds: [Int!]!, $siilCode: String!) {
-      updateManyProductSiilInfoByAdmin(
-        productIds: $productIds
-        siilCode: $siilCode
-      )
+      updateManyProductSiilInfoByAdmin(productIds: $productIds, siilCode: $siilCode)
     }
   `,
 
   //어드민 가격 수정
   UPDATE_PRODUCT_PRICE_BY_ADMIN: gql`
-    mutation (
-      $productIds: [Int!]!
-      $cnyRate: Float!
-      $marginRate: Float!
-      $shippingFee: Int!
-      $localShippingFee: Int!
-    ) {
+    mutation ($productIds: [Int!]!, $cnyRate: Float!, $marginRate: Float!, $shippingFee: Int!, $localShippingFee: Int!) {
       updateProductPriceByAdmin(
         productIds: $productIds
         cnyRate: $cnyRate
@@ -831,31 +675,31 @@ const MUTATIONS = {
   //상품 카테고리 수정
   UPDATE_MANY_PRODUCT_CATEGORY_BY_ADMIN: gql`
     mutation (
-      $productIds: [Int!]!, 
-      $categoryA077: String, 
-      $categoryB378: String, 
-      $categoryA112: String, 
-      $categoryA027: String, 
-      $categoryA001: String, 
-      $categoryA006: String,
-      $categoryB719: String,
-      $categoryA113: String,
-      $categoryA524: String,
-      $categoryA525: String,
+      $productIds: [Int!]!
+      $categoryA077: String
+      $categoryB378: String
+      $categoryA112: String
+      $categoryA027: String
+      $categoryA001: String
+      $categoryA006: String
+      $categoryB719: String
+      $categoryA113: String
+      $categoryA524: String
+      $categoryA525: String
       $categoryB956: String
     ) {
       updateManyProductCategoryByAdmin(
         productIds: $productIds
         categoryA077: $categoryA077
-        categoryB378: $categoryB378,
-        categoryA112: $categoryA112,
-        categoryA027: $categoryA027,
-        categoryA001: $categoryA001,
-        categoryA006: $categoryA006,
-        categoryB719: $categoryB719,
-        categoryA113: $categoryA113,
-        categoryA524: $categoryA524,
-        categoryA525: $categoryA525,
+        categoryB378: $categoryB378
+        categoryA112: $categoryA112
+        categoryA027: $categoryA027
+        categoryA001: $categoryA001
+        categoryA006: $categoryA006
+        categoryB719: $categoryB719
+        categoryA113: $categoryA113
+        categoryA524: $categoryA524
+        categoryA525: $categoryA525
         categoryB956: $categoryB956
       )
     }
@@ -906,36 +750,27 @@ const MUTATIONS = {
 
   SET_PURCHASE_INFO_BY_ADMIN: gql`
     mutation ($userId: Int!, $planInfoId: Int!, $expiredAt: DateTime) {
-      setPurchaseInfoByAdmin(
-        userId: $userId
-        planInfoId: $planInfoId
-        expiredAt: $expiredAt
-      )
+      setPurchaseInfoByAdmin(userId: $userId, planInfoId: $planInfoId, expiredAt: $expiredAt)
     }
   `,
 
   SET_MULTI_PURCHASE_INFO_BY_ADMIN: gql`
     mutation ($purchaseInputs: [purchaseInputs!]!, $credit: Int!) {
-      setMultiPurchaseInfoByAdmin(
-        purchaseInputs: $purchaseInputs,
-        credit: $credit
-      )
+      setMultiPurchaseInfoByAdmin(purchaseInputs: $purchaseInputs, credit: $credit)
     }
   `,
 
-  SET_USER_STOP_TEST : gql`
-    mutation ($userId:Int!){
-      setUserStopTest(
-        userId: $userId
-      )
-    }`,
-    
-    
-  DELETE_STORE : gql`
-  mutation ($store: String!,$id: Int!){
-  deleteStore(id : $id,store :$store)
-}
-`,
+  SET_USER_STOP_TEST: gql`
+    mutation ($userId: Int!) {
+      setUserStopTest(userId: $userId)
+    }
+  `,
+
+  DELETE_STORE: gql`
+    mutation ($store: String!, $id: Int!) {
+      deleteStore(id: $id, store: $store)
+    }
+  `,
   SET_MAX_PRODUCT_LIMIT_BY_ADMIN: gql`
     mutation ($userId: Int!, $productLimit: Int) {
       setMaxProductLimitByAdmin(userId: $userId, productLimit: $productLimit)
@@ -963,6 +798,12 @@ const MUTATIONS = {
   EXTEND_MY_ACCOUNT_BY_USER: gql`
     mutation ($masterId: Int!, $slaveIds: [Int!]!) {
       extendMyAccountByUser(masterId: $masterId, slaveIds: $slaveIds)
+    }
+  `,
+
+  DELETE_USER_BY_ADMIN: gql`
+    mutation ($userId: [Int!]!) {
+      deleteUserByAdmin(userId: $userId)
     }
   `,
 };

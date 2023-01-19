@@ -15,276 +15,271 @@ export type Scalars = {
   DateTime: any;
 };
 
-
-
 export type SignInType = {
-  __typename?: 'SignInType';
-  accessToken: Scalars['String'];
-  refreshToken: Scalars['String'];
+  __typename?: "SignInType";
+  accessToken: Scalars["String"];
+  refreshToken: Scalars["String"];
 };
 
 export type User = {
-  __typename?: 'User';
-  id: Scalars['Int'];
-  email: Scalars['String'];
-  password?: Maybe<Scalars['String']>;
+  __typename?: "User";
+  id: Scalars["Int"];
+  email: Scalars["String"];
+  password?: Maybe<Scalars["String"]>;
   state: UserState;
-  master?: Scalars['Int'];
-  masterUserId?: Scalars['Int'];
-  naverId?: Maybe<Scalars['String']>;
-  kakaoId?: Maybe<Scalars['String']>;
-  createdAt: Scalars['DateTime'];
+  master?: Scalars["Int"];
+  masterUserId?: Scalars["Int"];
+  naverId?: Maybe<Scalars["String"]>;
+  kakaoId?: Maybe<Scalars["String"]>;
+  createdAt: Scalars["DateTime"];
   product: Array<Product>;
   userInfo?: Maybe<UserInfo>;
   userLog: Array<UserLog>;
   purchaseInfo: UserPurchaseInfo;
-  productCount: Scalars['Int'];
+  productCount: Scalars["Int"];
   connectedUsers: Maybe<Array<Maybe<User>>>;
-  refCode: Scalars['String'];
-  refAvailable: Scalars['Boolean'];
-  credit: Scalars['Int'];
+  refCode: Scalars["String"];
+  refAvailable: Scalars["Boolean"];
+  credit: Scalars["Int"];
 };
-
 
 export type UserProductArgs = {
   where?: Maybe<ProductWhereInput>;
   orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductWhereUniqueInput>;
 };
-
 
 export type UserUserLogArgs = {
   where?: Maybe<UserLogWhereInput>;
   orderBy?: Maybe<Array<UserLogOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<UserLogWhereUniqueInput>;
 };
 
 export type UserInfo = {
-  __typename?: 'UserInfo';
-  userId: Scalars['Int'];
-  phone?: Maybe<Scalars['String']>;
-  marginRate: Scalars['Float'];
-  marginUnitType: Scalars['String'];
-  defaultShippingFee: Scalars['Int'];
-  fixImageTop?: Maybe<Scalars['String']>;
-  fixImageBottom?: Maybe<Scalars['String']>;
-  cnyRate: Scalars['Float'];
-  productCollectCount: Scalars['Int'];
-  maxProductLimit?: Maybe<Scalars['Int']>;
-  additionalShippingFeeJeju: Scalars['Int'];
-  asTel?: Maybe<Scalars['String']>;
-  asInformation?: Maybe<Scalars['String']>;
-  refundShippingFee: Scalars['Int'];
-  exchangeShippingFee: Scalars['Int'];
-  naverOriginCode: Scalars['String'];
-  naverOrigin: Scalars['String'];
-  naverStoreUrl: Scalars['String'];
-  naverStoreOnly: Scalars['String'];
-  naverFee: Scalars['Float'];
-  coupangOutboundShippingTimeDay: Scalars['Int'];
-  coupangUnionDeliveryType: Scalars['String'];
-  coupangMaximumBuyForPerson: Scalars['Int'];
-  coupangLoginId: Scalars['String'];
-  coupangVendorId: Scalars['String'];
-  coupangAccessKey: Scalars['String'];
-  coupangSecretKey: Scalars['String'];
-  coupangImageOpt: Scalars['String'];
-  coupangFee: Scalars['Float'];
-  coupangDefaultOutbound: Scalars['String'];
-  coupangDefaultInbound: Scalars['String'];
-  streetApiKey: Scalars['String'];
-  streetSellerType: Scalars['Int'];
-  streetFee: Scalars['Float'];
-  streetDefaultOutbound: Scalars['String'];
-  streetDefaultInbound: Scalars['String'];
-  streetNormalApiKey: Scalars['String'];
-  streetNormalOutbound: Scalars['String'];
-  streetNormalInbound: Scalars['String'];
-  streetNormalFee: Scalars['Float'];
-  interparkCertKey: Scalars['String'];
-  interparkSecretKey: Scalars['String'];
-  interparkFee: Scalars['Float'];
-  esmplusMasterId: Scalars['String'];
-  esmplusAuctionId: Scalars['String'];
-  esmplusGmarketId: Scalars['String'];
-  gmarketFee: Scalars['Float'];
-  auctionFee: Scalars['Float'];
-  lotteonVendorId: Scalars['String'];
-  lotteonApiKey: Scalars['String'];
-  lotteonFee: Scalars['Float'];
-  lotteonNormalFee: Scalars['Float'];
-  wemakepriceId: Scalars['String'];
-  wemakepriceFee: Scalars['Float'];
-  tmonId: Scalars['String'];
-  tmonFee: Scalars['Float'];
-  optionAlignTop: Scalars['String'];
-  optionTwoWays: Scalars['String'];
-  optionIndexType: Scalars['Int'];
-  discountAmount: Scalars['Int'];
-  discountUnitType: Scalars['String'];
-  descriptionShowTitle: Scalars['String'];
-  collectTimeout: Scalars['Int'];
-  collectStock: Scalars['Int'];
-  extraShippingFee: Scalars['Int'];
+  __typename?: "UserInfo";
+  userId: Scalars["Int"];
+  phone?: Maybe<Scalars["String"]>;
+  marginRate: Scalars["Float"];
+  marginUnitType: Scalars["String"];
+  defaultShippingFee: Scalars["Int"];
+  fixImageTop?: Maybe<Scalars["String"]>;
+  fixImageBottom?: Maybe<Scalars["String"]>;
+  cnyRate: Scalars["Float"];
+  productCollectCount: Scalars["Int"];
+  maxProductLimit?: Maybe<Scalars["Int"]>;
+  additionalShippingFeeJeju: Scalars["Int"];
+  asTel?: Maybe<Scalars["String"]>;
+  asInformation?: Maybe<Scalars["String"]>;
+  refundShippingFee: Scalars["Int"];
+  exchangeShippingFee: Scalars["Int"];
+  naverOriginCode: Scalars["String"];
+  naverOrigin: Scalars["String"];
+  naverStoreUrl: Scalars["String"];
+  naverStoreOnly: Scalars["String"];
+  naverFee: Scalars["Float"];
+  coupangOutboundShippingTimeDay: Scalars["Int"];
+  coupangUnionDeliveryType: Scalars["String"];
+  coupangMaximumBuyForPerson: Scalars["Int"];
+  coupangLoginId: Scalars["String"];
+  coupangVendorId: Scalars["String"];
+  coupangAccessKey: Scalars["String"];
+  coupangSecretKey: Scalars["String"];
+  coupangImageOpt: Scalars["String"];
+  coupangFee: Scalars["Float"];
+  coupangDefaultOutbound: Scalars["String"];
+  coupangDefaultInbound: Scalars["String"];
+  streetApiKey: Scalars["String"];
+  streetSellerType: Scalars["Int"];
+  streetFee: Scalars["Float"];
+  streetDefaultOutbound: Scalars["String"];
+  streetDefaultInbound: Scalars["String"];
+  streetNormalApiKey: Scalars["String"];
+  streetNormalOutbound: Scalars["String"];
+  streetNormalInbound: Scalars["String"];
+  streetNormalFee: Scalars["Float"];
+  interparkCertKey: Scalars["String"];
+  interparkSecretKey: Scalars["String"];
+  interparkFee: Scalars["Float"];
+  esmplusMasterId: Scalars["String"];
+  esmplusAuctionId: Scalars["String"];
+  esmplusGmarketId: Scalars["String"];
+  gmarketFee: Scalars["Float"];
+  auctionFee: Scalars["Float"];
+  lotteonVendorId: Scalars["String"];
+  lotteonApiKey: Scalars["String"];
+  lotteonFee: Scalars["Float"];
+  lotteonNormalFee: Scalars["Float"];
+  wemakepriceId: Scalars["String"];
+  wemakepriceFee: Scalars["Float"];
+  tmonId: Scalars["String"];
+  tmonFee: Scalars["Float"];
+  optionAlignTop: Scalars["String"];
+  optionTwoWays: Scalars["String"];
+  optionIndexType: Scalars["Int"];
+  discountAmount: Scalars["Int"];
+  discountUnitType: Scalars["String"];
+  descriptionShowTitle: Scalars["String"];
+  collectTimeout: Scalars["Int"];
+  collectStock: Scalars["Int"];
+  extraShippingFee: Scalars["Int"];
   user: User;
 };
 
 export type AccountInfo = {
-  __typename?: 'AccountInfo';
-  bankName: Scalars['String'];
-  accountHolder: Scalars['String'];
-  accountNumber: Scalars['String'];
+  __typename?: "AccountInfo";
+  bankName: Scalars["String"];
+  accountHolder: Scalars["String"];
+  accountNumber: Scalars["String"];
 };
 
 export type UserPurchaseInfo = {
-  __typename?: 'UserPurchaseInfo';
-  history: Scalars['String'];
-  level: Scalars['Int'];
-  levelExpiredAt: Scalars['DateTime'];
+  __typename?: "UserPurchaseInfo";
+  history: Scalars["String"];
+  level: Scalars["Int"];
+  levelExpiredAt: Scalars["DateTime"];
   additionalInfo: Array<UserPurchaseAdditionalInfo>;
 };
 
 export enum UserPurchaseAdditionalInfoEnumType {
-  ImageTranslate = 'IMAGE_TRANSLATE',
-  Stock = 'STOCK'
+  ImageTranslate = "IMAGE_TRANSLATE",
+  Stock = "STOCK",
 }
 
 export type UserPurchaseAdditionalInfo = {
-  __typename?: 'UserPurchaseAdditionalInfo';
+  __typename?: "UserPurchaseAdditionalInfo";
   type: UserPurchaseAdditionalInfoEnumType;
-  expiredAt: Scalars['DateTime'];
+  expiredAt: Scalars["DateTime"];
 };
 
 export type AccountInfoInput = {
-  bankName: Scalars['String'];
-  accountHolder: Scalars['String'];
-  accountNumber: Scalars['String'];
+  bankName: Scalars["String"];
+  accountHolder: Scalars["String"];
+  accountNumber: Scalars["String"];
 };
 
 export type UserCompanyInfoInput = {
-  name: Scalars['String'];
-  code: Scalars['String'];
-  ownerName: Scalars['String'];
+  name: Scalars["String"];
+  code: Scalars["String"];
+  ownerName: Scalars["String"];
 };
 
 export type UserLog = {
-  __typename?: 'UserLog';
-  id: Scalars['Int'];
-  userId: Scalars['Int'];
-  title: Scalars['String'];
-  payloadData: Scalars['String'];
-  isRead: Scalars['Boolean'];
-  createdAt: Scalars['DateTime'];
+  __typename?: "UserLog";
+  id: Scalars["Int"];
+  userId: Scalars["Int"];
+  title: Scalars["String"];
+  payloadData: Scalars["String"];
+  isRead: Scalars["Boolean"];
+  createdAt: Scalars["DateTime"];
   user: User;
 };
 
 export type TaobaoProduct = {
-  __typename?: 'TaobaoProduct';
-  id: Scalars['Int'];
-  taobaoNumIid: Scalars['String'];
-  name: Scalars['String'];
-  imageThumbnail: Scalars['String'];
-  price: Scalars['Float'];
-  brand: Scalars['String'];
-  taobaoBrandId?: Maybe<Scalars['String']>;
-  taobaoCategoryId: Scalars['String'];
-  originalData: Scalars['String'];
-  videoUrl?: Maybe<Scalars['String']>;
-  createdAt: Scalars['DateTime'];
-  modifiedAt: Scalars['DateTime'];
+  __typename?: "TaobaoProduct";
+  id: Scalars["Int"];
+  taobaoNumIid: Scalars["String"];
+  name: Scalars["String"];
+  imageThumbnail: Scalars["String"];
+  price: Scalars["Float"];
+  brand: Scalars["String"];
+  taobaoBrandId?: Maybe<Scalars["String"]>;
+  taobaoCategoryId: Scalars["String"];
+  originalData: Scalars["String"];
+  videoUrl?: Maybe<Scalars["String"]>;
+  createdAt: Scalars["DateTime"];
+  modifiedAt: Scalars["DateTime"];
   product: Array<Product>;
   options: TaobaoProductOptionInfo;
 };
 
-
 export type TaobaoProductProductArgs = {
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductWhereUniqueInput>;
 };
 
 export type TaobaoProductOptionInfo = {
-  __typename?: 'TaobaoProductOptionInfo';
+  __typename?: "TaobaoProductOptionInfo";
   option: Array<TaobaoProductOption>;
   optionName: Array<TaobaoProductOptionName>;
   optionValue: Array<TaobaoProductOptionValue>;
 };
 
 export type TaobaoProductOptionName = {
-  __typename?: 'TaobaoProductOptionName';
-  taobaoPid: Scalars['String'];
-  name: Scalars['String'];
+  __typename?: "TaobaoProductOptionName";
+  taobaoPid: Scalars["String"];
+  name: Scalars["String"];
 };
 
 export type TaobaoProductOptionValue = {
-  __typename?: 'TaobaoProductOptionValue';
-  taobaoVid: Scalars['String'];
-  name: Scalars['String'];
-  image?: Maybe<Scalars['String']>;
+  __typename?: "TaobaoProductOptionValue";
+  taobaoVid: Scalars["String"];
+  name: Scalars["String"];
+  image?: Maybe<Scalars["String"]>;
 };
 
 export type TaobaoProductOption = {
-  __typename?: 'TaobaoProductOption';
-  taobaoSkuId: Scalars['String'];
-  name: Scalars['String'];
+  __typename?: "TaobaoProductOption";
+  taobaoSkuId: Scalars["String"];
+  name: Scalars["String"];
 };
 
 export type productStateEnum = {
-  id: Scalars['Int'];
-  state: Scalars['String'];
-}
+  id: Scalars["Int"];
+  state: Scalars["String"];
+};
 
 export type Product = {
-  __typename?: 'Product';
-  id: Scalars['Int'];
-  userId?: Maybe<Scalars['Int']>;
-  adminId?: Maybe<Scalars['Int']>;
-  taobaoProductId: Scalars['Int'];
-  productCode: Scalars['String'];
+  __typename?: "Product";
+  id: Scalars["Int"];
+  userId?: Maybe<Scalars["Int"]>;
+  adminId?: Maybe<Scalars["Int"]>;
+  taobaoProductId: Scalars["Int"];
+  productCode: Scalars["String"];
   // state: ProductState;
-  name: Scalars['String'];
-  isNameTranslated: Scalars['Boolean'];
-  isImageTranslated: Scalars['Boolean'];
-  price: Scalars['Int'];
-  localShippingFee: Scalars['Int'];
-  localShippingCode: Scalars['Int'];
-  description: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  modifiedAt: Scalars['DateTime'];
-  stockUpdatedAt: Scalars['DateTime'];
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
-  imageThumbnailData: Scalars['String'];
-  imageThumbnail: Array<Scalars['String']>;
-  siilData?: Maybe<Scalars['String']>;
+  name: Scalars["String"];
+  isNameTranslated: Scalars["Boolean"];
+  isImageTranslated: Scalars["Boolean"];
+  price: Scalars["Int"];
+  localShippingFee: Scalars["Int"];
+  localShippingCode: Scalars["Int"];
+  description: Scalars["String"];
+  createdAt: Scalars["DateTime"];
+  modifiedAt: Scalars["DateTime"];
+  stockUpdatedAt: Scalars["DateTime"];
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
+  imageThumbnailData: Scalars["String"];
+  imageThumbnail: Array<Scalars["String"]>;
+  siilData?: Maybe<Scalars["String"]>;
   siilInfo?: Maybe<SiilSavedData>;
   category?: Maybe<Category>;
-  categoryA077?: Scalars['String'];
-  categoryA077Name?: Scalars['String'];
-  categoryB378?: Scalars['String'];
-  categoryB378Name?: Scalars['String'];
-  categoryA112?: Scalars['String'];
-  categoryA112Name?: Scalars['String'];
-  categoryA027?: Scalars['String'];
-  categoryA027Name?: Scalars['String'];
-  categoryA001?: Scalars['String'];
-  categoryA001Name?: Scalars['String'];
-  categoryA006?: Scalars['String'];
-  categoryA006Name?: Scalars['String'];
-  categoryA113?: Scalars['String'];
-  categoryA113Name?: Scalars['String'];
-  categoryB719?: Scalars['String'];
-  categoryB719Name?: Scalars['String'];
-  categoryA524?: Scalars['String'];
-  categoryA524Name?: Scalars['String'];
-  categoryA525?: Scalars['String'];
-  categoryA525Name?: Scalars['String'];
-  categoryB956?: Scalars['String'];
-  categoryB956Name?: Scalars['String'];
+  categoryA077?: Scalars["String"];
+  categoryA077Name?: Scalars["String"];
+  categoryB378?: Scalars["String"];
+  categoryB378Name?: Scalars["String"];
+  categoryA112?: Scalars["String"];
+  categoryA112Name?: Scalars["String"];
+  categoryA027?: Scalars["String"];
+  categoryA027Name?: Scalars["String"];
+  categoryA001?: Scalars["String"];
+  categoryA001Name?: Scalars["String"];
+  categoryA006?: Scalars["String"];
+  categoryA006Name?: Scalars["String"];
+  categoryA113?: Scalars["String"];
+  categoryA113Name?: Scalars["String"];
+  categoryB719?: Scalars["String"];
+  categoryB719Name?: Scalars["String"];
+  categoryA524?: Scalars["String"];
+  categoryA524Name?: Scalars["String"];
+  categoryA525?: Scalars["String"];
+  categoryA525Name?: Scalars["String"];
+  categoryB956?: Scalars["String"];
+  categoryB956Name?: Scalars["String"];
   taobaoProduct: TaobaoProduct;
   productStateEnum?: Maybe<productStateEnum>;
   user?: Maybe<User>;
@@ -293,55 +288,52 @@ export type Product = {
   productOptionName: Array<ProductOptionName>;
   productStore: Array<ProductStore>;
   activeProductStore: Array<ProductStore>;
-  optionInfoHtml: Scalars['String'];
-  marginRate: Scalars['Float'];
-  marginUnitType: Scalars['String'];
-  cnyRate: Scalars['Float'];
-  shippingFee: Scalars['Int'];
-  searchTags: Scalars['String'];
+  optionInfoHtml: Scalars["String"];
+  marginRate: Scalars["Float"];
+  marginUnitType: Scalars["String"];
+  cnyRate: Scalars["Float"];
+  shippingFee: Scalars["Int"];
+  searchTags: Scalars["String"];
 };
-
 
 export type ProductProductOptionArgs = {
   where?: Maybe<ProductOptionWhereInput>;
   orderBy?: Maybe<Array<ProductOptionOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductOptionWhereUniqueInput>;
 };
-
 
 export type ProductProductOptionNameArgs = {
   where?: Maybe<ProductOptionNameWhereInput>;
   orderBy?: Maybe<Array<ProductOptionNameOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductOptionNameWhereUniqueInput>;
 };
-
 
 export type ProductProductStoreArgs = {
   where?: Maybe<ProductStoreWhereInput>;
   orderBy?: Maybe<Array<ProductStoreOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductStoreWhereUniqueInput>;
 };
 
 export type ProductOption = {
-  __typename?: 'ProductOption';
-  id: Scalars['Int'];
-  productId: Scalars['Int'];
-  optionValue1Id: Scalars['Int'];
-  optionValue2Id?: Maybe<Scalars['Int']>;
-  optionValue3Id?: Maybe<Scalars['Int']>;
-  name: Scalars['String'];
-  isActive: Scalars['Boolean'];
-  taobaoSkuId: Scalars['String'];
-  priceCny: Scalars['Float'];
-  price: Scalars['Int'];
-  stock?: Maybe<Scalars['Int']>;
-  optionString: Scalars['String'];
+  __typename?: "ProductOption";
+  id: Scalars["Int"];
+  productId: Scalars["Int"];
+  optionValue1Id: Scalars["Int"];
+  optionValue2Id?: Maybe<Scalars["Int"]>;
+  optionValue3Id?: Maybe<Scalars["Int"]>;
+  name: Scalars["String"];
+  isActive: Scalars["Boolean"];
+  taobaoSkuId: Scalars["String"];
+  priceCny: Scalars["Float"];
+  price: Scalars["Int"];
+  stock?: Maybe<Scalars["Int"]>;
+  optionString: Scalars["String"];
   optionValue1: ProductOptionValue;
   optionValue2?: Maybe<ProductOptionValue>;
   optionValue3?: Maybe<ProductOptionValue>;
@@ -349,37 +341,36 @@ export type ProductOption = {
 };
 
 export type ProductOptionName = {
-  __typename?: 'ProductOptionName';
-  id: Scalars['Int'];
-  productId: Scalars['Int'];
-  order: Scalars['Int'];
-  name: Scalars['String'];
-  isNameTranslated: Scalars['Boolean'];
-  taobaoPid: Scalars['String'];
+  __typename?: "ProductOptionName";
+  id: Scalars["Int"];
+  productId: Scalars["Int"];
+  order: Scalars["Int"];
+  name: Scalars["String"];
+  isNameTranslated: Scalars["Boolean"];
+  taobaoPid: Scalars["String"];
   product: Product;
   productOptionValue: Array<ProductOptionValue>;
 };
 
-
 export type ProductOptionNameProductOptionValueArgs = {
   where?: Maybe<ProductOptionValueWhereInput>;
   orderBy?: Maybe<Array<ProductOptionValueOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductOptionValueWhereUniqueInput>;
 };
 
 export type ProductOptionValue = {
-  __typename?: 'ProductOptionValue';
-  id: Scalars['Int'];
-  productOptionNameId: Scalars['Int'];
-  optionNameOrder: Scalars['Int'];
-  name: Scalars['String'];
-  isNameTranslated: Scalars['Boolean'];
-  taobaoVid: Scalars['String'];
-  image?: Maybe<Scalars['String']>;
-  number: Scalars['Int'];
-  isActive: Scalars['Boolean'];
+  __typename?: "ProductOptionValue";
+  id: Scalars["Int"];
+  productOptionNameId: Scalars["Int"];
+  optionNameOrder: Scalars["Int"];
+  name: Scalars["String"];
+  isNameTranslated: Scalars["Boolean"];
+  taobaoVid: Scalars["String"];
+  image?: Maybe<Scalars["String"]>;
+  number: Scalars["Int"];
+  isActive: Scalars["Boolean"];
   productOptionName: ProductOptionName;
   productOption: Array<ProductOption>;
   productOption1: Array<ProductOption>;
@@ -387,448 +378,439 @@ export type ProductOptionValue = {
   productOption3: Array<ProductOption>;
 };
 
-
 export type ProductOptionValueProductOptionArgs = {
   where?: Maybe<ProductOptionWhereInput>;
   orderBy?: Maybe<Array<Maybe<ProductOptionOrderByWithRelationInput>>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductOptionWhereUniqueInput>;
 };
-
 
 export type ProductOptionValueProductOption1Args = {
   where?: Maybe<ProductOptionWhereInput>;
   orderBy?: Maybe<Array<ProductOptionOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductOptionWhereUniqueInput>;
 };
-
 
 export type ProductOptionValueProductOption2Args = {
   where?: Maybe<ProductOptionWhereInput>;
   orderBy?: Maybe<Array<ProductOptionOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductOptionWhereUniqueInput>;
 };
-
 
 export type ProductOptionValueProductOption3Args = {
   where?: Maybe<ProductOptionWhereInput>;
   orderBy?: Maybe<Array<ProductOptionOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductOptionWhereUniqueInput>;
 };
 
 export type ProductOptionUpdateInput = {
-  id: Scalars['Int'];
-  price: Scalars['Int'];
-  isActive: Scalars['Boolean'];
-  stock: Scalars['Int'];
+  id: Scalars["Int"];
+  price: Scalars["Int"];
+  isActive: Scalars["Boolean"];
+  stock: Scalars["Int"];
 };
 
 export type ProductOptionNameUpdateInput = {
-  id: Scalars['Int'];
-  name: Scalars['String'];
+  id: Scalars["Int"];
+  name: Scalars["String"];
 };
 
 export type ProductOptionValueUpdateInput = {
-  id: Scalars['Int'];
-  name: Scalars['String'];
-  isActive?: Maybe<Scalars['Boolean']>;
-  image?: Maybe<Scalars['String']>;
-  newImage?: Maybe<Scalars['Upload']>;
-  newImageBase64?: Maybe<Scalars['String']>;
+  id: Scalars["Int"];
+  name: Scalars["String"];
+  isActive?: Maybe<Scalars["Boolean"]>;
+  image?: Maybe<Scalars["String"]>;
+  newImage?: Maybe<Scalars["Upload"]>;
+  newImageBase64?: Maybe<Scalars["String"]>;
 };
 
 export type ProductOptionValueImageUpdateInput = {
-  id: Scalars['Int'];
-  image?: Maybe<Scalars['String']>;
-  newImageBase64?: Maybe<Scalars['String']>;
+  id: Scalars["Int"];
+  image?: Maybe<Scalars["String"]>;
+  newImageBase64?: Maybe<Scalars["String"]>;
 };
 
 export type ProductThumbnailUpdateInput = {
-  defaultImage: Scalars['String'];
-  uploadImage?: Maybe<Scalars['Upload']>;
+  defaultImage: Scalars["String"];
+  uploadImage?: Maybe<Scalars["Upload"]>;
 };
 
 export type ProductThumbnailImageUpdateInput = {
-  defaultImage: Scalars['String'];
-  uploadImageBase64?: Maybe<Scalars['String']>;
+  defaultImage: Scalars["String"];
+  uploadImageBase64?: Maybe<Scalars["String"]>;
 };
 
 export type ProductStore = {
-  __typename?: 'ProductStore';
-  id: Scalars['Int'];
-  productId: Scalars['Int'];
-  userId: Scalars['Int'];
+  __typename?: "ProductStore";
+  id: Scalars["Int"];
+  productId: Scalars["Int"];
+  userId: Scalars["Int"];
   user: User;
-  siteCode: Scalars['String'];
-  state: Scalars['Int'];
+  siteCode: Scalars["String"];
+  state: Scalars["Int"];
   productStoreState: ProductStoreState;
-  storeProductId?: Maybe<Scalars['String']>;
+  storeProductId?: Maybe<Scalars["String"]>;
   product: Product;
   productStoreLog: Array<ProductStoreLog>;
-  etcVendorItemId?: Maybe<Scalars['String']>;
-  storeUrl?: Maybe<Scalars['String']>;
-  connectedAt: Scalars['DateTime'];
+  etcVendorItemId?: Maybe<Scalars["String"]>;
+  storeUrl?: Maybe<Scalars["String"]>;
+  connectedAt: Scalars["DateTime"];
 };
-
 
 export type ProductStoreProductStoreLogArgs = {
   where?: Maybe<ProductStoreLogWhereInput>;
   orderBy?: Maybe<Array<ProductStoreLogOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductStoreLogWhereUniqueInput>;
 };
 
 export type ProductStoreState = {
-  __typename?: 'ProductStoreState';
-  id: Scalars['Int'];
-  name: Scalars['String'];
-  description: Scalars['String'];
+  __typename?: "ProductStoreState";
+  id: Scalars["Int"];
+  name: Scalars["String"];
+  description: Scalars["String"];
 };
 
 export type ProductStoreLog = {
-  __typename?: 'ProductStoreLog';
-  id: Scalars['Int'];
-  productStoreId: Scalars['Int'];
-  jobId: Scalars['String'];
-  destState: Scalars['Int'];
+  __typename?: "ProductStoreLog";
+  id: Scalars["Int"];
+  productStoreId: Scalars["Int"];
+  jobId: Scalars["String"];
+  destState: Scalars["Int"];
   uploadState: ProductStoreLogUploadState;
-  errorMessage: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  modifiedAt: Scalars['DateTime'];
+  errorMessage: Scalars["String"];
+  createdAt: Scalars["DateTime"];
+  modifiedAt: Scalars["DateTime"];
   productStoreState: ProductStoreState;
   productStore: ProductStore;
 };
 
 export type Category = {
-  __typename?: 'Category';
-  id: Scalars['Int'];
-  code: Scalars['String'];
-  c1: Scalars['String'];
-  c2: Scalars['String'];
-  c3: Scalars['String'];
-  c4: Scalars['String'];
-  c1Name: Scalars['String'];
-  c2Name: Scalars['String'];
-  c3Name: Scalars['String'];
-  c4Name: Scalars['String'];
-  siilCode: Scalars['String'];
-  a077Code: Scalars['String'];
-  b378Code: Scalars['Int'];
+  __typename?: "Category";
+  id: Scalars["Int"];
+  code: Scalars["String"];
+  c1: Scalars["String"];
+  c2: Scalars["String"];
+  c3: Scalars["String"];
+  c4: Scalars["String"];
+  c1Name: Scalars["String"];
+  c2Name: Scalars["String"];
+  c3Name: Scalars["String"];
+  c4Name: Scalars["String"];
+  siilCode: Scalars["String"];
+  a077Code: Scalars["String"];
+  b378Code: Scalars["Int"];
 };
 
 export type CategoryStore = {
-  __typename?: 'CategoryStore';
-  id: Scalars['Int'];
-  acode: Scalars['String'];
-  pcode: Scalars['String'];
-  ccode: Scalars['String'];
-  dc1: Scalars['String'];
-  dc2: Scalars['String'];
-  dc3: Scalars['String'];
-  dc4: Scalars['String'];
-  dc1Name: Scalars['String'];
-  dc2Name: Scalars['String'];
-  dc3Name: Scalars['String'];
-  dc4Name: Scalars['String'];
+  __typename?: "CategoryStore";
+  id: Scalars["Int"];
+  acode: Scalars["String"];
+  pcode: Scalars["String"];
+  ccode: Scalars["String"];
+  dc1: Scalars["String"];
+  dc2: Scalars["String"];
+  dc3: Scalars["String"];
+  dc4: Scalars["String"];
+  dc1Name: Scalars["String"];
+  dc2Name: Scalars["String"];
+  dc3Name: Scalars["String"];
+  dc4Name: Scalars["String"];
   state: CategoryStoreState;
-  cateStatePdate?: Maybe<Scalars['DateTime']>;
-  cateStateCdate?: Maybe<Scalars['DateTime']>;
+  cateStatePdate?: Maybe<Scalars["DateTime"]>;
+  cateStateCdate?: Maybe<Scalars["DateTime"]>;
 };
 
 export type CategorySelectType = {
-  __typename?: 'CategorySelectType';
-  code: Scalars['String'];
-  name: Scalars['String'];
+  __typename?: "CategorySelectType";
+  code: Scalars["String"];
+  name: Scalars["String"];
 };
 
 export type CategoryInformationType = {
-  code: Scalars['String'];
-  depth1: Scalars['String'];
-  depth2: Scalars['String'];
-  depth3: Scalars['String'];
-  depth4: Scalars['String'];
-  depth5: Scalars['String'];
-  depth6: Scalars['String'];
-  name: Scalars['String'];
-  
-  code_a077: Maybe<Scalars['String']>;
-  code_b378: Maybe<Scalars['String']>;
-  code_a112: Maybe<Scalars['String']>;
-  code_a027: Maybe<Scalars['String']>;
-  code_a001: Maybe<Scalars['String']>;
-  code_a006: Maybe<Scalars['String']>;
-  code_b719: Maybe<Scalars['String']>;
-  code_a113: Maybe<Scalars['String']>;
-  code_a524: Maybe<Scalars['String']>;
-  code_a525: Maybe<Scalars['String']>;
-  code_b956: Maybe<Scalars['String']>;
-}
+  code: Scalars["String"];
+  depth1: Scalars["String"];
+  depth2: Scalars["String"];
+  depth3: Scalars["String"];
+  depth4: Scalars["String"];
+  depth5: Scalars["String"];
+  depth6: Scalars["String"];
+  name: Scalars["String"];
+
+  code_a077: Maybe<Scalars["String"]>;
+  code_b378: Maybe<Scalars["String"]>;
+  code_a112: Maybe<Scalars["String"]>;
+  code_a027: Maybe<Scalars["String"]>;
+  code_a001: Maybe<Scalars["String"]>;
+  code_a006: Maybe<Scalars["String"]>;
+  code_b719: Maybe<Scalars["String"]>;
+  code_a113: Maybe<Scalars["String"]>;
+  code_a524: Maybe<Scalars["String"]>;
+  code_a525: Maybe<Scalars["String"]>;
+  code_b956: Maybe<Scalars["String"]>;
+};
 
 export enum ExcelSampleEnum {
-  CollectProduct = 'COLLECT_PRODUCT',
-  ReplaceWord = 'REPLACE_WORD',
-  DenyWord = 'DENY_WORD'
+  CollectProduct = "COLLECT_PRODUCT",
+  ReplaceWord = "REPLACE_WORD",
+  DenyWord = "DENY_WORD",
 }
 
 export type Faq = {
-  __typename?: 'Faq';
-  id: Scalars['Int'];
-  categoryId: Scalars['Int'];
-  title: Scalars['String'];
-  content: Scalars['String'];
-  contentSummary: Scalars['String'];
-  createdAt: Scalars['DateTime'];
+  __typename?: "Faq";
+  id: Scalars["Int"];
+  categoryId: Scalars["Int"];
+  title: Scalars["String"];
+  content: Scalars["String"];
+  contentSummary: Scalars["String"];
+  createdAt: Scalars["DateTime"];
   FaqCategory: FaqCategory;
 };
 
-
 export type FaqContentSummaryArgs = {
-  wordCount?: Maybe<Scalars['Int']>;
+  wordCount?: Maybe<Scalars["Int"]>;
 };
 
 export type FaqCategory = {
-  __typename?: 'FaqCategory';
-  id: Scalars['Int'];
-  name: Scalars['String'];
-  order: Scalars['Int'];
-  isActive: Scalars['Boolean'];
+  __typename?: "FaqCategory";
+  id: Scalars["Int"];
+  name: Scalars["String"];
+  order: Scalars["Int"];
+  isActive: Scalars["Boolean"];
   faq: Array<Faq>;
 };
 
-
 export type FaqCategoryFaqArgs = {
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<FaqWhereUniqueInput>;
 };
 
 export type Notice = {
-  __typename?: 'Notice';
-  id: Scalars['Int'];
-  title: Scalars['String'];
-  content: Scalars['String'];
-  contentSummary: Scalars['String'];
-  attachmentFile?: Maybe<Scalars['String']>;
-  isVisible: Scalars['Boolean'];
-  viewCount: Scalars['Int'];
-  createdAt: Scalars['DateTime'];
+  __typename?: "Notice";
+  id: Scalars["Int"];
+  title: Scalars["String"];
+  content: Scalars["String"];
+  contentSummary: Scalars["String"];
+  attachmentFile?: Maybe<Scalars["String"]>;
+  isVisible: Scalars["Boolean"];
+  viewCount: Scalars["Int"];
+  createdAt: Scalars["DateTime"];
 };
 
-
 export type NoticeContentSummaryArgs = {
-  wordCount?: Maybe<Scalars['Int']>;
+  wordCount?: Maybe<Scalars["Int"]>;
 };
 
 export type UserQuestion = {
-  __typename?: 'UserQuestion';
-  id: Scalars['Int'];
-  userId: Scalars['Int'];
-  title: Scalars['String'];
-  content: Scalars['String'];
-  attachmentFile?: Maybe<Scalars['String']>;
-  attachmentFiles: Array<Scalars['String']>;
-  answer?: Maybe<Scalars['String']>;
-  isActive: Scalars['Boolean'];
-  answeredAt?: Maybe<Scalars['DateTime']>;
-  createdAt: Scalars['DateTime'];
+  __typename?: "UserQuestion";
+  id: Scalars["Int"];
+  userId: Scalars["Int"];
+  title: Scalars["String"];
+  content: Scalars["String"];
+  attachmentFile?: Maybe<Scalars["String"]>;
+  attachmentFiles: Array<Scalars["String"]>;
+  answer?: Maybe<Scalars["String"]>;
+  isActive: Scalars["Boolean"];
+  answeredAt?: Maybe<Scalars["DateTime"]>;
+  createdAt: Scalars["DateTime"];
   user: User;
 };
 
 export type Order = {
-  __typename?: 'Order';
-  id: Scalars['String'];
-  userId: Scalars['Int'];
+  __typename?: "Order";
+  id: Scalars["String"];
+  userId: Scalars["Int"];
   state: OrderState;
-  orderProductNumber: Scalars['String'];
-  storeProductId: Scalars['String'];
-  orderState: Scalars['Int'];
-  productName: Scalars['String'];
-  optionName: Scalars['String'];
-  quantity: Scalars['Int'];
-  productId?: Maybe<Scalars['Int']>;
-  payPrice: Scalars['Int'];
-  shippingFee: Scalars['Int'];
-  buyerName: Scalars['String'];
-  receiverName: Scalars['String'];
-  customId: Scalars['String'];
-  isCustomIdValid?: Maybe<Scalars['Boolean']>;
-  orderedAt: Scalars['DateTime'];
-  deliveryExpiredAt: Scalars['DateTime'];
-  originalData: Scalars['String'];
-  sellerProductCode: Scalars['String'];
+  orderProductNumber: Scalars["String"];
+  storeProductId: Scalars["String"];
+  orderState: Scalars["Int"];
+  productName: Scalars["String"];
+  optionName: Scalars["String"];
+  quantity: Scalars["Int"];
+  productId?: Maybe<Scalars["Int"]>;
+  payPrice: Scalars["Int"];
+  shippingFee: Scalars["Int"];
+  buyerName: Scalars["String"];
+  receiverName: Scalars["String"];
+  customId: Scalars["String"];
+  isCustomIdValid?: Maybe<Scalars["Boolean"]>;
+  orderedAt: Scalars["DateTime"];
+  deliveryExpiredAt: Scalars["DateTime"];
+  originalData: Scalars["String"];
+  sellerProductCode: Scalars["String"];
   user: User;
   product?: Maybe<Product>;
-  storeUrl?: Maybe<Scalars['String']>;
+  storeUrl?: Maybe<Scalars["String"]>;
 };
 
 export type PlanInfo = {
-  __typename?: 'PlanInfo';
-  id: Scalars['Int'];
-  planLevel?: Maybe<Scalars['Int']>;
-  name: Scalars['String'];
-  description: Scalars['String'];
-  month: Scalars['Int'];
-  price: Scalars['Int'];
-  externalFeatureVariableId?: Maybe<Scalars['String']>;
-  isActive: Scalars['Boolean'];
+  __typename?: "PlanInfo";
+  id: Scalars["Int"];
+  planLevel?: Maybe<Scalars["Int"]>;
+  name: Scalars["String"];
+  description: Scalars["String"];
+  month: Scalars["Int"];
+  price: Scalars["Int"];
+  externalFeatureVariableId?: Maybe<Scalars["String"]>;
+  isActive: Scalars["Boolean"];
 };
 
 export type purchaseInputs = {
-  __typename?: 'purchaseInputs';
-  userId: Scalars['Int'];
-  planInfoId: Scalars['Int'];
-  expiredAt: Scalars['DateTime'];
+  __typename?: "purchaseInputs";
+  userId: Scalars["Int"];
+  planInfoId: Scalars["Int"];
+  expiredAt: Scalars["DateTime"];
 };
 
 export type PurchaseLog = {
-  __typename?: 'PurchaseLog';
-  id: Scalars['Int'];
-  userId: Scalars['Int'];
-  payAmount: Scalars['Int'];
-  payId?: Maybe<Scalars['String']>;
+  __typename?: "PurchaseLog";
+  id: Scalars["Int"];
+  userId: Scalars["Int"];
+  payAmount: Scalars["Int"];
+  payId?: Maybe<Scalars["String"]>;
   state: PurchaseLogState;
-  planInfo: Scalars['String'];
+  planInfo: Scalars["String"];
   type: PurchaseLogType;
-  purchasedAt: Scalars['DateTime'];
-  expiredAt: Scalars['DateTime'];
+  purchasedAt: Scalars["DateTime"];
+  expiredAt: Scalars["DateTime"];
   user: User;
 };
 
 export type Admin = {
-  __typename?: 'Admin';
-  id: Scalars['Int'];
-  loginId: Scalars['String'];
+  __typename?: "Admin";
+  id: Scalars["Int"];
+  loginId: Scalars["String"];
   state: AdminState;
-  createdAt: Scalars['DateTime'];
+  createdAt: Scalars["DateTime"];
 };
 
 export type TaobaoOrder = {
-  __typename?: 'TaobaoOrder';
-  id: Scalars['Int'];
-  taobaoId: Scalars['String'];
-  taobaoOrderNum: Scalars['String'];
+  __typename?: "TaobaoOrder";
+  id: Scalars["Int"];
+  taobaoId: Scalars["String"];
+  taobaoOrderNum: Scalars["String"];
   state: TaobaoOrderState;
-  logisticCompany?: Maybe<Scalars['String']>;
-  waybill?: Maybe<Scalars['String']>;
-  buyerMessage?: Maybe<Scalars['String']>;
-  realMoney?: Maybe<Scalars['Float']>;
-  originalData: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  modifiedAt: Scalars['DateTime'];
+  logisticCompany?: Maybe<Scalars["String"]>;
+  waybill?: Maybe<Scalars["String"]>;
+  buyerMessage?: Maybe<Scalars["String"]>;
+  realMoney?: Maybe<Scalars["Float"]>;
+  originalData: Scalars["String"];
+  createdAt: Scalars["DateTime"];
+  modifiedAt: Scalars["DateTime"];
   order: Array<Order>;
 };
 
-
 export type TaobaoOrderOrderArgs = {
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<OrderWhereUniqueInput>;
 };
 
 export type WordTable = {
-  __typename?: 'WordTable';
-  id: Scalars['Int'];
-  userId: Scalars['Int'];
-  findWord: Scalars['String'];
-  replaceWord?: Maybe<Scalars['String']>;
+  __typename?: "WordTable";
+  id: Scalars["Int"];
+  userId: Scalars["Int"];
+  findWord: Scalars["String"];
+  replaceWord?: Maybe<Scalars["String"]>;
   user: User;
 };
 
 export type PhoneVerification = {
-  __typename?: 'PhoneVerification';
-  id: Scalars['Int'];
-  tel: Scalars['String'];
-  verificationNumber: Scalars['String'];
-  createdAt: Scalars['DateTime'];
+  __typename?: "PhoneVerification";
+  id: Scalars["Int"];
+  tel: Scalars["String"];
+  verificationNumber: Scalars["String"];
+  createdAt: Scalars["DateTime"];
 };
 
 export enum UserSocialType {
-  Email = 'EMAIL',
-  Kakao = 'KAKAO',
-  Naver = 'NAVER'
+  Email = "EMAIL",
+  Kakao = "KAKAO",
+  Naver = "NAVER",
 }
 
 export enum UserLoginType {
-  Admin = 'ADMIN',
-  Email = 'EMAIL',
-  Kakao = 'KAKAO',
-  Naver = 'NAVER'
+  Admin = "ADMIN",
+  Email = "EMAIL",
+  Kakao = "KAKAO",
+  Naver = "NAVER",
 }
 
 export enum TaobaoItemOrderBy {
   /** 판매량순 */
-  Sale = 'SALE',
+  Sale = "SALE",
   /** 판매자 신용 순 */
-  Credit = 'CREDIT'
+  Credit = "CREDIT",
 }
 
 export enum SiilItemTypeEnum {
-  Select = 'SELECT',
-  Input = 'INPUT',
-  Yesno = 'YESNO'
+  Select = "SELECT",
+  Input = "INPUT",
+  Yesno = "YESNO",
 }
 
 export type SiilItem = {
-  __typename?: 'SiilItem';
-  name: Scalars['String'];
+  __typename?: "SiilItem";
+  name: Scalars["String"];
   inputType: SiilItemTypeEnum;
-  options?: Maybe<Array<Scalars['String']>>;
-  code: Scalars['String'];
+  options?: Maybe<Array<Scalars["String"]>>;
+  code: Scalars["String"];
 };
 
 export type SiilItems = {
-  __typename?: 'SiilItems';
-  description: Scalars['String'];
+  __typename?: "SiilItems";
+  description: Scalars["String"];
   data: Array<SiilItem>;
 };
 
 export type SiilInput = {
-  code: Scalars['String'];
-  value: Scalars['String'];
+  code: Scalars["String"];
+  value: Scalars["String"];
 };
 
 export type SiilSavedItem = {
-  __typename?: 'SiilSavedItem';
-  code: Scalars['String'];
-  value: Scalars['String'];
+  __typename?: "SiilSavedItem";
+  code: Scalars["String"];
+  value: Scalars["String"];
 };
 
 export type SiilSavedData = {
-  __typename?: 'SiilSavedData';
-  code: Scalars['String'];
+  __typename?: "SiilSavedData";
+  code: Scalars["String"];
   data: Array<SiilSavedItem>;
 };
 
 export enum TranslateEngineEnumType {
-  Papago = 'PAPAGO',
-  Google = 'GOOGLE',
-  Baidu = 'BAIDU'
+  Papago = "PAPAGO",
+  Google = "GOOGLE",
+  Baidu = "BAIDU",
 }
 
 export enum TranslateTargetEnumType {
   /** 상품 전체 일괄번역,id:Product */
-  ProductAll = 'PRODUCT_ALL',
+  ProductAll = "PRODUCT_ALL",
   /** 상품 옵션 일괄번역,id:ProductOptionName */
-  ProductOptionAll = 'PRODUCT_OPTION_ALL',
+  ProductOptionAll = "PRODUCT_OPTION_ALL",
   /** 상품 이름 번역,id:Product */
-  ProductName = 'PRODUCT_NAME',
+  ProductName = "PRODUCT_NAME",
   /** 상품 옵션 이름 번역,id:ProductOptionName */
-  ProductOptionName = 'PRODUCT_OPTION_NAME',
+  ProductOptionName = "PRODUCT_OPTION_NAME",
   /** 상품 옵션별 이름 번역,id:ProductOptionValue */
-  ProductOptionValue = 'PRODUCT_OPTION_VALUE'
+  ProductOptionValue = "PRODUCT_OPTION_VALUE",
 }
 
 export enum UserState {
-  Active = 'ACTIVE',
-  Deleted = 'DELETED'
+  Active = "ACTIVE",
+  Deleted = "DELETED",
 }
 
 export type productStateEnumWhereInput = {
@@ -838,7 +820,7 @@ export type productStateEnumWhereInput = {
   id?: Maybe<IntFilter>;
   state?: Maybe<StringFilter>;
   // product: Maybe<ProductListRelationFilter>;
-}
+};
 
 export type ProductWhereInput = {
   AND?: Maybe<Array<ProductWhereInput>>;
@@ -911,7 +893,7 @@ export type ProductOrderByWithRelationInput = {
 };
 
 export type ProductWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
   UQ_user_id_taobao_product_id?: Maybe<ProductUq_User_Id_Taobao_Product_IdCompoundUniqueInput>;
 };
 
@@ -939,7 +921,7 @@ export type UserLogOrderByWithRelationInput = {
 };
 
 export type UserLogWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type UserWhereInput = {
@@ -984,10 +966,10 @@ export type UserOrderByWithRelationInput = {
 };
 
 export type UserWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
-  email?: Maybe<Scalars['String']>;
-  naverId?: Maybe<Scalars['String']>;
-  kakaoId?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars["Int"]>;
+  email?: Maybe<Scalars["String"]>;
+  naverId?: Maybe<Scalars["String"]>;
+  kakaoId?: Maybe<Scalars["String"]>;
 };
 
 export type TaobaoProductWhereInput = {
@@ -1028,16 +1010,16 @@ export type TaobaoProductOrderByWithRelationInput = {
 };
 
 export type TaobaoProductWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
-  taobaoNumIid?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars["Int"]>;
+  taobaoNumIid?: Maybe<Scalars["String"]>;
 };
 
 export enum ProductState {
-  Collected = 'COLLECTED',
-  OnSale = 'ON_SALE',
-  UploadWaiting = 'UPLOAD_WAITING',
-  UploadFailed = 'UPLOAD_FAILED',
-  SellDone = 'SELL_DONE'
+  Collected = "COLLECTED",
+  OnSale = "ON_SALE",
+  UploadWaiting = "UPLOAD_WAITING",
+  UploadFailed = "UPLOAD_FAILED",
+  SellDone = "SELL_DONE",
 }
 
 export type ProductOptionWhereInput = {
@@ -1080,7 +1062,7 @@ export type ProductOptionOrderByWithRelationInput = {
 };
 
 export type ProductOptionWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
   UQ_product_id_sku_id?: Maybe<ProductOptionUq_Product_Id_Sku_IdCompoundUniqueInput>;
   UQ_product_option?: Maybe<ProductOptionUq_Product_OptionCompoundUniqueInput>;
 };
@@ -1113,7 +1095,7 @@ export type ProductOptionNameOrderByWithRelationInput = {
 };
 
 export type ProductOptionNameWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type ProductStoreWhereInput = {
@@ -1150,7 +1132,7 @@ export type ProductStoreOrderByWithRelationInput = {
 };
 
 export type ProductStoreWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type ProductOptionValueWhereInput = {
@@ -1189,7 +1171,7 @@ export type ProductOptionValueOrderByWithRelationInput = {
 };
 
 export type ProductOptionValueWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type ProductStoreLogWhereInput = {
@@ -1222,21 +1204,21 @@ export type ProductStoreLogOrderByWithRelationInput = {
 };
 
 export type ProductStoreLogWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export enum ProductStoreLogUploadState {
-  Wait = 'WAIT',
-  Success = 'SUCCESS',
-  Fail = 'FAIL',
-  Cancel = 'CANCEL',
-  OnProgress = 'ON_PROGRESS'
+  Wait = "WAIT",
+  Success = "SUCCESS",
+  Fail = "FAIL",
+  Cancel = "CANCEL",
+  OnProgress = "ON_PROGRESS",
 }
 
 export enum CategoryStoreState {
-  Normal = 'NORMAL',
-  Delete = 'DELETE',
-  Change = 'CHANGE'
+  Normal = "NORMAL",
+  Delete = "DELETE",
+  Change = "CHANGE",
 }
 
 export type CategoryWhereInput = {
@@ -1277,13 +1259,13 @@ export type CategoryOrderByWithRelationInput = {
 };
 
 export type CategoryWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
-  code?: Maybe<Scalars['String']>;
-  a077Code?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars["Int"]>;
+  code?: Maybe<Scalars["String"]>;
+  a077Code?: Maybe<Scalars["String"]>;
 };
 
 export type FaqWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type FaqCategoryWhereInput = {
@@ -1306,7 +1288,7 @@ export type FaqCategoryOrderByWithRelationInput = {
 };
 
 export type FaqCategoryWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type FaqWhereInput = {
@@ -1354,7 +1336,7 @@ export type NoticeOrderByWithRelationInput = {
 };
 
 export type NoticeWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type UserQuestionWhereInput = {
@@ -1387,15 +1369,15 @@ export type UserQuestionOrderByWithRelationInput = {
 };
 
 export type UserQuestionWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export enum OrderState {
-  New = 'NEW',
-  Ordered = 'ORDERED',
-  Claimed = 'CLAIMED',
-  Shipping = 'SHIPPING',
-  Delivered = 'DELIVERED'
+  New = "NEW",
+  Ordered = "ORDERED",
+  Claimed = "CLAIMED",
+  Shipping = "SHIPPING",
+  Delivered = "DELIVERED",
 }
 
 export type OrderWhereInput = {
@@ -1458,21 +1440,21 @@ export type OrderOrderByWithRelationInput = {
 };
 
 export type OrderWhereUniqueInput = {
-  id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars["String"]>;
 };
 
 export enum PurchaseLogState {
-  WaitPayment = 'WAIT_PAYMENT',
-  WaitDeposit = 'WAIT_DEPOSIT',
-  Active = 'ACTIVE',
-  Ended = 'ENDED',
-  Refunded = 'REFUNDED'
+  WaitPayment = "WAIT_PAYMENT",
+  WaitDeposit = "WAIT_DEPOSIT",
+  Active = "ACTIVE",
+  Ended = "ENDED",
+  Refunded = "REFUNDED",
 }
 
 export enum PurchaseLogType {
-  Plan = 'PLAN',
-  ImageTranslate = 'IMAGE_TRANSLATE',
-  Stock = 'STOCK'
+  Plan = "PLAN",
+  ImageTranslate = "IMAGE_TRANSLATE",
+  Stock = "STOCK",
 }
 
 export type PlanInfoWhereInput = {
@@ -1501,18 +1483,18 @@ export type PlanInfoOrderByWithRelationInput = {
 };
 
 export type PlanInfoWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export enum AdminState {
-  Active = 'ACTIVE',
-  Deleted = 'DELETED'
+  Active = "ACTIVE",
+  Deleted = "DELETED",
 }
 
 export enum TaobaoOrderState {
-  WaitSend = 'WAIT_SEND',
-  WaitConfirm = 'WAIT_CONFIRM',
-  Done = 'DONE'
+  WaitSend = "WAIT_SEND",
+  WaitConfirm = "WAIT_CONFIRM",
+  Done = "DONE",
 }
 
 export type TaobaoOrderWhereInput = {
@@ -1549,7 +1531,7 @@ export type TaobaoOrderOrderByWithRelationInput = {
 };
 
 export type TaobaoOrderWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
 };
 
 export type WordTableWhereInput = {
@@ -1572,43 +1554,43 @@ export type WordTableOrderByWithRelationInput = {
 };
 
 export type WordTableWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars["Int"]>;
   UQ_word_table_word?: Maybe<WordTableUq_Word_Table_WordCompoundUniqueInput>;
 };
 
 export type IntFilter = {
-  equals?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
+  equals?: Maybe<Scalars["Int"]>;
+  in?: Maybe<Array<Scalars["Int"]>>;
+  notIn?: Maybe<Array<Scalars["Int"]>>;
+  lt?: Maybe<Scalars["Int"]>;
+  lte?: Maybe<Scalars["Int"]>;
+  gt?: Maybe<Scalars["Int"]>;
+  gte?: Maybe<Scalars["Int"]>;
   not?: Maybe<NestedIntFilter>;
 };
 
 export type IntNullableFilter = {
-  equals?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
+  equals?: Maybe<Scalars["Int"]>;
+  in?: Maybe<Array<Scalars["Int"]>>;
+  notIn?: Maybe<Array<Scalars["Int"]>>;
+  lt?: Maybe<Scalars["Int"]>;
+  lte?: Maybe<Scalars["Int"]>;
+  gt?: Maybe<Scalars["Int"]>;
+  gte?: Maybe<Scalars["Int"]>;
   not?: Maybe<NestedIntNullableFilter>;
 };
 
 export type StringFilter = {
-  equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  equals?: Maybe<Scalars["String"]>;
+  in?: Maybe<Array<Scalars["String"]>>;
+  notIn?: Maybe<Array<Scalars["String"]>>;
+  lt?: Maybe<Scalars["String"]>;
+  lte?: Maybe<Scalars["String"]>;
+  gt?: Maybe<Scalars["String"]>;
+  gte?: Maybe<Scalars["String"]>;
+  contains?: Maybe<Scalars["String"]>;
+  startsWith?: Maybe<Scalars["String"]>;
+  endsWith?: Maybe<Scalars["String"]>;
   not?: Maybe<NestedStringFilter>;
 };
 
@@ -1620,43 +1602,43 @@ export type EnumProductStateFilter = {
 };
 
 export type DateTimeFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
+  equals?: Maybe<Scalars["DateTime"]>;
+  in?: Maybe<Array<Scalars["DateTime"]>>;
+  notIn?: Maybe<Array<Scalars["DateTime"]>>;
+  lt?: Maybe<Scalars["DateTime"]>;
+  lte?: Maybe<Scalars["DateTime"]>;
+  gt?: Maybe<Scalars["DateTime"]>;
+  gte?: Maybe<Scalars["DateTime"]>;
   not?: Maybe<NestedDateTimeFilter>;
 };
 
 export type StringNullableFilter = {
-  equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  equals?: Maybe<Scalars["String"]>;
+  in?: Maybe<Array<Scalars["String"]>>;
+  notIn?: Maybe<Array<Scalars["String"]>>;
+  lt?: Maybe<Scalars["String"]>;
+  lte?: Maybe<Scalars["String"]>;
+  gt?: Maybe<Scalars["String"]>;
+  gte?: Maybe<Scalars["String"]>;
+  contains?: Maybe<Scalars["String"]>;
+  startsWith?: Maybe<Scalars["String"]>;
+  endsWith?: Maybe<Scalars["String"]>;
   not?: Maybe<NestedStringNullableFilter>;
 };
 
 export type BoolFilter = {
-  equals?: Maybe<Scalars['Boolean']>;
+  equals?: Maybe<Scalars["Boolean"]>;
   not?: Maybe<NestedBoolFilter>;
 };
 
 export type FloatFilter = {
-  equals?: Maybe<Scalars['Float']>;
-  in?: Maybe<Array<Scalars['Float']>>;
-  notIn?: Maybe<Array<Scalars['Float']>>;
-  lt?: Maybe<Scalars['Float']>;
-  lte?: Maybe<Scalars['Float']>;
-  gt?: Maybe<Scalars['Float']>;
-  gte?: Maybe<Scalars['Float']>;
+  equals?: Maybe<Scalars["Float"]>;
+  in?: Maybe<Array<Scalars["Float"]>>;
+  notIn?: Maybe<Array<Scalars["Float"]>>;
+  lt?: Maybe<Scalars["Float"]>;
+  lte?: Maybe<Scalars["Float"]>;
+  gt?: Maybe<Scalars["Float"]>;
+  gte?: Maybe<Scalars["Float"]>;
   not?: Maybe<NestedFloatFilter>;
 };
 
@@ -1697,8 +1679,8 @@ export type ProductStoreListRelationFilter = {
 };
 
 export enum SortOrder {
-  Asc = 'asc',
-  Desc = 'desc'
+  Asc = "asc",
+  Desc = "desc",
 }
 
 export type AdminOrderByWithRelationInput = {
@@ -1731,8 +1713,8 @@ export type ProductStoreOrderByRelationAggregateInput = {
 };
 
 export type ProductUq_User_Id_Taobao_Product_IdCompoundUniqueInput = {
-  userId: Scalars['Int'];
-  taobaoProductId: Scalars['Int'];
+  userId: Scalars["Int"];
+  taobaoProductId: Scalars["Int"];
 };
 
 export type EnumUserStateFilter = {
@@ -1857,14 +1839,14 @@ export type WordTableOrderByRelationAggregateInput = {
 };
 
 export type ProductOptionUq_Product_Id_Sku_IdCompoundUniqueInput = {
-  productId: Scalars['Int'];
-  taobaoSkuId: Scalars['String'];
+  productId: Scalars["Int"];
+  taobaoSkuId: Scalars["String"];
 };
 
 export type ProductOptionUq_Product_OptionCompoundUniqueInput = {
-  optionValue1Id: Scalars['Int'];
-  optionValue2Id: Scalars['Int'];
-  optionValue3Id: Scalars['Int'];
+  optionValue1Id: Scalars["Int"];
+  optionValue2Id: Scalars["Int"];
+  optionValue3Id: Scalars["Int"];
 };
 
 export type ProductOptionValueListRelationFilter = {
@@ -1927,13 +1909,13 @@ export type FaqOrderByRelationAggregateInput = {
 };
 
 export type DateTimeNullableFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
+  equals?: Maybe<Scalars["DateTime"]>;
+  in?: Maybe<Array<Scalars["DateTime"]>>;
+  notIn?: Maybe<Array<Scalars["DateTime"]>>;
+  lt?: Maybe<Scalars["DateTime"]>;
+  lte?: Maybe<Scalars["DateTime"]>;
+  gt?: Maybe<Scalars["DateTime"]>;
+  gte?: Maybe<Scalars["DateTime"]>;
   not?: Maybe<NestedDateTimeNullableFilter>;
 };
 
@@ -1945,7 +1927,7 @@ export type EnumOrderStateFilter = {
 };
 
 export type BoolNullableFilter = {
-  equals?: Maybe<Scalars['Boolean']>;
+  equals?: Maybe<Scalars["Boolean"]>;
   not?: Maybe<NestedBoolNullableFilter>;
 };
 
@@ -1957,54 +1939,54 @@ export type EnumTaobaoOrderStateFilter = {
 };
 
 export type FloatNullableFilter = {
-  equals?: Maybe<Scalars['Float']>;
-  in?: Maybe<Array<Scalars['Float']>>;
-  notIn?: Maybe<Array<Scalars['Float']>>;
-  lt?: Maybe<Scalars['Float']>;
-  lte?: Maybe<Scalars['Float']>;
-  gt?: Maybe<Scalars['Float']>;
-  gte?: Maybe<Scalars['Float']>;
+  equals?: Maybe<Scalars["Float"]>;
+  in?: Maybe<Array<Scalars["Float"]>>;
+  notIn?: Maybe<Array<Scalars["Float"]>>;
+  lt?: Maybe<Scalars["Float"]>;
+  lte?: Maybe<Scalars["Float"]>;
+  gt?: Maybe<Scalars["Float"]>;
+  gte?: Maybe<Scalars["Float"]>;
   not?: Maybe<NestedFloatNullableFilter>;
 };
 
 export type WordTableUq_Word_Table_WordCompoundUniqueInput = {
-  userId: Scalars['Int'];
-  findWord: Scalars['String'];
+  userId: Scalars["Int"];
+  findWord: Scalars["String"];
 };
 
 export type NestedIntFilter = {
-  equals?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
+  equals?: Maybe<Scalars["Int"]>;
+  in?: Maybe<Array<Scalars["Int"]>>;
+  notIn?: Maybe<Array<Scalars["Int"]>>;
+  lt?: Maybe<Scalars["Int"]>;
+  lte?: Maybe<Scalars["Int"]>;
+  gt?: Maybe<Scalars["Int"]>;
+  gte?: Maybe<Scalars["Int"]>;
   not?: Maybe<NestedIntFilter>;
 };
 
 export type NestedIntNullableFilter = {
-  equals?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
+  equals?: Maybe<Scalars["Int"]>;
+  in?: Maybe<Array<Scalars["Int"]>>;
+  notIn?: Maybe<Array<Scalars["Int"]>>;
+  lt?: Maybe<Scalars["Int"]>;
+  lte?: Maybe<Scalars["Int"]>;
+  gt?: Maybe<Scalars["Int"]>;
+  gte?: Maybe<Scalars["Int"]>;
   not?: Maybe<NestedIntNullableFilter>;
 };
 
 export type NestedStringFilter = {
-  equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  equals?: Maybe<Scalars["String"]>;
+  in?: Maybe<Array<Scalars["String"]>>;
+  notIn?: Maybe<Array<Scalars["String"]>>;
+  lt?: Maybe<Scalars["String"]>;
+  lte?: Maybe<Scalars["String"]>;
+  gt?: Maybe<Scalars["String"]>;
+  gte?: Maybe<Scalars["String"]>;
+  contains?: Maybe<Scalars["String"]>;
+  startsWith?: Maybe<Scalars["String"]>;
+  endsWith?: Maybe<Scalars["String"]>;
   not?: Maybe<NestedStringFilter>;
 };
 
@@ -2016,43 +1998,43 @@ export type NestedEnumProductStateFilter = {
 };
 
 export type NestedDateTimeFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
+  equals?: Maybe<Scalars["DateTime"]>;
+  in?: Maybe<Array<Scalars["DateTime"]>>;
+  notIn?: Maybe<Array<Scalars["DateTime"]>>;
+  lt?: Maybe<Scalars["DateTime"]>;
+  lte?: Maybe<Scalars["DateTime"]>;
+  gt?: Maybe<Scalars["DateTime"]>;
+  gte?: Maybe<Scalars["DateTime"]>;
   not?: Maybe<NestedDateTimeFilter>;
 };
 
 export type NestedStringNullableFilter = {
-  equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  equals?: Maybe<Scalars["String"]>;
+  in?: Maybe<Array<Scalars["String"]>>;
+  notIn?: Maybe<Array<Scalars["String"]>>;
+  lt?: Maybe<Scalars["String"]>;
+  lte?: Maybe<Scalars["String"]>;
+  gt?: Maybe<Scalars["String"]>;
+  gte?: Maybe<Scalars["String"]>;
+  contains?: Maybe<Scalars["String"]>;
+  startsWith?: Maybe<Scalars["String"]>;
+  endsWith?: Maybe<Scalars["String"]>;
   not?: Maybe<NestedStringNullableFilter>;
 };
 
 export type NestedBoolFilter = {
-  equals?: Maybe<Scalars['Boolean']>;
+  equals?: Maybe<Scalars["Boolean"]>;
   not?: Maybe<NestedBoolFilter>;
 };
 
 export type NestedFloatFilter = {
-  equals?: Maybe<Scalars['Float']>;
-  in?: Maybe<Array<Scalars['Float']>>;
-  notIn?: Maybe<Array<Scalars['Float']>>;
-  lt?: Maybe<Scalars['Float']>;
-  lte?: Maybe<Scalars['Float']>;
-  gt?: Maybe<Scalars['Float']>;
-  gte?: Maybe<Scalars['Float']>;
+  equals?: Maybe<Scalars["Float"]>;
+  in?: Maybe<Array<Scalars["Float"]>>;
+  notIn?: Maybe<Array<Scalars["Float"]>>;
+  lt?: Maybe<Scalars["Float"]>;
+  lte?: Maybe<Scalars["Float"]>;
+  gt?: Maybe<Scalars["Float"]>;
+  gte?: Maybe<Scalars["Float"]>;
   not?: Maybe<NestedFloatFilter>;
 };
 
@@ -2094,13 +2076,13 @@ export type NestedEnumProductStoreLogUploadStateFilter = {
 };
 
 export type NestedDateTimeNullableFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
+  equals?: Maybe<Scalars["DateTime"]>;
+  in?: Maybe<Array<Scalars["DateTime"]>>;
+  notIn?: Maybe<Array<Scalars["DateTime"]>>;
+  lt?: Maybe<Scalars["DateTime"]>;
+  lte?: Maybe<Scalars["DateTime"]>;
+  gt?: Maybe<Scalars["DateTime"]>;
+  gte?: Maybe<Scalars["DateTime"]>;
   not?: Maybe<NestedDateTimeNullableFilter>;
 };
 
@@ -2112,7 +2094,7 @@ export type NestedEnumOrderStateFilter = {
 };
 
 export type NestedBoolNullableFilter = {
-  equals?: Maybe<Scalars['Boolean']>;
+  equals?: Maybe<Scalars["Boolean"]>;
   not?: Maybe<NestedBoolNullableFilter>;
 };
 
@@ -2124,13 +2106,13 @@ export type NestedEnumTaobaoOrderStateFilter = {
 };
 
 export type NestedFloatNullableFilter = {
-  equals?: Maybe<Scalars['Float']>;
-  in?: Maybe<Array<Scalars['Float']>>;
-  notIn?: Maybe<Array<Scalars['Float']>>;
-  lt?: Maybe<Scalars['Float']>;
-  lte?: Maybe<Scalars['Float']>;
-  gt?: Maybe<Scalars['Float']>;
-  gte?: Maybe<Scalars['Float']>;
+  equals?: Maybe<Scalars["Float"]>;
+  in?: Maybe<Array<Scalars["Float"]>>;
+  notIn?: Maybe<Array<Scalars["Float"]>>;
+  lt?: Maybe<Scalars["Float"]>;
+  lte?: Maybe<Scalars["Float"]>;
+  gt?: Maybe<Scalars["Float"]>;
+  gte?: Maybe<Scalars["Float"]>;
   not?: Maybe<NestedFloatNullableFilter>;
 };
 
@@ -2170,914 +2152,831 @@ export type NestedEnumPurchaseLogTypeFilter = {
 };
 
 export type Query = {
-  __typename?: 'Query';
-  whoami?: Maybe<Scalars['String']>;
+  __typename?: "Query";
+  whoami?: Maybe<Scalars["String"]>;
   selectMyInfoByUser: User;
   selectUsersByAdmin: Array<User>;
-  selectUsersCountByAdmin: Scalars['Int'];
-  selectCnyRateByEveryone: Scalars['Float'];
-  selectTaobaoRefreshDayByEveryone: Scalars['Int'];
-  selectFreeUserProductLimitByAdmin: Scalars['Int'];
-  selectFreeUserDayLimitByAdmin: Scalars['Int'];
+  selectUsersCountByAdmin: Scalars["Int"];
+  selectCnyRateByEveryone: Scalars["Float"];
+  selectTaobaoRefreshDayByEveryone: Scalars["Int"];
+  selectFreeUserProductLimitByAdmin: Scalars["Int"];
+  selectFreeUserDayLimitByAdmin: Scalars["Int"];
   selectTaobaoProductsByUser: Array<TaobaoProduct>;
   selectTaobaoProductsByAdmin: Array<TaobaoProduct>;
-  selectTaobaoProductsCountByAdmin?: Maybe<Scalars['Int']>;
+  selectTaobaoProductsCountByAdmin?: Maybe<Scalars["Int"]>;
   selectMyProductByUser: Array<Product>;
-  selectMyProductsCountByUser: Scalars['Int'];
+  selectMyProductsCountByUser: Scalars["Int"];
   selectProductsByAdmin: Array<Product>;
-  selectProductsCountByAdmin?: Maybe<Scalars['Int']>;
+  selectProductsCountByAdmin?: Maybe<Scalars["Int"]>;
   selectProductsBySomeone: Array<Product>;
-  selectProductsCountBySomeone?: Maybe<Scalars['Int']>;
-  getRegisterProductsDataByUser: Scalars['String'];
+  selectProductsCountBySomeone?: Maybe<Scalars["Int"]>;
+  getRegisterProductsDataByUser: Scalars["String"];
   selectCategoriesBySomeone: Array<Category>;
   searchCategoriesBySomeone: Array<Category>;
   selectCategoriesByHierarchicalBySomeone: Array<CategorySelectType>;
-  getExcelSampleUrlBySomeone: Scalars['String'];
+  getExcelSampleUrlBySomeone: Scalars["String"];
   selectFaqCategoriesByEveryone: Array<FaqCategory>;
   selectFaqsByEveryone: Array<Faq>;
   selectNoticesByEveryone: Array<Notice>;
   selectNoticeByEveryone: Notice;
-  selectFaqCategoryCountByAdmin?: Maybe<Scalars['Int']>;
-  selectFaqCountByAdmin?: Maybe<Scalars['Int']>;
-  selectNoticeCountByAdmin?: Maybe<Scalars['Int']>;
+  selectFaqCategoryCountByAdmin?: Maybe<Scalars["Int"]>;
+  selectFaqCountByAdmin?: Maybe<Scalars["Int"]>;
+  selectNoticeCountByAdmin?: Maybe<Scalars["Int"]>;
   selectUserQuestionBySomeone: Array<UserQuestion>;
-  selectUserQuestionCountBySomeone?: Maybe<Scalars['Int']>;
+  selectUserQuestionCountBySomeone?: Maybe<Scalars["Int"]>;
   selectOrdersByUser: Array<Order>;
   selectPlanInfosForEveryone: Array<PlanInfo>;
   selectTaobaoOrdersByAdmin: Array<TaobaoOrder>;
   selectWordTablesBySomeone: Array<WordTable>;
   selectSiilInfoBySomeone: Array<SiilItems>;
-  t_getEncodedSetInfo?: Maybe<Scalars['String']>;
-  t_get?: Maybe<Scalars['String']>;
-  translateText: Scalars['String'];
+  t_getEncodedSetInfo?: Maybe<Scalars["String"]>;
+  t_get?: Maybe<Scalars["String"]>;
+  translateText: Scalars["String"];
 };
-
 
 export type QuerySelectUsersByAdminArgs = {
   where?: Maybe<UserWhereInput>;
   orderBy?: Maybe<Array<UserOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<UserWhereUniqueInput>;
 };
-
 
 export type QuerySelectUsersCountByAdminArgs = {
   where?: Maybe<UserWhereInput>;
 };
 
-
 export type QuerySelectTaobaoProductsByUserArgs = {
   where?: Maybe<TaobaoProductWhereInput>;
   orderBy?: Maybe<Array<TaobaoProductOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<TaobaoProductWhereUniqueInput>;
 };
-
 
 export type QuerySelectTaobaoProductsByAdminArgs = {
   where?: Maybe<TaobaoProductWhereInput>;
   orderBy?: Maybe<Array<TaobaoProductOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<TaobaoProductWhereUniqueInput>;
 };
-
 
 export type QuerySelectTaobaoProductsCountByAdminArgs = {
   where?: Maybe<TaobaoProductWhereInput>;
 };
 
-
 export type QuerySelectMyProductByUserArgs = {
   where?: Maybe<ProductWhereInput>;
   orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductWhereUniqueInput>;
 };
-
 
 export type QuerySelectMyProductsCountByUserArgs = {
   where?: Maybe<ProductWhereInput>;
 };
 
-
 export type QuerySelectProductsByAdminArgs = {
   where?: Maybe<ProductWhereInput>;
   orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductWhereUniqueInput>;
 };
-
 
 export type QuerySelectProductsCountByAdminArgs = {
   where?: Maybe<ProductWhereInput>;
 };
 
-
 export type QuerySelectProductsBySomeoneArgs = {
   where?: Maybe<ProductWhereInput>;
   orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<ProductWhereUniqueInput>;
 };
-
 
 export type QuerySelectProductsCountBySomeoneArgs = {
   where?: Maybe<ProductWhereInput>;
 };
 
-
 export type QueryGetRegisterProductsDataByUserArgs = {
-  productIds: Array<Scalars['Int']>;
-  siteCode: Scalars['String'];
+  productIds: Array<Scalars["Int"]>;
+  siteCode: Scalars["String"];
 };
-
 
 export type QuerySelectCategoriesBySomeoneArgs = {
   where?: Maybe<CategoryWhereInput>;
   orderBy?: Maybe<Array<CategoryOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<CategoryWhereUniqueInput>;
 };
 
-
 export type QuerySearchCategoriesBySomeoneArgs = {
-  code?: Maybe<Scalars['String']>;
-  keyword?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars["String"]>;
+  keyword?: Maybe<Scalars["String"]>;
 };
-
 
 export type QuerySelectCategoriesByHierarchicalBySomeoneArgs = {
-  code?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars["String"]>;
 };
-
 
 export type QueryGetExcelSampleUrlBySomeoneArgs = {
   type: ExcelSampleEnum;
 };
 
-
 export type QuerySelectFaqCategoriesByEveryoneArgs = {
   where?: Maybe<FaqCategoryWhereInput>;
   orderBy?: Maybe<Array<FaqCategoryOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<FaqCategoryWhereUniqueInput>;
 };
-
 
 export type QuerySelectFaqsByEveryoneArgs = {
   where?: Maybe<FaqWhereInput>;
   orderBy?: Maybe<Array<FaqOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<FaqWhereUniqueInput>;
 };
-
 
 export type QuerySelectNoticesByEveryoneArgs = {
   where?: Maybe<NoticeWhereInput>;
   orderBy?: Maybe<Array<NoticeOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<NoticeWhereUniqueInput>;
 };
 
-
 export type QuerySelectNoticeByEveryoneArgs = {
-  noticeId: Scalars['Int'];
+  noticeId: Scalars["Int"];
 };
-
 
 export type QuerySelectFaqCategoryCountByAdminArgs = {
   where?: Maybe<FaqCategoryWhereInput>;
 };
 
-
 export type QuerySelectFaqCountByAdminArgs = {
   where?: Maybe<FaqWhereInput>;
 };
-
 
 export type QuerySelectNoticeCountByAdminArgs = {
   where?: Maybe<NoticeWhereInput>;
 };
 
-
 export type QuerySelectUserQuestionBySomeoneArgs = {
   where?: Maybe<UserQuestionWhereInput>;
   orderBy?: Maybe<Array<UserQuestionOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<UserQuestionWhereUniqueInput>;
 };
-
 
 export type QuerySelectUserQuestionCountBySomeoneArgs = {
   where?: Maybe<UserQuestionWhereInput>;
 };
 
-
 export type QuerySelectOrdersByUserArgs = {
   where?: Maybe<OrderWhereInput>;
   orderBy?: Maybe<Array<OrderOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<OrderWhereUniqueInput>;
 };
-
 
 export type QuerySelectPlanInfosForEveryoneArgs = {
   where?: Maybe<PlanInfoWhereInput>;
   orderBy?: Maybe<Array<PlanInfoOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<PlanInfoWhereUniqueInput>;
 };
-
 
 export type QuerySelectTaobaoOrdersByAdminArgs = {
   where?: Maybe<TaobaoOrderWhereInput>;
   orderBy?: Maybe<Array<TaobaoOrderOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<TaobaoOrderWhereUniqueInput>;
 };
-
 
 export type QuerySelectWordTablesBySomeoneArgs = {
   where?: Maybe<WordTableWhereInput>;
   orderBy?: Maybe<Array<WordTableOrderByWithRelationInput>>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars["Int"]>;
+  skip?: Maybe<Scalars["Int"]>;
   cursor?: Maybe<WordTableWhereUniqueInput>;
 };
 
-
 export type QuerySelectSiilInfoBySomeoneArgs = {
-  code: Scalars['String'];
+  code: Scalars["String"];
 };
-
 
 export type QueryTranslateTextArgs = {
   engine?: TranslateEngineEnumType;
-  text: Scalars['String'];
+  text: Scalars["String"];
 };
 
 export type Mutation = {
-  __typename?: 'Mutation';
-  signUpUserByEveryone: Scalars['String'];
+  __typename?: "Mutation";
+  signUpUserByEveryone: Scalars["String"];
   signInUserByEveryone: SignInType;
-  signInUserForImageProgramByEveryone: Scalars['String'];
+  signInUserForImageProgramByEveryone: Scalars["String"];
   connectSocialIdByUser: User;
-  updatePhoneByUser: Scalars['Boolean'];
-  updateMyDataByUser: Scalars['Boolean'];
-  changePasswordByUser: Scalars['Boolean'];
-  withdrawByUser: Scalars['Boolean'];
-  setMaxProductLimitByAdmin: Scalars['Boolean'];
-  updateCnyRateByAdmin: Scalars['Float'];
-  updateTaobaoRefreshDayByAdmin: Scalars['Int'];
-  updateFreeUserProductLimitByAdmin: Scalars['Int'];
-  updateFreeUserDayLimitByAdmin: Scalars['Int'];
+  updatePhoneByUser: Scalars["Boolean"];
+  updateMyDataByUser: Scalars["Boolean"];
+  changePasswordByUser: Scalars["Boolean"];
+  withdrawByUser: Scalars["Boolean"];
+  setMaxProductLimitByAdmin: Scalars["Boolean"];
+  updateCnyRateByAdmin: Scalars["Float"];
+  updateTaobaoRefreshDayByAdmin: Scalars["Int"];
+  updateFreeUserProductLimitByAdmin: Scalars["Int"];
+  updateFreeUserDayLimitByAdmin: Scalars["Int"];
   /** 키워드 검색으로 상품 가져오기 */
-  getTaobaoItemsByUser: Scalars['Boolean'];
+  getTaobaoItemsByUser: Scalars["Boolean"];
   /** 상품 ID/URL로 상품 가져오기 */
-  getTaobaoItemUsingNumIidsByUser: Scalars['Int'];
+  getTaobaoItemUsingNumIidsByUser: Scalars["Int"];
   /** 상품 ID/URL로 상품 가져오기 */
-  getTaobaoItemUsingExcelFileByUser: Scalars['Int'];
+  getTaobaoItemUsingExcelFileByUser: Scalars["Int"];
   /** 키워드 검색으로 상품 가져오기 */
-  getTaobaoItemsByAdmin: Scalars['Boolean'];
+  getTaobaoItemsByAdmin: Scalars["Boolean"];
   /** 상품 ID/URL로 상품 가져오기 */
-  getTaobaoItemUsingNumIidsByAdmin: Scalars['Int'];
+  getTaobaoItemUsingNumIidsByAdmin: Scalars["Int"];
   /** 상품 ID/URL로 상품 가져오기 */
-  getTaobaoItemUsingExcelFileByAdmin: Scalars['Int'];
-  getTaobaoItemUsingExtensionByUser: Scalars['String'];
+  getTaobaoItemUsingExcelFileByAdmin: Scalars["Int"];
+  getTaobaoItemUsingExtensionByUser: Scalars["String"];
   updateProductImageBySomeone: Product;
   updateProductByUser: Product;
   updateProductNameByUser: Product;
-  updateManyProductCategoryByUser: Scalars['Int'];
-  updateManyProductSiilInfoByUser: Scalars['Int'];
-  deleteProductByUser: Scalars['Boolean'];
-  updateProductPriceByUser: Scalars['Int'];
-  endProductSellStateByUser: Scalars['Int'];
+  updateManyProductCategoryByUser: Scalars["Int"];
+  updateManyProductSiilInfoByUser: Scalars["Int"];
+  deleteProductByUser: Scalars["Boolean"];
+  updateProductPriceByUser: Scalars["Int"];
+  endProductSellStateByUser: Scalars["Int"];
   updateProductByAdmin: Product;
   updateProductNameByAdmin: Product;
-  updateManyProductCategoryByAdmin: Scalars['Int'];
-  updateManyProductSiilInfoByAdmin: Scalars['Int'];
-  deleteProductByAdmin: Scalars['Boolean'];
-  updateProductPriceByAdmin: Scalars['Int'];
-  endProductSellStateByAdmin: Scalars['Int'];
-  transferProductsToUserByAdmin: Scalars['String'];
-  setVisibleStateToProductOptionValueBySomeone: Scalars['Boolean'];
-  updateProductStoreUrlInfoBySomeone: Scalars['Boolean'];
-  createNoticeByAdmin: Scalars['Boolean'];
-  updateNoticeByAdmin: Scalars['Boolean'];
-  deleteNoticeByAdmin: Scalars['Int'];
+  updateManyProductCategoryByAdmin: Scalars["Int"];
+  updateManyProductSiilInfoByAdmin: Scalars["Int"];
+  deleteProductByAdmin: Scalars["Boolean"];
+  updateProductPriceByAdmin: Scalars["Int"];
+  endProductSellStateByAdmin: Scalars["Int"];
+  transferProductsToUserByAdmin: Scalars["String"];
+  setVisibleStateToProductOptionValueBySomeone: Scalars["Boolean"];
+  updateProductStoreUrlInfoBySomeone: Scalars["Boolean"];
+  createNoticeByAdmin: Scalars["Boolean"];
+  updateNoticeByAdmin: Scalars["Boolean"];
+  deleteNoticeByAdmin: Scalars["Int"];
   createFaqCategoryByAdmin: FaqCategory;
   modifyFaqCategoryByAdmin: FaqCategory;
-  sortFaqCategoryByAdmin: Scalars['Boolean'];
-  deleteFaqCategoryByAdmin: Scalars['Boolean'];
-  createFaqByAdmin: Scalars['Boolean'];
-  updateFaqByAdmin: Scalars['Boolean'];
-  deleteFaqByAdmin: Scalars['Int'];
-  createUserQuestionByUser: Scalars['Boolean'];
-  updateUserQuestionByAdmin: Scalars['Boolean'];
-  scrapOrderByUser: Scalars['String'];
-  changeOrderStateByUser: Scalars['String'];
-  purchasePlanByUser: Scalars['Int'];
-  cancelPurchasePlanByUser: Scalars['Boolean'];
+  sortFaqCategoryByAdmin: Scalars["Boolean"];
+  deleteFaqCategoryByAdmin: Scalars["Boolean"];
+  createFaqByAdmin: Scalars["Boolean"];
+  updateFaqByAdmin: Scalars["Boolean"];
+  deleteFaqByAdmin: Scalars["Int"];
+  createUserQuestionByUser: Scalars["Boolean"];
+  updateUserQuestionByAdmin: Scalars["Boolean"];
+  scrapOrderByUser: Scalars["String"];
+  changeOrderStateByUser: Scalars["String"];
+  purchasePlanByUser: Scalars["Int"];
+  cancelPurchasePlanByUser: Scalars["Boolean"];
   updatePlanInfoByAdmin: PlanInfo;
-  setPurchaseInfoByAdmin: Scalars['Boolean'];
-  setUserStopTest : Scalars['Boolean'];
-  deleteStore : Scalars['Boolean'];
-  invalidatePurchaseInfoByAdmin: Scalars['Boolean'];
-  signUpAdminByAdmin: Scalars['Boolean'];
+  setPurchaseInfoByAdmin: Scalars["Boolean"];
+  setUserStopTest: Scalars["Boolean"];
+  deleteStore: Scalars["Boolean"];
+  invalidatePurchaseInfoByAdmin: Scalars["Boolean"];
+  signUpAdminByAdmin: Scalars["Boolean"];
   signInAdminByEveryone: SignInType;
-  changeMyPasswordByAdmin: Scalars['Boolean'];
-  addWordByUser: Scalars['Boolean'];
-  modifyWordByUser: Scalars['Boolean'];
-  deleteWordByUser: Scalars['Boolean'];
-  addWordByExcelByUser: Scalars['Boolean'];
+  changeMyPasswordByAdmin: Scalars["Boolean"];
+  addWordByUser: Scalars["Boolean"];
+  modifyWordByUser: Scalars["Boolean"];
+  deleteWordByUser: Scalars["Boolean"];
+  addWordByExcelByUser: Scalars["Boolean"];
   renewToken?: Maybe<SignInType>;
-  requestPhoneVerificationByEveryone: Scalars['Boolean'];
-  verifyPhoneByEveryone: Scalars['Int'];
-  t_createProduct?: Maybe<Scalars['Boolean']>;
-  translateProductTextByUser: Scalars['String'];
-  translateProductsTextByUser: Scalars['String'];
-  cardPayTest : Scalars['String'];
+  requestPhoneVerificationByEveryone: Scalars["Boolean"];
+  verifyPhoneByEveryone: Scalars["Int"];
+  t_createProduct?: Maybe<Scalars["Boolean"]>;
+  translateProductTextByUser: Scalars["String"];
+  translateProductsTextByUser: Scalars["String"];
+  cardPayTest: Scalars["String"];
 };
 
 export type MutationUpdateUserLogArgs = {
-  id: Scalars['Int'];
-  isRead: Scalars['Boolean'];
-}
-
-export type MutationCreateUserLogArgs = {
-  title: Scalars['String'];
-  payloadData: Scalars['String'];
-}
-
-export type MutationExtendMyAccountByUser = {
-  masterId: Scalars['Int'];
-  slaveIds: Array<Scalars['Int']>;
-}
-
-export type MutationSignUpUserByEveryoneArgs = {
-  email: Scalars['String'];
-  password: Scalars['String'];
-  phone: Scalars['String'];
-  verificationId: Scalars['Int'];
+  id: Scalars["Int"];
+  isRead: Scalars["Boolean"];
 };
 
+export type MutationCreateUserLogArgs = {
+  title: Scalars["String"];
+  payloadData: Scalars["String"];
+};
+
+export type MutationExtendMyAccountByUser = {
+  masterId: Scalars["Int"];
+  slaveIds: Array<Scalars["Int"]>;
+};
+
+export type MutationSignUpUserByEveryoneArgs = {
+  email: Scalars["String"];
+  password: Scalars["String"];
+  phone: Scalars["String"];
+  verificationId: Scalars["Int"];
+};
 
 export type MutationSignInUserByEveryoneArgs = {
   userType: UserSocialType;
-  email: Scalars['String'];
-  password: Scalars['String'];
+  email: Scalars["String"];
+  password: Scalars["String"];
 };
-
 
 export type MutationSignInUserForImageProgramByEveryoneArgs = {
   userType: UserLoginType;
-  email: Scalars['String'];
-  password: Scalars['String'];
+  email: Scalars["String"];
+  password: Scalars["String"];
 };
-
 
 export type MutationConnectSocialIdByUserArgs = {
   userType: UserSocialType;
-  socialId: Scalars['String'];
+  socialId: Scalars["String"];
 };
-
 
 export type MutationUpdatePhoneByUserArgs = {
-  phone: Scalars['String'];
-  verificationId: Scalars['Int'];
+  phone: Scalars["String"];
+  verificationId: Scalars["Int"];
 };
-
 
 export type MutationUpdateMyDataByUserArgs = {
-  marginRate?: Maybe<Scalars['Float']>;
-  defaultShippingFee?: Maybe<Scalars['Int']>;
-  fixImageTop?: Maybe<Scalars['Upload']>;
-  fixImageBottom?: Maybe<Scalars['Upload']>;
-  cnyRate?: Maybe<Scalars['Float']>;
-  additionalShippingFeeJeju?: Maybe<Scalars['Int']>;
-  asTel?: Maybe<Scalars['String']>;
-  asInformation?: Maybe<Scalars['String']>;
-  refundShippingFee?: Maybe<Scalars['Int']>;
-  exchangeShippingFee?: Maybe<Scalars['Int']>;
-  naverOriginCode?: Maybe<Scalars['String']>;
-  naverOrigin?: Maybe<Scalars['String']>;
-  coupangOutboundShippingTimeDay?: Maybe<Scalars['Int']>;
-  coupangUnionDeliveryType?: Maybe<Scalars['String']>;
-  coupangMaximumBuyForPerson?: Maybe<Scalars['Int']>;
-  naverStoreUrl?: Maybe<Scalars['String']>;
-  coupangLoginId?: Maybe<Scalars['String']>;
-  coupangVendorId?: Maybe<Scalars['String']>;
-  coupangAccessKey?: Maybe<Scalars['String']>;
-  coupangSecretKey?: Maybe<Scalars['String']>;
+  marginRate?: Maybe<Scalars["Float"]>;
+  defaultShippingFee?: Maybe<Scalars["Int"]>;
+  fixImageTop?: Maybe<Scalars["Upload"]>;
+  fixImageBottom?: Maybe<Scalars["Upload"]>;
+  cnyRate?: Maybe<Scalars["Float"]>;
+  additionalShippingFeeJeju?: Maybe<Scalars["Int"]>;
+  asTel?: Maybe<Scalars["String"]>;
+  asInformation?: Maybe<Scalars["String"]>;
+  refundShippingFee?: Maybe<Scalars["Int"]>;
+  exchangeShippingFee?: Maybe<Scalars["Int"]>;
+  naverOriginCode?: Maybe<Scalars["String"]>;
+  naverOrigin?: Maybe<Scalars["String"]>;
+  coupangOutboundShippingTimeDay?: Maybe<Scalars["Int"]>;
+  coupangUnionDeliveryType?: Maybe<Scalars["String"]>;
+  coupangMaximumBuyForPerson?: Maybe<Scalars["Int"]>;
+  naverStoreUrl?: Maybe<Scalars["String"]>;
+  coupangLoginId?: Maybe<Scalars["String"]>;
+  coupangVendorId?: Maybe<Scalars["String"]>;
+  coupangAccessKey?: Maybe<Scalars["String"]>;
+  coupangSecretKey?: Maybe<Scalars["String"]>;
 };
-
 
 export type MutationChangePasswordByUserArgs = {
-  currentPassword: Scalars['String'];
-  newPassword: Scalars['String'];
+  currentPassword: Scalars["String"];
+  newPassword: Scalars["String"];
 };
 
-
 export type MutationSetMaxProductLimitByAdminArgs = {
-  userId: Scalars['Int'];
-  productLimit?: Maybe<Scalars['Int']>;
+  userId: Scalars["Int"];
+  productLimit?: Maybe<Scalars["Int"]>;
 };
 
 export type MutationDeleteStore = {
-  id :Scalars['Int'];
-  store : Scalars['String'];
-}
+  id: Scalars["Int"];
+  store: Scalars["String"];
+};
 
 export type MutationcardPayTest = {
-  email : Scalars['String'];
-}
+  email: Scalars["String"];
+};
 
 export type MutationUpdateCnyRateByAdminArgs = {
-  cnyRate: Scalars['Float'];
+  cnyRate: Scalars["Float"];
 };
-
 
 export type MutationUpdateTaobaoRefreshDayByAdminArgs = {
-  day: Scalars['Int'];
+  day: Scalars["Int"];
 };
-
 
 export type MutationUpdateFreeUserProductLimitByAdminArgs = {
-  day: Scalars['Int'];
+  day: Scalars["Int"];
 };
-
 
 export type MutationUpdateFreeUserDayLimitByAdminArgs = {
-  day: Scalars['Int'];
+  day: Scalars["Int"];
 };
-
 
 export type MutationGetTaobaoItemsByUserArgs = {
-  query: Scalars['String'];
+  query: Scalars["String"];
   orderBy: TaobaoItemOrderBy;
-  startPrice?: Maybe<Scalars['Float']>;
-  endPrice?: Maybe<Scalars['Float']>;
-  page?: Maybe<Scalars['Int']>;
-  pageCount?: Maybe<Scalars['Int']>;
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
+  startPrice?: Maybe<Scalars["Float"]>;
+  endPrice?: Maybe<Scalars["Float"]>;
+  page?: Maybe<Scalars["Int"]>;
+  pageCount?: Maybe<Scalars["Int"]>;
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
 };
-
 
 export type MutationGetTaobaoItemUsingNumIidsByUserArgs = {
-  taobaoIds: Array<Scalars['String']>;
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
+  taobaoIds: Array<Scalars["String"]>;
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
 };
-
 
 export type MutationGetTaobaoItemUsingExcelFileByUserArgs = {
-  data: Scalars['Upload'];
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
+  data: Scalars["Upload"];
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
 };
-
 
 export type MutationGetTaobaoItemsByAdminArgs = {
-  query: Scalars['String'];
+  query: Scalars["String"];
   orderBy: TaobaoItemOrderBy;
-  startPrice?: Maybe<Scalars['Float']>;
-  endPrice?: Maybe<Scalars['Float']>;
-  page?: Maybe<Scalars['Int']>;
-  pageCount?: Maybe<Scalars['Int']>;
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['Int']>;
+  startPrice?: Maybe<Scalars["Float"]>;
+  endPrice?: Maybe<Scalars["Float"]>;
+  page?: Maybe<Scalars["Int"]>;
+  pageCount?: Maybe<Scalars["Int"]>;
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
+  userId?: Maybe<Scalars["Int"]>;
 };
-
 
 export type MutationGetTaobaoItemUsingNumIidsByAdminArgs = {
-  taobaoIds: Array<Scalars['String']>;
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['Int']>;
+  taobaoIds: Array<Scalars["String"]>;
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
+  userId?: Maybe<Scalars["Int"]>;
 };
-
 
 export type MutationGetTaobaoItemUsingExcelFileByAdminArgs = {
-  data: Scalars['Upload'];
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['Int']>;
+  data: Scalars["Upload"];
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
+  userId?: Maybe<Scalars["Int"]>;
 };
 
-
 export type MutationGetTaobaoItemUsingExtensionByUserArgs = {
-  data: Scalars['String'];
+  data: Scalars["String"];
 };
 
 export type MutationInitProductImageArgs = {
-  productId: Scalars['Int'];
-}
+  productId: Scalars["Int"];
+};
 
 export type MutationUpdateProductImageBySomeoneArgs = {
-  productId: Scalars['Int'];
-  description?: Maybe<Scalars['String']>;
+  productId: Scalars["Int"];
+  description?: Maybe<Scalars["String"]>;
   optionValues: Array<ProductOptionValueImageUpdateInput>;
   thumbnails?: Maybe<Array<ProductThumbnailImageUpdateInput>>;
 };
 
 export type MutationUpdateProductByUserArgs = {
-  productId: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['Int']>;
-  description?: Maybe<Scalars['String']>;
-  localShippingFee?: Maybe<Scalars['Int']>;
-  localShippingCode?: Maybe<Scalars['Int']>;
-  shippingFee?: Maybe<Scalars['Int']>;
+  productId: Scalars["Int"];
+  name?: Maybe<Scalars["String"]>;
+  price?: Maybe<Scalars["Int"]>;
+  description?: Maybe<Scalars["String"]>;
+  localShippingFee?: Maybe<Scalars["Int"]>;
+  localShippingCode?: Maybe<Scalars["Int"]>;
+  shippingFee?: Maybe<Scalars["Int"]>;
   options: Array<ProductOptionUpdateInput>;
   optionNames: Array<ProductOptionNameUpdateInput>;
   optionValues: Array<ProductOptionValueUpdateInput>;
   thumbnails?: Maybe<Array<ProductThumbnailUpdateInput>>;
-  categoryCode?: Maybe<Scalars['String']>;
-  categoryA077?: Maybe<Scalars['String']>;
-  categoryA077Name?: Maybe<Scalars['String']>;
-  categoryB378?: Maybe<Scalars['String']>;
-  categoryB378Name?: Maybe<Scalars['String']>;
-  categoryA112?: Maybe<Scalars['String']>;
-  categoryA112Name?: Maybe<Scalars['String']>;
-  categoryA027?: Maybe<Scalars['String']>;
-  categoryA027Name?: Maybe<Scalars['String']>;
-  categoryA001?: Maybe<Scalars['String']>;
-  categoryA001Name?: Maybe<Scalars['String']>;
-  categoryA006?: Maybe<Scalars['String']>;
-  categoryA006Name?: Maybe<Scalars['String']>;
-  categoryB719?: Maybe<Scalars['String']>;
-  categoryB719Name?: Maybe<Scalars['String']>;
-  categoryA113?: Maybe<Scalars['String']>;
-  categoryA113Name?: Maybe<Scalars['String']>;
-  categoryA524?: Maybe<Scalars['String']>;
-  categoryA524Name?: Maybe<Scalars['String']>;
-  categoryA525?: Maybe<Scalars['String']>;
-  categoryA525Name?: Maybe<Scalars['String']>;
-  categoryB956?: Maybe<Scalars['String']>;
-  categoryB956Name?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
+  categoryCode?: Maybe<Scalars["String"]>;
+  categoryA077?: Maybe<Scalars["String"]>;
+  categoryA077Name?: Maybe<Scalars["String"]>;
+  categoryB378?: Maybe<Scalars["String"]>;
+  categoryB378Name?: Maybe<Scalars["String"]>;
+  categoryA112?: Maybe<Scalars["String"]>;
+  categoryA112Name?: Maybe<Scalars["String"]>;
+  categoryA027?: Maybe<Scalars["String"]>;
+  categoryA027Name?: Maybe<Scalars["String"]>;
+  categoryA001?: Maybe<Scalars["String"]>;
+  categoryA001Name?: Maybe<Scalars["String"]>;
+  categoryA006?: Maybe<Scalars["String"]>;
+  categoryA006Name?: Maybe<Scalars["String"]>;
+  categoryB719?: Maybe<Scalars["String"]>;
+  categoryB719Name?: Maybe<Scalars["String"]>;
+  categoryA113?: Maybe<Scalars["String"]>;
+  categoryA113Name?: Maybe<Scalars["String"]>;
+  categoryA524?: Maybe<Scalars["String"]>;
+  categoryA524Name?: Maybe<Scalars["String"]>;
+  categoryA525?: Maybe<Scalars["String"]>;
+  categoryA525Name?: Maybe<Scalars["String"]>;
+  categoryB956?: Maybe<Scalars["String"]>;
+  categoryB956Name?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
   siilData?: Maybe<Array<SiilInput>>;
-  searchTags?: Maybe<Scalars['String']>;
+  searchTags?: Maybe<Scalars["String"]>;
 };
 
 export type MutationDisableUserOptionArgs = {
-  id: Scalars['Int'];
-}
+  id: Scalars["Int"];
+};
 
 export type MutationUpdateProductNameByUserArgs = {
-  productId: Scalars['Int'];
-  name: Scalars['String'];
+  productId: Scalars["Int"];
+  name: Scalars["String"];
 };
 
 export type MutationUpdateManyProductTagByUserArgs = {
-  productIds: Array<Scalars['Int']>;
-  searchTags: Scalars['String'];
-}
+  productIds: Array<Scalars["Int"]>;
+  searchTags: Scalars["String"];
+};
 
 export type MutationUpdateManyProductNameByUserArgs = {
-  productIds: Array<Scalars['Int']>;
-  headText: Scalars['String'];
-  bodyText: Scalars['String'];
-  tailText: Scalars['String'];
+  productIds: Array<Scalars["Int"]>;
+  headText: Scalars["String"];
+  bodyText: Scalars["String"];
+  tailText: Scalars["String"];
 };
 
 export type MutationUpdateManyProductCategoryByUserArgs = {
-  productIds: Array<Scalars['Int']>;
-  categoryA077?: Maybe<Scalars['String']>;
-  categoryA077Name?: Maybe<Scalars['String']>;
-  categoryB378?: Maybe<Scalars['String']>;
-  categoryB378Name?: Maybe<Scalars['String']>;
-  categoryA112?: Maybe<Scalars['String']>;
-  categoryA112Name?: Maybe<Scalars['String']>;
-  categoryA027?: Maybe<Scalars['String']>;
-  categoryA027Name?: Maybe<Scalars['String']>;
-  categoryA001?: Maybe<Scalars['String']>;
-  categoryA001Name?: Maybe<Scalars['String']>;
-  categoryA006?: Maybe<Scalars['String']>;
-  categoryA006Name?: Maybe<Scalars['String']>;
-  categoryB719?: Maybe<Scalars['String']>;
-  categoryB719Name?: Maybe<Scalars['String']>;
-  categoryA113?: Maybe<Scalars['String']>;
-  categoryA113Name?: Maybe<Scalars['String']>;
-  categoryA524?: Maybe<Scalars['String']>;
-  categoryA524Name?: Maybe<Scalars['String']>;
-  categoryA525?: Maybe<Scalars['String']>;
-  categoryA525Name?: Maybe<Scalars['String']>;
-  categoryB956?: Maybe<Scalars['String']>;
-  categoryB956Name?: Maybe<Scalars['String']>;
+  productIds: Array<Scalars["Int"]>;
+  categoryA077?: Maybe<Scalars["String"]>;
+  categoryA077Name?: Maybe<Scalars["String"]>;
+  categoryB378?: Maybe<Scalars["String"]>;
+  categoryB378Name?: Maybe<Scalars["String"]>;
+  categoryA112?: Maybe<Scalars["String"]>;
+  categoryA112Name?: Maybe<Scalars["String"]>;
+  categoryA027?: Maybe<Scalars["String"]>;
+  categoryA027Name?: Maybe<Scalars["String"]>;
+  categoryA001?: Maybe<Scalars["String"]>;
+  categoryA001Name?: Maybe<Scalars["String"]>;
+  categoryA006?: Maybe<Scalars["String"]>;
+  categoryA006Name?: Maybe<Scalars["String"]>;
+  categoryB719?: Maybe<Scalars["String"]>;
+  categoryB719Name?: Maybe<Scalars["String"]>;
+  categoryA113?: Maybe<Scalars["String"]>;
+  categoryA113Name?: Maybe<Scalars["String"]>;
+  categoryA524?: Maybe<Scalars["String"]>;
+  categoryA524Name?: Maybe<Scalars["String"]>;
+  categoryA525?: Maybe<Scalars["String"]>;
+  categoryA525Name?: Maybe<Scalars["String"]>;
+  categoryB956?: Maybe<Scalars["String"]>;
+  categoryB956Name?: Maybe<Scalars["String"]>;
 };
 
 export type MutationUpdateManyProductSiilInfoByUserArgs = {
-  productIds: Array<Scalars['Int']>;
-  siilCode: Scalars['String'];
+  productIds: Array<Scalars["Int"]>;
+  siilCode: Scalars["String"];
 };
 
 export type MutationDeleteProductByUserArgs = {
-  productId: Scalars['Int'];
+  productId: Scalars["Int"];
 };
 
 export type MutationUpdateProductPriceByUserArgs = {
-  productIds: Array<Scalars['Int']>;
-  cnyRate: Scalars['Float'];
-  marginRate: Scalars['Float'];
-  marginUnitType: Scalars['String'];
-  shippingFee: Scalars['Int'];
-  localShippingFee: Scalars['Int'];
-  localShippingCode: Scalars['Int'];
+  productIds: Array<Scalars["Int"]>;
+  cnyRate: Scalars["Float"];
+  marginRate: Scalars["Float"];
+  marginUnitType: Scalars["String"];
+  shippingFee: Scalars["Int"];
+  localShippingFee: Scalars["Int"];
+  localShippingCode: Scalars["Int"];
 };
 
 export type MutationEndProductSellStateByUserArgs = {
-  productIds: Array<Scalars['Int']>;
+  productIds: Array<Scalars["Int"]>;
 };
 
 export type MutationUpdateProductByAdminArgs = {
-  productId: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['Int']>;
-  description?: Maybe<Scalars['String']>;
-  localShippingFee?: Maybe<Scalars['Int']>;
-  shippingFee?: Maybe<Scalars['Int']>;
+  productId: Scalars["Int"];
+  name?: Maybe<Scalars["String"]>;
+  price?: Maybe<Scalars["Int"]>;
+  description?: Maybe<Scalars["String"]>;
+  localShippingFee?: Maybe<Scalars["Int"]>;
+  shippingFee?: Maybe<Scalars["Int"]>;
   options: Array<ProductOptionUpdateInput>;
   optionNames: Array<ProductOptionNameUpdateInput>;
   optionValues: Array<ProductOptionValueUpdateInput>;
   thumbnails?: Maybe<Array<ProductThumbnailUpdateInput>>;
-  categoryCode?: Maybe<Scalars['String']>;
-  siilCode?: Maybe<Scalars['String']>;
+  categoryCode?: Maybe<Scalars["String"]>;
+  siilCode?: Maybe<Scalars["String"]>;
   siilData?: Maybe<Array<SiilInput>>;
 };
 
-
 export type MutationUpdateProductNameByAdminArgs = {
-  productId: Scalars['Int'];
-  name: Scalars['String'];
+  productId: Scalars["Int"];
+  name: Scalars["String"];
 };
-
 
 export type MutationUpdateManyProductCategoryByAdminArgs = {
-  productIds: Array<Scalars['Int']>;
-  categoryCode: Scalars['String'];
+  productIds: Array<Scalars["Int"]>;
+  categoryCode: Scalars["String"];
 };
-
 
 export type MutationUpdateManyProductSiilInfoByAdminArgs = {
-  productIds: Array<Scalars['Int']>;
-  siilCode: Scalars['String'];
+  productIds: Array<Scalars["Int"]>;
+  siilCode: Scalars["String"];
 };
-
 
 export type MutationDeleteProductByAdminArgs = {
-  productId: Scalars['Int'];
+  productId: Scalars["Int"];
 };
-
 
 export type MutationUpdateProductPriceByAdminArgs = {
-  productIds: Array<Scalars['Int']>;
-  cnyRate: Scalars['Float'];
-  marginRate: Scalars['Float'];
-  shippingFee: Scalars['Int'];
-  localShippingFee: Scalars['Int'];
-  localShippingCode: Scalars['Int'];
+  productIds: Array<Scalars["Int"]>;
+  cnyRate: Scalars["Float"];
+  marginRate: Scalars["Float"];
+  shippingFee: Scalars["Int"];
+  localShippingFee: Scalars["Int"];
+  localShippingCode: Scalars["Int"];
 };
-
 
 export type MutationEndProductSellStateByAdminArgs = {
-  productIds: Array<Scalars['Int']>;
+  productIds: Array<Scalars["Int"]>;
 };
-
 
 export type MutationTransferProductsToUserByAdminArgs = {
-  productIds: Array<Scalars['Int']>;
-  targetUserId: Scalars['Int'];
+  productIds: Array<Scalars["Int"]>;
+  targetUserId: Scalars["Int"];
 };
-
 
 export type MutationSetVisibleStateToProductOptionValueBySomeoneArgs = {
-  productOptionValueId: Scalars['Int'];
-  isActive: Scalars['Boolean'];
+  productOptionValueId: Scalars["Int"];
+  isActive: Scalars["Boolean"];
 };
-
 
 export type MutationUpdateProductStoreUrlInfoBySomeoneArgs = {
-  productStoreId: Scalars['Int'];
-  etcVendorItemId: Scalars['String'];
+  productStoreId: Scalars["Int"];
+  etcVendorItemId: Scalars["String"];
 };
-
 
 export type MutationCreateNoticeByAdminArgs = {
-  title: Scalars['String'];
-  content: Scalars['String'];
-  attachment?: Maybe<Scalars['Upload']>;
+  title: Scalars["String"];
+  content: Scalars["String"];
+  attachment?: Maybe<Scalars["Upload"]>;
 };
-
 
 export type MutationUpdateNoticeByAdminArgs = {
-  noticeId: Scalars['Int'];
-  title?: Maybe<Scalars['String']>;
-  content?: Maybe<Scalars['String']>;
-  attachment?: Maybe<Scalars['Upload']>;
+  noticeId: Scalars["Int"];
+  title?: Maybe<Scalars["String"]>;
+  content?: Maybe<Scalars["String"]>;
+  attachment?: Maybe<Scalars["Upload"]>;
 };
-
 
 export type MutationDeleteNoticeByAdminArgs = {
-  noticeIds: Array<Scalars['Int']>;
+  noticeIds: Array<Scalars["Int"]>;
 };
-
 
 export type MutationCreateFaqCategoryByAdminArgs = {
-  name: Scalars['String'];
+  name: Scalars["String"];
 };
-
 
 export type MutationModifyFaqCategoryByAdminArgs = {
-  faqCategoryId: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  isActive?: Maybe<Scalars['Boolean']>;
+  faqCategoryId: Scalars["Int"];
+  name?: Maybe<Scalars["String"]>;
+  isActive?: Maybe<Scalars["Boolean"]>;
 };
-
 
 export type MutationSortFaqCategoryByAdminArgs = {
-  faqCategoryIds: Array<Scalars['Int']>;
+  faqCategoryIds: Array<Scalars["Int"]>;
 };
-
 
 export type MutationDeleteFaqCategoryByAdminArgs = {
-  faqCategoryId: Scalars['Int'];
+  faqCategoryId: Scalars["Int"];
 };
-
 
 export type MutationCreateFaqByAdminArgs = {
-  faqCategoryId: Scalars['Int'];
-  title: Scalars['String'];
-  content: Scalars['String'];
+  faqCategoryId: Scalars["Int"];
+  title: Scalars["String"];
+  content: Scalars["String"];
 };
-
 
 export type MutationUpdateFaqByAdminArgs = {
-  faqId: Scalars['Int'];
-  faqCategoryId?: Maybe<Scalars['Int']>;
-  title?: Maybe<Scalars['String']>;
-  content?: Maybe<Scalars['String']>;
+  faqId: Scalars["Int"];
+  faqCategoryId?: Maybe<Scalars["Int"]>;
+  title?: Maybe<Scalars["String"]>;
+  content?: Maybe<Scalars["String"]>;
 };
-
 
 export type MutationDeleteFaqByAdminArgs = {
-  faqIds: Array<Scalars['Int']>;
+  faqIds: Array<Scalars["Int"]>;
 };
-
 
 export type MutationCreateUserQuestionByUserArgs = {
-  title: Scalars['String'];
-  content: Scalars['String'];
-  attachment?: Maybe<Array<Scalars['Upload']>>;
+  title: Scalars["String"];
+  content: Scalars["String"];
+  attachment?: Maybe<Array<Scalars["Upload"]>>;
 };
-
 
 export type MutationUpdateUserQuestionByAdminArgs = {
-  userQuestionId: Scalars['Int'];
-  answer: Scalars['String'];
+  userQuestionId: Scalars["Int"];
+  answer: Scalars["String"];
 };
-
 
 export type MutationScrapOrderByUserArgs = {
-  shopDataId: Scalars['Int'];
-  collectNewOrder: Scalars['Boolean'];
+  shopDataId: Scalars["Int"];
+  collectNewOrder: Scalars["Boolean"];
 };
 
-
 export type MutationChangeOrderStateByUserArgs = {
-  orderIds: Array<Scalars['String']>;
+  orderIds: Array<Scalars["String"]>;
   destState: OrderState;
 };
 
-
 export type MutationPurchasePlanByUserArgs = {
-  planInfoId: Scalars['Int'];
-  merchantUid: Scalars['String'];
+  planInfoId: Scalars["Int"];
+  merchantUid: Scalars["String"];
 };
-
 
 export type MutationCancelPurchasePlanByUserArgs = {
-  merchantUid: Scalars['String'];
+  merchantUid: Scalars["String"];
 };
-
 
 export type MutationUpdatePlanInfoByAdminArgs = {
-  planId: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['Int']>;
-  isActive?: Maybe<Scalars['Boolean']>;
+  planId: Scalars["Int"];
+  name?: Maybe<Scalars["String"]>;
+  description?: Maybe<Scalars["String"]>;
+  price?: Maybe<Scalars["Int"]>;
+  isActive?: Maybe<Scalars["Boolean"]>;
 };
 
-
 export type MutationSetPurchaseInfoByAdminArgs = {
-  userId: Scalars['Int'];
-  planInfoId: Scalars['Int'];
-  expiredAt?: Maybe<Scalars['DateTime']>;
+  userId: Scalars["Int"];
+  planInfoId: Scalars["Int"];
+  expiredAt?: Maybe<Scalars["DateTime"]>;
 };
 
 export type MutationSetMultiPurchaseInfoByAdminArgs = {
   purchaseInputs: Array<purchaseInputs>;
-  credit: Scalars['Int'];
+  credit: Scalars["Int"];
 };
 
 export type MutationsetUserStopTest = {
-  userId : Scalars['Int'];
-}
+  userId: Scalars["Int"];
+};
 
 export type MutationInvalidatePurchaseInfoByAdminArgs = {
-  purchaseLogId: Scalars['Int'];
+  purchaseLogId: Scalars["Int"];
 };
-
 
 export type MutationSignUpAdminByAdminArgs = {
-  id: Scalars['String'];
-  password: Scalars['String'];
+  id: Scalars["String"];
+  password: Scalars["String"];
 };
-
 
 export type MutationSignInAdminByEveryoneArgs = {
-  id: Scalars['String'];
-  password: Scalars['String'];
+  id: Scalars["String"];
+  password: Scalars["String"];
 };
-
 
 export type MutationChangeMyPasswordByAdminArgs = {
-  currentPassword: Scalars['String'];
-  newPassword: Scalars['String'];
+  currentPassword: Scalars["String"];
+  newPassword: Scalars["String"];
 };
-
 
 export type MutationAddWordByUserArgs = {
-  findWord: Scalars['String'];
-  replaceWord?: Maybe<Scalars['String']>;
+  findWord: Scalars["String"];
+  replaceWord?: Maybe<Scalars["String"]>;
 };
-
 
 export type MutationModifyWordByUserArgs = {
-  wordId: Scalars['Int'];
-  findWord: Scalars['String'];
-  replaceWord?: Maybe<Scalars['String']>;
+  wordId: Scalars["Int"];
+  findWord: Scalars["String"];
+  replaceWord?: Maybe<Scalars["String"]>;
 };
-
 
 export type MutationDeleteWordByUserArgs = {
-  wordId: Scalars['Int'];
+  wordId: Scalars["Int"];
 };
-
 
 export type MutationAddWordByExcelByUserArgs = {
-  data: Scalars['Upload'];
-  isReplace: Scalars['Boolean'];
+  data: Scalars["Upload"];
+  isReplace: Scalars["Boolean"];
 };
-
 
 export type MutationRenewTokenArgs = {
-  accessToken: Scalars['String'];
-  refreshToken: Scalars['String'];
+  accessToken: Scalars["String"];
+  refreshToken: Scalars["String"];
 };
-
 
 export type MutationRequestPhoneVerificationByEveryoneArgs = {
-  phoneNumber: Scalars['String'];
+  phoneNumber: Scalars["String"];
 };
-
 
 export type MutationVerifyPhoneByEveryoneArgs = {
-  phoneNumber: Scalars['String'];
-  verificationNumber: Scalars['String'];
+  phoneNumber: Scalars["String"];
+  verificationNumber: Scalars["String"];
 };
-
 
 export type MutationTranslateProductTextByUserArgs = {
   type: TranslateTargetEnumType;
-  id: Scalars['Int'];
+  id: Scalars["Int"];
 };
-
 
 export type MutationTranslateProductsTextByUserArgs = {
   type: TranslateTargetEnumType;
-  ids: Array<Scalars['Int']>;
+  ids: Array<Scalars["Int"]>;
 };
 
 export type Subscription = {
-  __typename?: 'Subscription';
+  __typename?: "Subscription";
   subscribeUserEvent?: Maybe<UserLog>;
-  subscribeTaobaoOrderQueueEventByAdmin: Scalars['Int'];
+  subscribeTaobaoOrderQueueEventByAdmin: Scalars["Int"];
+};
+
+export type MutationDeleteUser = {
+  userId: Scalars["Int"];
 };

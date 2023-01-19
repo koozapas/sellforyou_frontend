@@ -37,9 +37,7 @@ const AdminFaq = () => {
   const history = useHistory();
 
   const [faqData, setFaqData] = useState<Array<FaqCategory>>([]);
-  const [sortCategory, setSortCategory] = useState<Array<ISortClassContents>>(
-    []
-  );
+  const [sortCategory, setSortCategory] = useState<Array<ISortClassContents>>([]);
 
   //FAQ 데이터 뽑기
   const { data: faqListData } = useQuery<{
@@ -47,36 +45,31 @@ const AdminFaq = () => {
   }>(QUERIES.FAQ_DATA_LIST, { onError: onApolloError });
 
   //카테고리 생성
-  const [createFaqCategoryBtAdmin] = useMutation<
-    { createFaqCategoryByAdmin: FaqCategory },
-    MutationCreateFaqCategoryByAdminArgs
-  >(MUTATIONS.CREATE_FAQ_CATEGORY_BY_ADMIN, {
-    refetchQueries: ["FAQ_DATA_LIST"],
-  });
+  const [createFaqCategoryBtAdmin] = useMutation<{ createFaqCategoryByAdmin: FaqCategory }, MutationCreateFaqCategoryByAdminArgs>(
+    MUTATIONS.CREATE_FAQ_CATEGORY_BY_ADMIN,
+    {
+      refetchQueries: ["FAQ_DATA_LIST"],
+    }
+  );
   //카테고리 삭제
-  const [deleteFaqCategoryByAdmin] = useMutation<
-    { deleteFaqCategoryByAdmin: Boolean },
-    MutationDeleteFaqCategoryByAdminArgs
-  >(MUTATIONS.DELETE_FAQ_CATEGORY_BY_ADMIN, {
-    refetchQueries: ["FAQ_DATA_LIST"],
-  });
+  const [deleteFaqCategoryByAdmin] = useMutation<{ deleteFaqCategoryByAdmin: Boolean }, MutationDeleteFaqCategoryByAdminArgs>(
+    MUTATIONS.DELETE_FAQ_CATEGORY_BY_ADMIN,
+    {
+      refetchQueries: ["FAQ_DATA_LIST"],
+    }
+  );
   //카테고리 수정
-  const [modifyFaqCategoryByAdmin] = useMutation<
-    { modifyFaqCategoryByAdmin: FaqCategory },
-    MutationModifyFaqCategoryByAdminArgs
-  >(MUTATIONS.MODIFY_FAQ_CATEGORY_BY_ADMIN);
+  const [modifyFaqCategoryByAdmin] = useMutation<{ modifyFaqCategoryByAdmin: FaqCategory }, MutationModifyFaqCategoryByAdminArgs>(
+    MUTATIONS.MODIFY_FAQ_CATEGORY_BY_ADMIN
+  );
 
   //faq 삭제
-  const [deleteFaqByAdmin] = useMutation<
-    { deleteFaqByAdmin: Number },
-    MutationDeleteFaqByAdminArgs
-  >(MUTATIONS.DELETE_FAQ_BY_ADMIN, {
+  const [deleteFaqByAdmin] = useMutation<{ deleteFaqByAdmin: Number }, MutationDeleteFaqByAdminArgs>(MUTATIONS.DELETE_FAQ_BY_ADMIN, {
     refetchQueries: ["FAQ_DATA_LIST"],
   });
 
   useEffect(() => {
-    if (faqListData?.selectFaqCategoriesByEveryone)
-      setFaqData(faqListData?.selectFaqCategoriesByEveryone);
+    if (faqListData?.selectFaqCategoriesByEveryone) setFaqData(faqListData?.selectFaqCategoriesByEveryone);
   }, [faqListData]);
 
   const createFaqCategory = (e) => {
@@ -132,9 +125,7 @@ const AdminFaq = () => {
 
   //////////sort//////////
   useEffect(() => {
-    const createDataSource = (
-      category: FaqCategory[]
-    ): ISortClassContents[] => {
+    const createDataSource = (category: FaqCategory[]): ISortClassContents[] => {
       return category.map((v, i) => ({
         key: String(i + 1),
         index: i,
@@ -147,9 +138,7 @@ const AdminFaq = () => {
     };
     // 쿼리결과에 key, index 추가
     if (faqListData) {
-      setSortCategory(
-        createDataSource(faqListData?.selectFaqCategoriesByEveryone)
-      );
+      setSortCategory(createDataSource(faqListData?.selectFaqCategoriesByEveryone));
     }
   }, [faqListData]);
 
@@ -159,24 +148,12 @@ const AdminFaq = () => {
       data = [...sortCategory];
     }
     if (oldIndex !== newIndex) {
-      const newData = arrayMove(
-        [].concat(data as any),
-        oldIndex,
-        newIndex
-      ).filter((el) => !!el);
+      const newData = arrayMove([].concat(data as any), oldIndex, newIndex).filter((el) => !!el);
       setSortCategory(newData);
     }
   };
 
-  const DraggableContainer = ({ ...props }) => (
-    <SortContainer
-      useDragHandle
-      disableAutoscroll
-      helperClass="row-dragging"
-      onSortEnd={onSortEnd}
-      {...props}
-    />
-  );
+  const DraggableContainer = ({ ...props }) => <SortContainer useDragHandle disableAutoscroll helperClass="row-dragging" onSortEnd={onSortEnd} {...props} />;
 
   const DraggableBodyRow = ({ ...props }) => {
     let data;
@@ -188,12 +165,8 @@ const AdminFaq = () => {
   };
 
   return (
-    <Card style={{ marginBottom: "60px" }}>
-      <Row
-        align="middle"
-        justify="space-between"
-        style={{ marginBottom: "20px" }}
-      >
+    <Card>
+      <Row align="middle" justify="space-between" style={{ marginBottom: "20px" }}>
         <Row>
           <Col style={{ fontSize: "16px", fontWeight: 600 }}>FAQ</Col>
         </Row>
@@ -277,9 +250,7 @@ const AdminFaq = () => {
                     header={
                       <Row justify="space-between" align="middle">
                         <Col>
-                          <span style={{ fontSize: "16px", fontWeight: 700 }}>
-                            Q. {faqVal.title}
-                          </span>
+                          <span style={{ fontSize: "16px", fontWeight: 700 }}>Q. {faqVal.title}</span>
                         </Col>
                         <Col>
                           <Button
@@ -287,10 +258,7 @@ const AdminFaq = () => {
                             type="primary"
                             onClick={(e) => {
                               e.stopPropagation();
-                              history.push(
-                                "/admin/customer-center/write-faq?id=" +
-                                  faqVal.id
-                              );
+                              history.push("/admin/customer-center/write-faq?id=" + faqVal.id);
                             }}
                           >
                             수정
@@ -310,9 +278,7 @@ const AdminFaq = () => {
                       </Row>
                     }
                   >
-                    <div
-                      dangerouslySetInnerHTML={{ __html: faqVal.content }}
-                    ></div>
+                    <div dangerouslySetInnerHTML={{ __html: faqVal.content }}></div>
                   </Panel>
                 ))}
               </Collapse>

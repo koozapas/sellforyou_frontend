@@ -3,11 +3,7 @@ import { Card, Table, Button, Row, Col, Input, message } from "antd";
 import { useHistory } from "react-router-dom";
 import { ApolloError, useMutation, useQuery } from "@apollo/client";
 import QUERIES from "src/apis/queries";
-import {
-  Notice,
-  MutationDeleteNoticeByAdminArgs,
-  QuerySelectNoticesByEveryoneArgs,
-} from "src/types";
+import { Notice, MutationDeleteNoticeByAdminArgs, QuerySelectNoticesByEveryoneArgs } from "src/types";
 import MUTATIONS from "src/apis/mutations";
 import { format } from "date-fns";
 
@@ -40,26 +36,17 @@ const NoticeWrapPage = (props: Props) => {
   const [pageSize, setPageSize] = useState<number>(10); // n개씩 보기
   const [selectedItemIds, setSelectedItemIds] = useState<Array<number>>([]);
 
-  const { data: noticesData, loading: noticesLoading } = useQuery<
-    { selectNoticesByEveryone: Notice[] },
-    QuerySelectNoticesByEveryoneArgs
-  >(QUERIES.NOTICE_DATA_LIST);
+  const { data: noticesData, loading: noticesLoading } = useQuery<{ selectNoticesByEveryone: Notice[] }, QuerySelectNoticesByEveryoneArgs>(
+    QUERIES.NOTICE_DATA_LIST
+  );
 
-  const [deleteNoticeByAdmin] = useMutation<
-    { deleteNoticeByAdmin: number },
-    MutationDeleteNoticeByAdminArgs
-  >(MUTATIONS.DELETA_NOTICE_BY_ADMIN, {
+  const [deleteNoticeByAdmin] = useMutation<{ deleteNoticeByAdmin: number }, MutationDeleteNoticeByAdminArgs>(MUTATIONS.DELETA_NOTICE_BY_ADMIN, {
     refetchQueries: ["NOTICE_DATA_LIST"],
   });
 
   const rowSelection = {
     selectedRowKeys: selectedItemIds,
-    onSelect: (
-      record: Notice,
-      selected: boolean,
-      selectedRows: Notice[],
-      nativeEvent: any
-    ) => {
+    onSelect: (record: Notice, selected: boolean, selectedRows: Notice[], nativeEvent: any) => {
       let tempData = [...selectedItemIds];
       if (selected) {
         tempData.push(record.id ?? 0);
@@ -77,24 +64,16 @@ const NoticeWrapPage = (props: Props) => {
       } else {
         //한페이지에 선택된 항목만 제거
         const selectedRowsUserId = changeRows.map((v) => v.id);
-        setSelectedItemIds(
-          selectedItemIds.filter(
-            (v) => !selectedRowsUserId.includes(v as number)
-          )
-        );
+        setSelectedItemIds(selectedItemIds.filter((v) => !selectedRowsUserId.includes(v as number)));
       }
     },
   };
 
   return (
-    <Card style={{ marginBottom: "60px" }}>
+    <Card>
       <Row className="mr-20px" justify="space-between">
         <Row align="middle">
-          <Col
-            style={{ fontSize: "16px", fontWeight: 600, marginRight: "50px" }}
-          >
-            공지사항
-          </Col>
+          <Col style={{ fontSize: "16px", fontWeight: 600, marginRight: "50px" }}>공지사항</Col>
         </Row>
         <Row>
           <Col style={{ marginRight: "20px" }}>
@@ -157,9 +136,7 @@ const NoticeWrapPage = (props: Props) => {
         onRow={(record, rowIndex) => {
           return {
             onClick: (event) => {
-              history.push(
-                `/admin/customer-center/write-notice?id=${record.id}`
-              );
+              history.push(`/admin/customer-center/write-notice?id=${record.id}`);
             },
           };
         }}

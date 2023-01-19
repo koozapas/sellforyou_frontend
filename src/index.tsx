@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+
 import { hydrate, render } from "react-dom";
-import App from './App';
-import './index.css';
-import 'src/assets/styles/tailwind/main.css';
-import * as serviceWorker from './serviceWorker';
+
+import "./index.css";
+import "src/assets/styles/tailwind/main.css";
 
 const rootElement = document.getElementById("root");
 

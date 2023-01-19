@@ -1,10 +1,6 @@
 import React from "react";
-import Slider from "react-slick";
 import ICON from "src/assets/icon";
-import IMAGE from "src/assets/image";
 import PRICING from "src/assets/image/pricing.png";
-
-import LandingPage2 from "src/pages/user/payment/service-pay";
 
 import { Row, Col, Button } from "antd";
 

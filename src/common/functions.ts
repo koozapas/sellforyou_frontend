@@ -13,10 +13,7 @@ export const onApolloError = (error: ApolloError) => {
  * @param option prefix: 접두사, suffix: 접미사
  * @returns 콤마가 붙은 숫자
  */
-export const formatToComma = (
-  value: string | number,
-  option?: { prefix?: string; suffix?: string }
-): string => {
+export const formatToComma = (value: string | number, option?: { prefix?: string; suffix?: string }): string => {
   let result = value;
 
   switch (typeof result) {

@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import { useMutation } from "@apollo/client";
-import { Badge, Button, Col, Layout, message, Row, Tooltip } from "antd";
+import { Button, Col, Layout, message, Row } from "antd";
 import { useHistory } from "react-router-dom";
 import { useQuery, useSubscription } from "@apollo/client";
-import { MutationCreateUserLogArgs, UserLog } from "src/types";
+import { UserLog } from "src/types";
 import { useDispatch } from "react-redux";
 import { setSubscription } from "src/redux/reducer/subscription-slice";
 
-import LoginModal from "src/component/sign/login-modal";
-import FindAccountModal from "src/component/sign/find-account-modal";
-import JoinModal from "src/component/sign/join-modal";
-
 import FOOTTER_LOGO from "src/assets/image/footer-logo.png";
-import ICON from "src/assets/icon";
 import SUBSCRIPTIONS from "src/apis/subscriptions";
 import QUERIES from "src/apis/queries";
-import MUTATIONS from "src/apis/mutations";
 import Cookies from "js-cookie";
 
 const { Header } = Layout;
@@ -38,13 +31,7 @@ const HeaderComponent = () => {
     });
   }, []);
 
-  const [loginModal, setLoginModal] = useState<boolean>(false); // 로그인용
-  const [findModal, setFindModal] = useState<boolean>(false); // 계정찾기용
-  const [joinModal, setJoinModal] = useState<boolean>(false); //회원가입용
-
   const nowLocation = window.location.pathname;
-
-  const [createUserLogByUserMutation] = useMutation<{ createUserLogByUser: boolean }, MutationCreateUserLogArgs>(MUTATIONS.CREATE_USER_LOG_BY_USER, {});
 
   useEffect(() => {
     if (localStorage.getItem("accessToken") === null) {
@@ -52,18 +39,6 @@ const HeaderComponent = () => {
       history.push("/");
     }
   }, [nowLocation]);
-
-  const confirmLogout = async () => {
-    const result = window.confirm("로그아웃하시겠습니까?");
-
-    if (result) {
-      localStorage.clear();
-
-      alert("로그아웃되었습니다.");
-
-      history.push("/");
-    }
-  };
 
   const { data: whoAmiData } = useQuery<{ whoami: String }>(QUERIES.WHO_AM_I);
 
@@ -144,7 +119,7 @@ const HeaderComponent = () => {
                   <div
                     className="navigators-menu"
                     onClick={() => {
-                      window.scrollTo({ top: 5150, behavior: "smooth" });
+                      window.scrollTo({ top: 4700, behavior: "smooth" });
                     }}
                   >
                     이용요금

@@ -1,26 +1,15 @@
 import React, { useState } from "react";
-import {
-  Row,
-  Col,
-  Input,
-  Select,
-  Button,
-  Tooltip,
-  message,
-  DatePicker,
-} from "antd";
-import { useMutation } from "@apollo/client";
-import MUTATIONS from "src/apis/mutations";
-import {
-  MutationSetMaxProductLimitByAdminArgs,
-  MutationSetPurchaseInfoByAdminArgs,
-  MutationsetUserStopTest,
-} from "src/types";
-import { Moment } from "moment";
 import moment from "moment";
+import MUTATIONS from "src/apis/mutations";
+
+import { Row, Col, Input, Select, Button, Tooltip, message, DatePicker } from "antd";
+import { useMutation } from "@apollo/client";
+import { MutationSetMaxProductLimitByAdminArgs, MutationSetPurchaseInfoByAdminArgs, MutationsetUserStopTest, MutationDeleteUser } from "src/types";
+import { Moment } from "moment";
 
 const { Search } = Input;
 const { Option } = Select;
+
 interface IProps {
   userListRefetch: ({}) => void;
   selectedItemIds?: Array<number>;
@@ -28,49 +17,40 @@ interface IProps {
   setPageSize: (e) => void;
 }
 
-const CustomerFilter = ({
-  userListRefetch,
-  selectedItemIds,
-  setSelectedItemIds,
-  setPageSize,
-}: IProps) => {
+const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, setPageSize }: IProps) => {
   const [expiredAt, setExpiredAt] = useState<Moment | null>(null);
   const [changeSelectBox, setChangeSelectBox] = useState<string>("email");
   const [purchaseInfoLevel, setPurchaseInfoLevel] = useState<number>(null);
   const [maxLimit, setMaxLimit] = useState<string>("");
   const [isSetPurchaseInfoAvailable, setIsSetPurchaseInfoAvailable] = useState<boolean>(true);
   const [isSetMaxProductLimitAvailable, setIsSetMaxProductLimitAvailable] = useState<boolean>(true);
-  const [isSetUserStopAvailable,setIsSetUserStopAvailable] = useState<boolean>(true);
-  const [setPurchaseInfoByAdmin] = useMutation<
-    { setPurchaseInfoByAdmin: boolean },
-    MutationSetPurchaseInfoByAdminArgs
-  >(MUTATIONS.SET_PURCHASE_INFO_BY_ADMIN, {
+  const [isSetUserStopAvailable, setIsSetUserStopAvailable] = useState<boolean>(true);
+  const [isDeleteUserAvailable, setIsDeleteUserAvailable] = useState<boolean>(true);
+
+  const [setPurchaseInfoByAdmin] = useMutation<{ setPurchaseInfoByAdmin: boolean }, MutationSetPurchaseInfoByAdminArgs>(MUTATIONS.SET_PURCHASE_INFO_BY_ADMIN, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],
   });
 
-  const [setUserStopTest] = useMutation<
-  { setUserStopTest : Boolean},
-  MutationsetUserStopTest
-  >(MUTATIONS.SET_USER_STOP_TEST,{
-    refetchQueries : ["USER_LIST_BY_ADMIN"],
-  })
-  
-  const [setMaxProductLimitByAdmin] = useMutation<
-    { setMaxProductLimitByAdmin: boolean },
-    MutationSetMaxProductLimitByAdminArgs
-  >(MUTATIONS.SET_MAX_PRODUCT_LIMIT_BY_ADMIN, {
+  const [setUserStopTest] = useMutation<{ setUserStopTest: Boolean }, MutationsetUserStopTest>(MUTATIONS.SET_USER_STOP_TEST, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],
   });
+
+  const [deleteUser] = useMutation<{ deleteUserByAdmin: Boolean }, MutationDeleteUser>(MUTATIONS.DELETE_USER_BY_ADMIN, {
+    refetchQueries: ["USER_LIST_BY_ADMIN"],
+  });
+
+  const [setMaxProductLimitByAdmin] = useMutation<{ setMaxProductLimitByAdmin: boolean }, MutationSetMaxProductLimitByAdminArgs>(
+    MUTATIONS.SET_MAX_PRODUCT_LIMIT_BY_ADMIN,
+    {
+      refetchQueries: ["USER_LIST_BY_ADMIN"],
+    }
+  );
 
   const search = (e: string) => {
     const filtered = e.trim();
 
     if (changeSelectBox === "email") {
       userListRefetch({ where: { email: { contains: filtered } } });
-    } else if (changeSelectBox === "siteUserId") {
-      userListRefetch({
-        where: { userInfo: { naverStoreUrl: { contains: filtered === "" ? null : filtered } } },
-      });
     } else if (changeSelectBox === "phone") {
       userListRefetch({
         where: { userInfo: { phone: { contains: filtered === "" ? null : filtered } } },
@@ -91,7 +71,6 @@ const CustomerFilter = ({
           >
             <Option value={"email"}>아이디</Option>
             <Option value={"phone"}>휴대폰번호</Option>
-            <Option value={"siteUserId"}>스마트스토어 ID</Option>
           </Select>
         </Col>
 
@@ -116,10 +95,10 @@ const CustomerFilter = ({
             }}
           />
         </Col>
-        
+
         <Col style={{ marginRight: "5px" }}>
           <Select
-            placeholder="등급 선택"
+            placeholder="플랜 선택"
             style={{ width: "150px" }}
             onChange={(e) => {
               if (typeof e === "string") {
@@ -128,11 +107,10 @@ const CustomerFilter = ({
               }
             }}
           >
-            <Option value={"1"}>1단계</Option>
-            <Option value={"2"}>2단계</Option>
-            <Option value={"3"}>3단계</Option>
-            <Option value={"4"}>4단계</Option>
-            <Option value={"5"}>트랜져스</Option>
+            <Option value={"1"}>체험판</Option>
+            <Option value={"2"}>베이직</Option>
+            <Option value={"3"}>프로</Option>
+            <Option value={"4"}>프리미엄</Option>
           </Select>
         </Col>
 
@@ -156,26 +134,29 @@ const CustomerFilter = ({
             disabled={!isSetPurchaseInfoAvailable}
             onClick={() => {
               if (!purchaseInfoLevel) {
-                message.error("결제 등급을 선택하세요.");
+                message.error("결제 플랜을 선택해주세요.");
+
                 return;
               } else if (selectedItemIds.length === 0) {
-                message.error("유저를 선택하세요.");
+                message.error("사용자가 선택되지 않았습니다.");
+
                 return;
               }
+
               setIsSetPurchaseInfoAvailable(false);
+
               Promise.all(
                 selectedItemIds.map(async (v) => {
                   const result = await setPurchaseInfoByAdmin({
                     variables: {
                       userId: v,
                       planInfoId: purchaseInfoLevel,
-                      expiredAt: expiredAt
-                        ? expiredAt.toISOString()
-                        : expiredAt,
+                      expiredAt: expiredAt ? expiredAt.toISOString() : expiredAt,
                     },
                   }).catch((e) => e as Error);
                   if (result instanceof Error) {
                     message.error(result.message);
+
                     return false;
                   }
                   return result.data.setPurchaseInfoByAdmin as boolean;
@@ -183,19 +164,16 @@ const CustomerFilter = ({
               )
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
-                  if (successCount > 0)
-                    message.info(
-                      `${successCount}명의 유저 설정에 성공했습니다.`
-                    );
-                  else message.error(`모든 유저 설정에 실패했습니다.`);
+                  if (successCount > 0) {
+                    message.info(`${successCount}명의 사용자 플랜을 설정하였습니다.`);
+                  } else {
+                    message.error(`사용자 플랜 설정 실패`);
+                  }
                 })
                 .finally(() => {
                   setSelectedItemIds([]);
                   setIsSetPurchaseInfoAvailable(true);
                 });
-
-              // message.error("준비중입니다.");
-              // alert("준비중입니다.");
             }}
           >
             적용
@@ -203,12 +181,7 @@ const CustomerFilter = ({
         </Col>
 
         <Col style={{ marginRight: "5px" }}>
-          <Tooltip
-            trigger={["focus"]}
-            title={"공백 입력시 무제한으로 적용됩니다."}
-            placement="topLeft"
-            overlayClassName="numeric-input"
-          >
+          <Tooltip trigger={["focus"]} title={"공백 입력시 무제한으로 적용됩니다."} placement="topLeft" overlayClassName="numeric-input">
             <Input
               placeholder="수집 제한"
               style={{ width: "100px" }}
@@ -216,13 +189,9 @@ const CustomerFilter = ({
               onChange={(e) => {
                 const { value } = e.target;
                 const reg = /^\d*$/;
-                if (
-                  (!isNaN(parseFloat(value)) && reg.test(value)) ||
-                  value === ""
-                ) {
-                  // this.props.onChange(value);
-                  if (value === "" || parseInt(value) < 2147483647)
-                    setMaxLimit(value);
+
+                if ((!isNaN(parseFloat(value)) && reg.test(value)) || value === "") {
+                  if (value === "" || parseInt(value) < 2147483647) setMaxLimit(value);
                 }
               }}
             ></Input>
@@ -235,13 +204,15 @@ const CustomerFilter = ({
             disabled={!isSetMaxProductLimitAvailable}
             onClick={() => {
               if (selectedItemIds.length === 0) {
-                message.error("유저를 선택하세요.");
+                message.error("사용자가 선택되지 않았습니다.");
+
                 return;
               }
-              const productLimit = isNaN(parseInt(maxLimit))
-                ? null
-                : parseInt(maxLimit);
+
+              const productLimit = isNaN(parseInt(maxLimit)) ? null : parseInt(maxLimit);
+
               setIsSetMaxProductLimitAvailable(false);
+
               Promise.all(
                 selectedItemIds.map(async (v) => {
                   const result = await setMaxProductLimitByAdmin({
@@ -256,19 +227,13 @@ const CustomerFilter = ({
               )
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
-                  if (successCount > 0)
-                    message.info(
-                      `${successCount}명의 유저 설정에 성공했습니다.`
-                    );
-                  else message.error(`모든 유저 설정에 실패했습니다.`);
+                  if (successCount > 0) message.info(`${successCount}명의 사용자 수집 제한을 설정하였습니다.`);
+                  else message.error(`사용자 수집 제한 설정 실패`);
                 })
                 .finally(() => {
-                  setSelectedItemIds([]);
                   setIsSetMaxProductLimitAvailable(true);
+                  setSelectedItemIds([]);
                 });
-
-              // message.error("준비중입니다.");
-              // alert("준비중입니다.");
             }}
           >
             적용
@@ -281,12 +246,20 @@ const CustomerFilter = ({
             disabled={!isSetUserStopAvailable}
             style={{ marginRight: "5px" }}
             onClick={() => {
-              //todo
               if (selectedItemIds.length === 0) {
-                message.error("유저를 선택하세요.");
+                message.error("사용자가 선택되지 않았습니다.");
+
                 return;
               }
+
+              const accept = window.confirm(`${selectedItemIds.length}명의 사용자를 이용 중지하시겠습니까?`);
+
+              if (!accept) {
+                return;
+              }
+
               setIsSetUserStopAvailable(false);
+
               Promise.all(
                 selectedItemIds.map(async (v) => {
                   const result = await setUserStopTest({
@@ -296,6 +269,7 @@ const CustomerFilter = ({
                   }).catch((e) => e as Error);
                   if (result instanceof Error) {
                     message.error(result.message);
+
                     return false;
                   }
                   return result.data.setUserStopTest as boolean;
@@ -303,24 +277,66 @@ const CustomerFilter = ({
               )
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
-                  if (successCount > 0)
-                    message.info(
-                      `${successCount}명의 유저 정지에 성공했습니다.`
-                    );
-                  else message.error(`모든 유저 정지에 실패했습니다.`);
+                  if (successCount > 0) {
+                    message.info(`${successCount}명의 사용자가 이용 중지되었습니다.`);
+                  } else {
+                    message.error(`사용자 이용 중지 실패`);
+                  }
                 })
                 .finally(() => {
                   setIsSetUserStopAvailable(true);
+                  setSelectedItemIds([]);
                 });
             }}
           >
             이용 정지
           </Button>
+
           <Button
             danger
+            disabled={!isDeleteUserAvailable}
             type={"primary"}
             onClick={() => {
-              alert("준비중입니다.");
+              if (selectedItemIds.length === 0) {
+                message.error("사용자가 선택되지 않았습니다.");
+
+                return;
+              }
+
+              const accept = window.confirm(`${selectedItemIds.length}명의 사용자를 영구 삭제하시겠습니까?`);
+
+              if (!accept) {
+                return;
+              }
+
+              setIsDeleteUserAvailable(false);
+              Promise.all(
+                selectedItemIds.map(async (v) => {
+                  const result = await deleteUser({
+                    variables: {
+                      userId: v,
+                    },
+                  }).catch((e) => e as Error);
+                  if (result instanceof Error) {
+                    message.error(result.message);
+
+                    return false;
+                  }
+                  return result.data.deleteUserByAdmin as boolean;
+                })
+              )
+                .then((result) => {
+                  const successCount = result.filter((v) => v === true).length;
+                  if (successCount > 0) {
+                    message.info(`${successCount}명의 사용자가 영구 삭제되었습니다.`);
+                  } else {
+                    message.error(`사용자 영구 삭제 실패`);
+                  }
+                })
+                .finally(() => {
+                  setIsDeleteUserAvailable(true);
+                  setSelectedItemIds([]);
+                });
             }}
           >
             계정 삭제

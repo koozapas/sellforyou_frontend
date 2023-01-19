@@ -1,9 +1,11 @@
 import React from "react";
-import { Provider } from "react-redux";
 import store from "src/redux/store";
 import PublicRoutes from "src/router/public-route";
 import client from "src/apis/client";
+
+import { Provider } from "react-redux";
 import { ApolloProvider } from "@apollo/client";
+
 import "antd/dist/antd.css";
 import "src/assets/styles/common/index.css";
 

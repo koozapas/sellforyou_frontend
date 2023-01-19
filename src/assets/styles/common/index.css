@@ -313,7 +313,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* 로그인 모달 시작 */
 .login-modal .ant-modal-content {
-  border-radius: 15px;
+  /* border-radius: 15px; */
   width: 400px;
 }
 .login-modal .ant-modal-body {

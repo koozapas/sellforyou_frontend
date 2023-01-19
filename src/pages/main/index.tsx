@@ -1,20 +1,13 @@
-import { Layout, Affix } from "antd";
-import React, { useState } from "react";
-import { useHistory } from "react-router";
+import React from "react";
 import HeaderComponent from "src/component/common/header";
 import FooterComponent from "src/component/common/footer";
 import LandingPage from "./landing-page";
-import LandingPage2 from "src/pages/user/payment/service-pay";
-import { useQuery } from "@apollo/client";
-import QUERIES from "src/apis/queries";
 
-const { Content, Footer } = Layout;
+import { Layout, Affix } from "antd";
+
+const { Content } = Layout;
 
 const Main = () => {
-  const history = useHistory();
-  const [adminLoginModal, setAdminLoginModal] = useState<boolean>(false);
-  const { data: whoAmI } = useQuery<{ whoami: String }>(QUERIES.WHO_AM_I);
-
   return (
     <>
       <Affix offsetTop={0}>

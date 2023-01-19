@@ -32,10 +32,10 @@ const QUERIES = {
           levelExpiredAt
         }
 
-        refCode,
-        refAvailable,
+        refCode
+        refAvailable
 
-        credit,
+        credit
 
         master
       }
@@ -146,10 +146,7 @@ const QUERIES = {
 
   GET_USER_SET_OBJECT: gql`
     query GET_USER_SET_OBJECT($userShopDataId: Int, $userSetDataId: Int) {
-      getUserSetObjectByUser(
-        userShopDataId: $userShopDataId
-        userSetDataId: $userSetDataId
-      ) {
+      getUserSetObjectByUser(userShopDataId: $userShopDataId, userSetDataId: $userSetDataId) {
         userCode
         sol_type
         siteCode
@@ -211,17 +208,8 @@ const QUERIES = {
 
   //수집 상품
   SELECT_MY_PRODUCT_LIST: gql`
-    query SELECT_MY_PRODUCT_LIST(
-      $where: ProductWhereInput
-      $skip: Int
-      $take: Int
-    ) {
-      selectMyProductByUser(
-        where: $where
-        orderBy: { createdAt: desc }
-        skip: $skip
-        take: $take
-      ) {
+    query SELECT_MY_PRODUCT_LIST($where: ProductWhereInput, $skip: Int, $take: Int) {
+      selectMyProductByUser(where: $where, orderBy: { createdAt: desc }, skip: $skip, take: $take) {
         #수정후
         id
         taobaoProductId
@@ -498,26 +486,16 @@ const QUERIES = {
   GET_ITEM_STATE: gql`
     query GET_ITEM_STATE($where: ProductWhereInput) {
       selectMyProductByUser(where: $where) {
-        productStateEnum{
+        productStateEnum {
           state
-        } 
+        }
       }
     }
   `,
 
   SELECT_TAOBAO_PRODUCTS_BY_USER: gql`
-    query (
-      $where: TaobaoProductWhereInput
-      $orderBy: [TaobaoProductOrderByWithRelationInput!]
-      $take: Int
-      $skip: Int
-    ) {
-      selectTaobaoProductsByUser(
-        where: $where
-        orderBy: $orderBy
-        take: $take
-        skip: $skip
-      ) {
+    query ($where: TaobaoProductWhereInput, $orderBy: [TaobaoProductOrderByWithRelationInput!], $take: Int, $skip: Int) {
+      selectTaobaoProductsByUser(where: $where, orderBy: $orderBy, take: $take, skip: $skip) {
         id
         taobaoNumIid
         imageThumbnail
@@ -867,6 +845,17 @@ const QUERIES = {
           }
           history
         }
+
+        purchaseInfo2 {
+          level
+          levelExpiredAt
+          additionalInfo {
+            type
+            expiredAt
+          }
+          history
+        }
+
         productCount
       }
     }
@@ -944,17 +933,8 @@ const QUERIES = {
 
   //상품관리
   SELECT_PRODUCT_LIST_BY_ADMIN: gql`
-    query SELECT_PRODUCT_LIST_BY_ADMIN(
-      $where: ProductWhereInput
-      $take: Int
-      $skip: Int
-    ) {
-      selectProductsByAdmin(
-        where: $where
-        orderBy: { createdAt: desc }
-        take: $take
-        skip: $skip
-      ) {
+    query SELECT_PRODUCT_LIST_BY_ADMIN($where: ProductWhereInput, $take: Int, $skip: Int) {
+      selectProductsByAdmin(where: $where, orderBy: { createdAt: desc }, take: $take, skip: $skip) {
         user {
           email
         }
@@ -1024,7 +1004,7 @@ const QUERIES = {
       selectProductsCountByAdmin(where: $where)
     }
   `,
-  
+
   PRODUCT_COUNT_TO_TABS: gql`
     query PRODUCT_COUNT_TO_TABS($where: ProductWhereInput) {
       selectProductsCountByAdmin(where: $where)
@@ -1199,7 +1179,7 @@ const QUERIES = {
         createdAt
       }
     }
-  `
+  `,
 };
 
 export default QUERIES;

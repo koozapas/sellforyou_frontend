@@ -1,117 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="셀포유" />
+    <meta property="og:description" content="셀포유" />
+    <meta property="og:image" content="http://www.mysite.com/myimage.jpg" />
+    <meta property="og:url" content="https://www.sellforyou.co.kr" />
 
-<head>
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="셀포유">
-  <meta property="og:description" content="셀포유">
-  <meta property="og:image" content="http://www.mysite.com/myimage.jpg">
-  <meta property="og:url" content="https://www.sellforyou.co.kr">
-  <meta charset="utf-8" />
-  <meta name="naver-site-verification" content="c044ca0e4947312f1947151025061d70b0505246" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon1.ico" />
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Celeb Admin Web" />
-  <meta name="google-site-verification" content="51LzecL2DhiOnfY60KNjHedhofIK7um8_YpTYTH9cQo" />
-  <!-- <meta name="robots" content="noindex" /> -->
-  <!-- <meta name="googlebot" content="noindex" /> -->
-  <meta name="naver-site-verification" content="410e01a31ff1a13b63bc01a797ae6e13bb6c43d5" />
-  <meta name="facebook-domain-verification" content="d5o11hkjxg4qgwn97fxtv6qfp0bsti" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" charset="UTF-8"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-  <!-- 카카오 -->
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script>Kakao.init("JavaScript 25b66547acb37a941a2391967727d94b");</script>
-  <!-- 카카오 -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!-- 아임포트 결제 -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+    <meta charset="utf-8" />
 
-  <script src="/node_modules/quill-image-resize-module/image-resize.min.js"></script>
-  
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-     fbq('init', '4312927608817731'); 
-    fbq('track', 'PageView');
-  </script>
-  
-  <script>
-    (function() {
-      var w = window;
-      if (w.ChannelIO) {
-        return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
-      }
-      var ch = function() {
-        ch.c(arguments);
-      };
-      ch.q = [];
-      ch.c = function(args) {
-        ch.q.push(args);
-      };
-      w.ChannelIO = ch;
-      function l() {
-        if (w.ChannelIOInitialized) {
-          return;
+    <meta name="naver-site-verification" content="c044ca0e4947312f1947151025061d70b0505246" />
+
+    <link rel="icon" href="%PUBLIC_URL%/favicon1.ico" />
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Celeb Admin Web" />
+    <meta name="google-site-verification" content="51LzecL2DhiOnfY60KNjHedhofIK7um8_YpTYTH9cQo" />
+    <meta name="naver-site-verification" content="410e01a31ff1a13b63bc01a797ae6e13bb6c43d5" />
+    <meta name="facebook-domain-verification" content="d5o11hkjxg4qgwn97fxtv6qfp0bsti" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+    <!-- 아임포트 결제 -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+
+    <script src="/node_modules/quill-image-resize-module/image-resize.min.js"></script>
+
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "4312927608817731");
+      fbq("track", "PageView");
+    </script>
+
+    <script>
+      (function () {
+        var w = window;
+        if (w.ChannelIO) {
+          return (window.console.error || window.console.log || function () {})("ChannelIO script included twice.");
         }
-        w.ChannelIOInitialized = true;
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-        s.charset = 'UTF-8';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
+        var ch = function () {
+          ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function (args) {
+          ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+          if (w.ChannelIOInitialized) {
+            return;
+          }
+          w.ChannelIOInitialized = true;
+          var s = document.createElement("script");
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
+          s.charset = "UTF-8";
+          var x = document.getElementsByTagName("script")[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === "complete") {
+          l();
+        } else if (window.attachEvent) {
+          window.attachEvent("onload", l);
+        } else {
+          window.addEventListener("DOMContentLoaded", l, false);
+          window.addEventListener("load", l, false);
+        }
+      })();
+      ChannelIO("boot", {
+        pluginKey: "6cf44eea-2b01-43ac-bdfb-b6e28cf20962",
+      });
+    </script>
+
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+      if (!wcs_add) var wcs_add = {};
+
+      wcs_add["wa"] = "12ee2d302121160";
+
+      if (window.wcs) {
+        wcs_do();
       }
-      if (document.readyState === 'complete') {
-        l();
-      } else if (window.attachEvent) {
-        window.attachEvent('onload', l);
-      } else {
-        window.addEventListener('DOMContentLoaded', l, false);
-        window.addEventListener('load', l, false);
-      }
-    })();
-    ChannelIO('boot', {
-      "pluginKey": "6cf44eea-2b01-43ac-bdfb-b6e28cf20962"
-    });
-  </script>
+    </script>
 
-  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-  <script type="text/javascript">
-    if (!wcs_add) var wcs_add = {};
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        src="https://www.facebook.com/tr?id=4312927608817731&ev=PageView
+    &noscript=1"
+      />
+    </noscript>
 
-    wcs_add["wa"] = "12ee2d302121160";
+    <title>Sell For You</title>
+  </head>
 
-    if (window.wcs) {
-      wcs_do();
-    }
-  </script>
-  
-  <noscript>
-     <img height="1" width="1" 
-    src="https://www.facebook.com/tr?id=4312927608817731&ev=PageView
-    &noscript=1"/>
-  </noscript>
-
-  <title>Sell For You</title>
-</head>
-
-<body>
-  <div id="root"></div>
-</body>
-
+  <body>
+    <div id="root"></div>
+  </body>
 </html>

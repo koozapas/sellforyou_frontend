@@ -29,12 +29,7 @@ const columns = [
   {
     title: "답변여부",
     dataIndex: "answer",
-    render: (data: string) =>
-      data ? (
-        <CheckOutlined style={{ color: "green" }} />
-      ) : (
-        <CloseOutlined style={{ color: "red" }} />
-      ),
+    render: (data: string) => (data ? <CheckOutlined style={{ color: "green" }} /> : <CloseOutlined style={{ color: "red" }} />),
   },
   {
     title: "답변일",
@@ -56,17 +51,12 @@ const AdminInquiry = () => {
   const history = useHistory();
   const [pageSize, setPageSize] = useState<number>(10); // n개씩 보기
 
-  const { data: questionData } = useQuery<
-    { selectUserQuestionBySomeone: UserQuestion[] },
-    QuerySelectUserQuestionBySomeoneArgs
-  >(QUERIES.QUESTION_BY_SOMEONE);
+  const { data: questionData } = useQuery<{ selectUserQuestionBySomeone: UserQuestion[] }, QuerySelectUserQuestionBySomeoneArgs>(QUERIES.QUESTION_BY_SOMEONE);
 
   return (
-    <Card style={{ marginBottom: "60px" }}>
+    <Card>
       <Row align="middle" justify="space-between">
-        <Col style={{ fontSize: "16px", fontWeight: 600, marginRight: "50px" }}>
-          고객문의
-        </Col>
+        <Col style={{ fontSize: "16px", fontWeight: 600, marginRight: "50px" }}>고객문의</Col>
         <Col>
           <Search
             style={{ display: "inline-block", width: "227px" }}
@@ -91,9 +81,7 @@ const AdminInquiry = () => {
         onRow={(record) => {
           return {
             onClick: () => {
-              history.push(
-                `/admin/customer-center/inquiry-detail?id=${record.id}`
-              );
+              history.push(`/admin/customer-center/inquiry-detail?id=${record.id}`);
             },
           };
         }}
