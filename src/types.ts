@@ -2980,3 +2980,7 @@ export type Subscription = {
 export type MutationDeleteUser = {
   userId: Scalars["Int"];
 };
+
+export type MutationDeleteUserProduct = {
+  userId: Scalars["Int"];
+};

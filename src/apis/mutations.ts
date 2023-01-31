@@ -806,6 +806,12 @@ const MUTATIONS = {
       deleteUserByAdmin(userId: $userId)
     }
   `,
+
+  DELETE_USER_PRODUCT_BY_ADMIN: gql`
+    mutation ($userId: [Int!]!) {
+      deleteUserProductByAdmin(userId: $userId)
+    }
+  `,
 };
 
 export default MUTATIONS;

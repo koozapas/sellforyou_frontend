@@ -4,7 +4,13 @@ import MUTATIONS from "src/apis/mutations";
 
 import { Row, Col, Input, Select, Button, Tooltip, message, DatePicker } from "antd";
 import { useMutation } from "@apollo/client";
-import { MutationSetMaxProductLimitByAdminArgs, MutationSetPurchaseInfoByAdminArgs, MutationsetUserStopTest, MutationDeleteUser } from "src/types";
+import {
+  MutationSetMaxProductLimitByAdminArgs,
+  MutationSetPurchaseInfoByAdminArgs,
+  MutationsetUserStopTest,
+  MutationDeleteUser,
+  MutationDeleteUserProduct,
+} from "src/types";
 import { Moment } from "moment";
 
 const { Search } = Input;
@@ -25,6 +31,7 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
   const [isSetPurchaseInfoAvailable, setIsSetPurchaseInfoAvailable] = useState<boolean>(true);
   const [isSetMaxProductLimitAvailable, setIsSetMaxProductLimitAvailable] = useState<boolean>(true);
   const [isSetUserStopAvailable, setIsSetUserStopAvailable] = useState<boolean>(true);
+  const [isDeleteUserProductAvailable, setIsDeleteUserProductAvailable] = useState<boolean>(true);
   const [isDeleteUserAvailable, setIsDeleteUserAvailable] = useState<boolean>(true);
 
   const [setPurchaseInfoByAdmin] = useMutation<{ setPurchaseInfoByAdmin: boolean }, MutationSetPurchaseInfoByAdminArgs>(MUTATIONS.SET_PURCHASE_INFO_BY_ADMIN, {
@@ -36,6 +43,10 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
   });
 
   const [deleteUser] = useMutation<{ deleteUserByAdmin: Boolean }, MutationDeleteUser>(MUTATIONS.DELETE_USER_BY_ADMIN, {
+    refetchQueries: ["USER_LIST_BY_ADMIN"],
+  });
+
+  const [deleteUserProduct] = useMutation<{ deleteUserProductByAdmin: Boolean }, MutationDeleteUserProduct>(MUTATIONS.DELETE_USER_PRODUCT_BY_ADMIN, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],
   });
 
@@ -290,6 +301,56 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
             }}
           >
             이용 정지
+          </Button>
+
+          <Button
+            danger
+            disabled={!isDeleteUserProductAvailable}
+            style={{ marginRight: "5px" }}
+            onClick={() => {
+              if (selectedItemIds.length === 0) {
+                message.error("사용자가 선택되지 않았습니다.");
+
+                return;
+              }
+
+              const accept = window.confirm(`${selectedItemIds.length}명의 사용자의 상품 데이터를 영구 삭제하시겠습니까?`);
+
+              if (!accept) {
+                return;
+              }
+
+              setIsDeleteUserProductAvailable(false);
+              Promise.all(
+                selectedItemIds.map(async (v) => {
+                  const result = await deleteUserProduct({
+                    variables: {
+                      userId: v,
+                    },
+                  }).catch((e) => e as Error);
+                  if (result instanceof Error) {
+                    message.error(result.message);
+
+                    return false;
+                  }
+                  return result.data.deleteUserProductByAdmin as boolean;
+                })
+              )
+                .then((result) => {
+                  const successCount = result.filter((v) => v === true).length;
+                  if (successCount > 0) {
+                    message.info(`${successCount}명의 사용자의 상품 데이터가 영구 삭제되었습니다.`);
+                  } else {
+                    message.error(`상품 데이터 영구 삭제 실패`);
+                  }
+                })
+                .finally(() => {
+                  setIsDeleteUserProductAvailable(true);
+                  setSelectedItemIds([]);
+                });
+            }}
+          >
+            상품 삭제
           </Button>
 
           <Button
