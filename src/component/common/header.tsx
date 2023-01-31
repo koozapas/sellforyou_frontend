@@ -38,7 +38,7 @@ const HeaderComponent = () => {
       if (nowLocation !== "/") alert("토큰이 만료되었습니다.\n다시 로그인 바랍니다.");
       history.push("/");
     }
-  }, [nowLocation]);
+  }, [history, nowLocation]);
 
   const { data: whoAmiData } = useQuery<{ whoami: String }>(QUERIES.WHO_AM_I);
 
@@ -70,7 +70,7 @@ const HeaderComponent = () => {
     if (subscriptionData?.subscribeUserEvent.payloadData) {
       setReset(JSON.parse(subscriptionData?.subscribeUserEvent.payloadData));
     }
-  }, [subscriptionData]);
+  }, [dispatch, subscriptionError, subscriptionLoading, subscriptionData, whoAmiData]);
 
   useEffect(() => {
     if (reset !== undefined && reset.renewedAccessToken) {
@@ -79,7 +79,7 @@ const HeaderComponent = () => {
         window.location.reload();
       }
     }
-  }, [reset]);
+  }, [nowLocation, reset]);
 
   Cookies.remove("NID_SES", { path: "/user/market/info" });
 

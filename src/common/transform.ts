@@ -1,22 +1,10 @@
 import { format } from "date-fns";
-import { ApolloError } from "@apollo/client";
-import { message } from "antd";
 import { UserPurchaseInfo } from "src/types";
 // import { OrderWhereInput } from "src/types";
 
 export const transUtcToDate = (dateTime = ""): string => {
   return format(new Date(dateTime), "yyyy-MM-dd");
 };
-
-// export function headers(): any {
-//   const accessToken = window.localStorage.getItem("celebAdminToken");
-//   return {
-//     headers: {
-//       Accept: "application/json",
-//       Authorization: `Bearer ${accessToken}`,
-//     },
-//   };
-// }
 
 export function transElipse(text: string, number: number) {
   if (text.length > number) {
@@ -36,9 +24,7 @@ export function transCNYMoneyFormat(value = 0): string {
 }
 
 export function transPhoneFormat(value: number): string {
-  return value
-    .toString()
-    .replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3");
+  return value.toString().replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3");
 }
 
 //쇼핑몰 컬럼
@@ -97,25 +83,16 @@ export function transProductState2(value = ""): string {
   }
 }
 
-export const transformPurchaseInfo = (
-  data: UserPurchaseInfo,
-  option?: { isNeedDate?: boolean; itemDelimiter?: string }
-) => {
+export const transformPurchaseInfo = (data: UserPurchaseInfo, option?: { isNeedDate?: boolean; itemDelimiter?: string }) => {
   const isNeedDate = option?.isNeedDate ?? false;
   const itemDelimiter = option?.itemDelimiter ?? ", ";
   const levelString = data?.level === 0 ? "" : data?.level + "단계";
-  const expireString = data.levelExpiredAt
-    ? ` (~${format(new Date(data.levelExpiredAt), "yyyy.MM.dd HH:mm")})`
-    : "";
-  const additionalInfoString = [
-    levelString !== "" ? levelString + (isNeedDate ? expireString : "") : null,
-  ]
+  const expireString = data.levelExpiredAt ? ` (~${format(new Date(data.levelExpiredAt), "yyyy.MM.dd HH:mm")})` : "";
+  const additionalInfoString = [levelString !== "" ? levelString + (isNeedDate ? expireString : "") : null]
     .concat(
       data?.additionalInfo.map((v) => {
         const type = v.type === "IMAGE_TRANSLATE" ? "트랜져스" : "";
-        const expireString = v.expiredAt
-          ? ` (~${format(new Date(v.expiredAt), "yyyy.MM.dd HH:mm")})`
-          : "";
+        const expireString = v.expiredAt ? ` (~${format(new Date(v.expiredAt), "yyyy.MM.dd HH:mm")})` : "";
         return `${type}${isNeedDate ? expireString : ""}`;
       })
     )

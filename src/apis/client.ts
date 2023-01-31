@@ -1,14 +1,8 @@
 import { onError } from "@apollo/client/link/error";
-import {
-  ApolloClient,
-  fromPromise,
-  InMemoryCache,
-  split,
-} from "@apollo/client";
+import { ApolloClient, fromPromise, InMemoryCache, split } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
 import { setContext } from "@apollo/client/link/context";
 import { WebSocketLink } from "@apollo/client/link/ws";
-import browserHistory from "./browserHistory";
 import { getMainDefinition } from "@apollo/client/utilities";
 import MUTATIONS from "./mutations";
 
@@ -50,27 +44,28 @@ export async function getNewToken() {
   }
 }
 
-const errorLink = onError(
-  ({ graphQLErrors, networkError, operation, forward }) => {
-    if (graphQLErrors)
-      graphQLErrors.forEach(({ message, locations, path }) => {
-        console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
+const errorLink = onError(({ graphQLErrors, networkError, operation, forward }) => {
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) => {
+      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
 
-        let forward$;
-        
-        if (message.includes("유효한 accessToken이 아닙니다.")) {
-          if (!isRefreshing) {
-            isRefreshing = true;
+      let forward$;
 
-            forward$ = fromPromise(
-              getNewToken().then(async ({ accessToken, refreshToken }) => {
+      if (message.includes("유효한 accessToken이 아닙니다.")) {
+        if (!isRefreshing) {
+          isRefreshing = true;
+
+          forward$ = fromPromise(
+            getNewToken()
+              .then(async ({ accessToken, refreshToken }) => {
                 await localStorage.setItem("accessToken", accessToken);
                 await localStorage.setItem("refreshToken", refreshToken);
 
                 resolvePendingRequests();
 
                 return accessToken;
-              }).catch((error) => {
+              })
+              .catch((error) => {
                 pendingRequests = [];
 
                 localStorage.clear();
@@ -80,35 +75,32 @@ const errorLink = onError(
                 window.location.replace("/");
 
                 return;
-              }).finally(() => {
+              })
+              .finally(() => {
                 isRefreshing = false;
               })
-            ).filter((value) => Boolean(value));
-          } else {
-            forward$ = fromPromise<void>(
-              new Promise((resolve) => {
-                pendingRequests.push(() => resolve());
-              })
-            );
-          }
-          return forward$.flatMap(() => forward(operation));
+          ).filter((value) => Boolean(value));
+        } else {
+          forward$ = fromPromise<void>(
+            new Promise((resolve) => {
+              pendingRequests.push(() => resolve());
+            })
+          );
         }
-      });
-    if (networkError) {
-      console.log(`[Network error]: ${networkError}`);
-      if (!isNetworkWaiting) {
-        isNetworkWaiting = true;
-        console.log("오류 서버와의 접속이 원활하지 않습니다.\n잠시 후 다시 시도해주세요.");
+        return forward$.flatMap(() => forward(operation));
       }
+    });
+  if (networkError) {
+    console.log(`[Network error]: ${networkError}`);
+    if (!isNetworkWaiting) {
+      isNetworkWaiting = true;
+      console.log("오류 서버와의 접속이 원활하지 않습니다.\n잠시 후 다시 시도해주세요.");
     }
   }
-);
+});
 
 const wsLink = new WebSocketLink({
-  uri: `ws${END_POINT.match(/https:\/\//) ? "s" : ""}://${END_POINT.replace(
-    /https?:\/\//,
-    ""
-  )}/graphql`,
+  uri: `ws${END_POINT.match(/https:\/\//) ? "s" : ""}://${END_POINT.replace(/https?:\/\//, "")}/graphql`,
   options: {
     lazy: true,
     reconnect: true,
@@ -136,10 +128,7 @@ const authLink = setContext(async (_, { headers }) => {
 const splitLink = split(
   ({ query }) => {
     const definition = getMainDefinition(query);
-    return (
-      definition.kind === "OperationDefinition" &&
-      definition.operation === "subscription"
-    );
+    return definition.kind === "OperationDefinition" && definition.operation === "subscription";
   },
   wsLink,
   authLink.concat(httpLink as any)

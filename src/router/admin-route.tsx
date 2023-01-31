@@ -1,40 +1,52 @@
 import React, { useState, useEffect } from "react";
+import SideMenuComponent from "src/component/common/sideMenu";
+import PrivateRoute from "./private-route";
+
 import { useLocation } from "react-router-dom";
 import { Layout, Breadcrumb, BackTop } from "antd";
-import HeaderComponent from "src/component/common/header";
-import FooterComponent from "src/component/common/footer";
-import SideMenuComponent from "src/component/common/sideMenu";
 import { adminSideMenu } from "src/component/common/sideMenuElement";
-import PrivateRoute from "./private-route";
 import { UpOutlined } from "@ant-design/icons";
 
 const { Content } = Layout;
 
+const findPathName = (pathname) => {
+  const tempPathname = pathname;
+
+  let pathTitle: string[] = [];
+
+  adminSideMenu.forEach((parertPath) => {
+    const pPath = parertPath.path.substring(0, parertPath.path.indexOf("?"));
+
+    if (pPath === tempPathname) pathTitle.push(parertPath.title);
+
+    if (parertPath.list.length !== 0) {
+      parertPath.list.forEach((childPath) => {
+        const cPath = childPath.path.substring(0, childPath.path.indexOf("?"));
+
+        if (cPath === tempPathname) {
+          pathTitle.push(parertPath.title);
+          pathTitle.push(childPath.title);
+        }
+      });
+    }
+  });
+
+  return pathTitle;
+};
+
 const AdminComponent = () => {
   const location = useLocation();
-  const findPathName = () => {
-    const tempPathname = location.pathname;
-    let pathTitle: string[] = [];
-    adminSideMenu.forEach((parertPath) => {
-      const pPath = parertPath.path.substring(0, parertPath.path.indexOf("?"));
-      if (pPath === tempPathname) pathTitle.push(parertPath.title);
-      if (parertPath.list.length !== 0) {
-        parertPath.list.forEach((childPath) => {
-          const cPath = childPath.path.substring(0, childPath.path.indexOf("?"));
-          if (cPath === tempPathname) {
-            pathTitle.push(parertPath.title);
-            pathTitle.push(childPath.title);
-          }
-        });
-      }
-    });
-    return pathTitle;
-  };
-  const [path, setPath] = useState(findPathName());
+
+  const [path, setPath] = useState(findPathName(location.pathname));
+
   useEffect(() => {
     window.scrollTo(0, 0); //페이지 이동시 상단으로 이동
-    setPath(findPathName());
+
+    const pathname = findPathName(location.pathname);
+
+    setPath(pathname);
   }, [location.pathname]);
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <BackTop>
@@ -59,11 +71,12 @@ const AdminComponent = () => {
 
         <Content style={{ margin: "0 16px" }}>
           <Breadcrumb separator=">" style={{ margin: "16px 0" }}>
+            <Breadcrumb.Item key={0}>셀포유 관리자</Breadcrumb.Item>
+
             {path.map((v, i) => (
               <Breadcrumb.Item key={v + i}>{v}</Breadcrumb.Item>
             ))}
           </Breadcrumb>
-
           <PrivateRoute />
         </Content>
       </Layout>

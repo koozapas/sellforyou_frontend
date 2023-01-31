@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useQuery, useMutation } from "@apollo/client";
 import { Layout, Menu } from "antd";
 import { IMenu } from "./sideMenuElement";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,10 +6,6 @@ import { LogoutOutlined } from "@ant-design/icons";
 import { Link, useHistory } from "react-router-dom";
 import { CoreState } from "src/redux/store";
 import { toggleSidemenu } from "src/redux/reducer/sidemenu-slice";
-import { MutationCreateUserLogArgs } from "src/types";
-
-import QUERIES from "src/apis/queries";
-import MUTATIONS from "src/apis/mutations";
 
 const { SubMenu } = Menu;
 
@@ -29,10 +24,6 @@ const SideMenu = ({ sideMenuElement }: ISideMenu) => {
 
   const [openKeys, setOpenKeys] = useState(["1"]);
   const [selectedKeys, setSelectedKeys] = useState("");
-
-  const [createUserLogByUserMutation] = useMutation<{ createUserLogByUser: boolean }, MutationCreateUserLogArgs>(MUTATIONS.CREATE_USER_LOG_BY_USER, {});
-
-  const { data: whoAmiData } = useQuery<{ whoami: String }>(QUERIES.WHO_AM_I);
 
   const onOpenChange = (keys: any) => {
     const latestOpenKey = keys.find((key: string) => openKeys.indexOf(key) === -1);
@@ -77,7 +68,7 @@ const SideMenu = ({ sideMenuElement }: ISideMenu) => {
         setSelectedKeys("환경설정");
       }
     }
-  }, [window.location.pathname]);
+  }, []);
 
   const subMenuHasChild = (obj: IMenu) => (
     <SubMenu

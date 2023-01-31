@@ -2,11 +2,7 @@ import { ApolloError, useMutation, useQuery } from "@apollo/client";
 import { Button, Card, Descriptions, Input, message } from "antd";
 import MUTATIONS from "src/apis/mutations";
 import React, { useEffect, useState } from "react";
-import {
-  MutationUpdateUserQuestionByAdminArgs,
-  QuerySelectUserQuestionBySomeoneArgs,
-  UserQuestion,
-} from "src/types";
+import { MutationUpdateUserQuestionByAdminArgs, QuerySelectUserQuestionBySomeoneArgs, UserQuestion } from "src/types";
 import { useHistory } from "react-router-dom";
 import QUERIES from "src/apis/queries";
 import querystring from "query-string";
@@ -23,19 +19,13 @@ const AdminInquiryDetail = () => {
   const [content, setContent] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
 
-  const { data: questionData } = useQuery<
-    { selectUserQuestionBySomeone: UserQuestion[] },
-    QuerySelectUserQuestionBySomeoneArgs
-  >(QUERIES.QUESTION_BY_SOMEONE, {
+  const { data: questionData } = useQuery<{ selectUserQuestionBySomeone: UserQuestion[] }, QuerySelectUserQuestionBySomeoneArgs>(QUERIES.QUESTION_BY_SOMEONE, {
     variables: { where: { id: { equals: Number(queryStringValue.id) } } },
     skip: !queryStringValue.id,
     onError: onApolloError,
   });
 
-  const [updateQuestion] = useMutation<
-    { updateUserQuestionByAdmin: Boolean },
-    MutationUpdateUserQuestionByAdminArgs
-  >(MUTATIONS.UPDATE_USER_QUESTION_BY_ADMIN);
+  const [updateQuestion] = useMutation<{ updateUserQuestionByAdmin: Boolean }, MutationUpdateUserQuestionByAdminArgs>(MUTATIONS.UPDATE_USER_QUESTION_BY_ADMIN);
 
   const dataInfo = questionData?.selectUserQuestionBySomeone[0];
   useEffect(() => {
@@ -44,7 +34,7 @@ const AdminInquiryDetail = () => {
       setContent(dataInfo.content);
       setAnswer(dataInfo.answer);
     }
-  }, [questionData]);
+  }, [dataInfo, questionData]);
 
   const updateHandle = () => {
     updateQuestion({
@@ -65,12 +55,7 @@ const AdminInquiryDetail = () => {
   return (
     <div>
       <Card>
-        <Descriptions
-          title="문의하기"
-          bordered
-          labelStyle={{ width: "150px" }}
-          style={{ marginBottom: "30px" }}
-        >
+        <Descriptions title="문의하기" bordered labelStyle={{ width: "150px" }} style={{ marginBottom: "30px" }}>
           <Descriptions.Item label="제목" span={3}>
             <Input
               value={title}
@@ -98,21 +83,12 @@ const AdminInquiryDetail = () => {
           </Descriptions.Item>
 
           <Descriptions.Item label="첨부파일" span={3}>
-            {questionData?.selectUserQuestionBySomeone[0].attachmentFiles.map(
-              (v, i) => (
-                <a
-                  style={{ marginRight: "10px" }}
-                  key={i}
-                  href={`${IMAGE_SERVER}/${v}`}
-                  download
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {" "}
-                  첨부파일{i + 1}
-                </a>
-              )
-            )}
+            {questionData?.selectUserQuestionBySomeone[0].attachmentFiles.map((v, i) => (
+              <a style={{ marginRight: "10px" }} key={i} href={`${IMAGE_SERVER}/${v}`} download target="_blank" rel="noreferrer">
+                {" "}
+                첨부파일{i + 1}
+              </a>
+            ))}
           </Descriptions.Item>
 
           <Descriptions.Item label="답변 내용" span={3}>

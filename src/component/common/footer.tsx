@@ -41,7 +41,7 @@ const FooterComponent = () => {
               }}
             >
               <Row>
-                <a target="_blank" href="https://panoramic-butternut-291.notion.site/5090b4282d88479f8608cd7f60bce6c2">
+                <a target="_blank" href="https://panoramic-butternut-291.notion.site/5090b4282d88479f8608cd7f60bce6c2" rel="noreferrer">
                   이용약관
                 </a>
 
@@ -54,7 +54,7 @@ const FooterComponent = () => {
                   |
                 </span>
 
-                <a target="_blank" href="https://panoramic-butternut-291.notion.site/acb134ad367d4a98a575f871ee94bcf6">
+                <a target="_blank" href="https://panoramic-butternut-291.notion.site/acb134ad367d4a98a575f871ee94bcf6" rel="noreferrer">
                   개인정보처리방침
                 </a>
               </Row>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Descriptions, Input, Modal, Select, Table, Button, message } from "antd";
+import { Card, Descriptions, Input, Modal, Table, Button, message } from "antd";
 import CustomerFilter from "./customer-filter";
 import { useQuery, useLazyQuery, useMutation } from "@apollo/client";
 import QUERIES from "src/apis/queries";
@@ -7,23 +7,13 @@ import MUTATIONS from "src/apis/mutations";
 import { QuerySelectUsersByAdminArgs, User, UserPurchaseInfo, MutationDeleteStore, MutationExtendMyAccountByUser } from "src/types";
 import { transformPurchaseInfo, transPhoneFormat } from "src/common/transform";
 import ICON from "src/assets/icon";
-import { useHistory } from "react-router";
 import { format } from "date-fns";
 
-const { Option } = Select;
-
 interface Props {}
-
-const sort = (a: any, b: any) => {
-  if (a > b) return 1;
-  if (a < b) return -1;
-  return 0;
-};
 
 const { Item } = Descriptions;
 
 const Customer = (props: Props) => {
-  const history = useHistory();
   const [currentData, setCurrentData] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedItemIds, setSelectedItemIds] = useState<Array<number>>([]);
@@ -31,61 +21,51 @@ const Customer = (props: Props) => {
   const [searchInput, setSearchInput] = useState("");
 
   const [currentUserInfo, setCurrentUserInfo] = useState([]);
-  const [searchUserInfo, setSearchUserInfo] = useState([]);
 
   const {
     loading: userListLoading,
-    error: userListError,
     data: userListData,
     refetch: userListRefetch,
   } = useQuery<{ selectUsersByAdmin: User[] }, QuerySelectUsersByAdminArgs>(QUERIES.USER_LIST_BY_ADMIN, { fetchPolicy: "no-cache" });
 
-  const [userDetailQuery, { data: userDetailData, loading: userDetailLoading }] = useLazyQuery<{ selectUsersByAdmin: User[] }, QuerySelectUsersByAdminArgs>(
-    QUERIES.USER_LIST_BY_ADMIN,
-    {
-      onCompleted(data) {
-        let result = data.selectUsersByAdmin;
-
-        setCurrentUserInfo(result);
-      },
-
-      onError() {
-        setCurrentUserInfo([]);
-      },
-
-      fetchPolicy: "no-cache",
-    }
-  );
-
   const [extendAccount] = useMutation<{ extendMyAccountByUser: boolean }, MutationExtendMyAccountByUser>(MUTATIONS.EXTEND_MY_ACCOUNT_BY_USER, {});
 
-  const [userDetail2Query, { data: userDetail2Data, loading: userDetail2Loading }] = useLazyQuery<{ selectUsersByAdmin: User[] }, QuerySelectUsersByAdminArgs>(
-    QUERIES.USER_LIST_BY_ADMIN,
-    {
-      onCompleted(data) {
-        let result = data.selectUsersByAdmin;
+  const [userDetailQuery] = useLazyQuery<{ selectUsersByAdmin: User[] }, QuerySelectUsersByAdminArgs>(QUERIES.USER_LIST_BY_ADMIN, {
+    onCompleted(data) {
+      let result = data.selectUsersByAdmin;
 
-        if (result.length === 1) {
-          extendAccount({
-            variables: {
-              masterId: currentData?.masterUserId,
-              slaveIds: [result[0].masterUserId],
-            },
-          }).then(() => {
-            alert("OK");
-          });
-        } else {
-          return;
-        }
-      },
+      setCurrentUserInfo(result);
+    },
 
-      onError() {
-        setSearchUserInfo([]);
-      },
+    onError() {
+      setCurrentUserInfo([]);
+    },
 
-      fetchPolicy: "no-cache",
-    }
-  );
+    fetchPolicy: "no-cache",
+  });
+
+  const [userDetail2Query] = useLazyQuery<{ selectUsersByAdmin: User[] }, QuerySelectUsersByAdminArgs>(QUERIES.USER_LIST_BY_ADMIN, {
+    onCompleted(data) {
+      let result = data.selectUsersByAdmin;
+
+      if (result.length === 1) {
+        extendAccount({
+          variables: {
+            masterId: currentData?.masterUserId,
+            slaveIds: [result[0].masterUserId],
+          },
+        }).then(() => {
+          alert("OK");
+        });
+      } else {
+        return;
+      }
+    },
+
+    onError() {},
+
+    fetchPolicy: "no-cache",
+  });
 
   const [deleteStore] = useMutation<{ deleteStore: boolean }, MutationDeleteStore>(MUTATIONS.DELETE_STORE, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],

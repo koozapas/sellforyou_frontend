@@ -587,7 +587,7 @@ const LandingPage = () => {
               padding: "0 10px",
             }}
           >
-            <img src={PRICING} />
+            <img src={PRICING} alt="" />
           </Col>
         </Row>
 

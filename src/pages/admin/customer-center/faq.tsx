@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Card, Tabs, Collapse, Input, Button, Row, Col, message } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { ApolloError, useMutation, useQuery } from "@apollo/client";
 import QUERIES from "src/apis/queries";
@@ -10,7 +9,6 @@ import {
   MutationDeleteFaqByAdminArgs,
   MutationDeleteFaqCategoryByAdminArgs,
   MutationModifyFaqCategoryByAdminArgs,
-  MutationSortFaqCategoryByAdminArgs,
 } from "src/types";
 import MUTATIONS from "src/apis/mutations";
 import { SortableContainer, SortableElement } from "react-sortable-hoc";

@@ -11,7 +11,7 @@ const { Search } = Input;
 const { Option } = Select;
 
 interface IProps {
-  userListRefetch: ({}) => void;
+  userListRefetch: (_) => void;
   selectedItemIds?: Array<number>;
   setSelectedItemIds: (e) => void;
   setPageSize: (e) => void;

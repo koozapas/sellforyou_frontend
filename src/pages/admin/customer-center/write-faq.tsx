@@ -2,13 +2,7 @@ import { Card, Row, Col, Input, Button, Select, message } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ApolloError, useMutation, useQuery } from "@apollo/client";
-import {
-  Faq,
-  FaqCategory,
-  MutationCreateFaqByAdminArgs,
-  MutationUpdateFaqByAdminArgs,
-  QuerySelectFaqsByEveryoneArgs,
-} from "src/types";
+import { Faq, FaqCategory, MutationCreateFaqByAdminArgs, MutationUpdateFaqByAdminArgs, QuerySelectFaqsByEveryoneArgs } from "src/types";
 import QUERIES from "src/apis/queries";
 import querystring from "query-string";
 
@@ -27,14 +21,8 @@ const toolbar = {
     container: [
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ size: ["small", false, "large", "huge"] }, { color: [] }],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-        { align: [] },
-      ],
-      ['link', 'image', 'video'],
+      [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }, { align: [] }],
+      ["link", "image", "video"],
       // ["clean"],
     ],
     // handlers: {},
@@ -45,22 +33,7 @@ const toolbar = {
   // imageDrop: true,
 };
 
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "size",
-  "color",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "align",
-];
+const formats = ["header", "bold", "italic", "underline", "strike", "blockquote", "size", "color", "list", "bullet", "indent", "link", "image", "align"];
 
 const WriteFAQ = () => {
   const history = useHistory();
@@ -73,10 +46,7 @@ const WriteFAQ = () => {
   const quillRef = useRef<ReactQuill>(null);
 
   //수정시 수정할 데이터 불러오기
-  const { data: selectFaqData } = useQuery<
-    { selectFaqsByEveryone: Faq[] },
-    QuerySelectFaqsByEveryoneArgs
-  >(QUERIES.SELECT_FAQS_BY_EVERYONE, {
+  const { data: selectFaqData } = useQuery<{ selectFaqsByEveryone: Faq[] }, QuerySelectFaqsByEveryoneArgs>(QUERIES.SELECT_FAQS_BY_EVERYONE, {
     variables: { where: { id: { equals: Number(queryStringValue.id) } } },
     skip: !queryStringValue.id,
     onError: onApolloError,
@@ -89,15 +59,9 @@ const WriteFAQ = () => {
   }>(QUERIES.FAQ_DATA_LIST, { onError: onApolloError });
   const categoryList = faqListData?.selectFaqCategoriesByEveryone;
 
-  const [createFaqByAdmin] = useMutation<
-    { createFaqByAdmin: Boolean },
-    MutationCreateFaqByAdminArgs
-  >(MUTATIONS.CREATE_FAQ_BY_ADMIN);
+  const [createFaqByAdmin] = useMutation<{ createFaqByAdmin: Boolean }, MutationCreateFaqByAdminArgs>(MUTATIONS.CREATE_FAQ_BY_ADMIN);
 
-  const [updateFaqByAdmin] = useMutation<
-    { updateFaqByAdmin: Boolean },
-    MutationUpdateFaqByAdminArgs
-  >(MUTATIONS.UPDATE_FAQ_BY_ADMIN);
+  const [updateFaqByAdmin] = useMutation<{ updateFaqByAdmin: Boolean }, MutationUpdateFaqByAdminArgs>(MUTATIONS.UPDATE_FAQ_BY_ADMIN);
 
   const createHandleButton = () => {
     if (category === 0) {
@@ -148,19 +112,14 @@ const WriteFAQ = () => {
       setTitle(modifyData.title);
       setContent(modifyData.content);
     }
-  }, [selectFaqData]);
+  }, [modifyData, selectFaqData]);
 
   return (
     <Card title={<div>FAQ {!modifyData ? "작성" : "수정"}</div>}>
       <Row align="middle" className="mb-5">
         <Col className="mr-3">카테고리</Col>
         <Col>
-          <Select
-            value={category}
-            style={{ width: "200px" }}
-            placeholder="메뉴를 선택해주세요"
-            onChange={(e) => setCategory(Number(e))}
-          >
+          <Select value={category} style={{ width: "200px" }} placeholder="메뉴를 선택해주세요" onChange={(e) => setCategory(Number(e))}>
             {categoryList?.map((v, i) => (
               <Option key={i} value={v.id}>
                 {v.name}
