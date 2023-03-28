@@ -128,7 +128,7 @@ const HeaderComponent = () => {
                   <div
                     className="navigators-menu"
                     onClick={() => {
-                      window.open("https://open.kakao.com/o/gWfPuzDe");
+                      window.open("https://open.kakao.com/o/gfCffF3e");
                     }}
                   >
                     오픈카톡방
