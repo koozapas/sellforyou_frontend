@@ -815,6 +815,7 @@ const QUERIES = {
         state
         master
         masterUserId
+        refCode
         userInfo {
           userId
           phone

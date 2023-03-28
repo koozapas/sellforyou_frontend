@@ -397,6 +397,12 @@ const Customer = (props: Props) => {
       width: "10%",
     },
     {
+      title: "추천인ID",
+      render: (data: User) => <>{`${data.refCode !== undefined ? data.refCode : ""}`}</>,
+      align: "center",
+      width: "10%",
+    },
+    {
       title: "사용상태",
       dataIndex: "state",
       render: (data: string) => <>{data === "ACTIVE" ? "활성화" : "비활성화"}</>,
