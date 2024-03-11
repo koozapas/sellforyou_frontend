@@ -393,7 +393,9 @@ const LandingPage = () => {
 							}}
 						>
 							판매할 상품을{' '}
-							<span style={{ color: '#2988FF' }}>해외쇼핑몰(타오바오, 티몰, 알리익스프레스, 1688, VVIC, 아마존)</span>
+							<span style={{ color: '#2988FF' }}>
+								해외쇼핑몰(타오바오, 티몰, 알리익스프레스, 1688, VVIC, 아마존, 테무)
+							</span>
 							에서 찾아 담기만 하면 끝!
 						</div>
 					</Col>
