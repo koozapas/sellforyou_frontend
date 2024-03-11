@@ -1,10 +1,10 @@
-import { ApolloError } from "@apollo/client";
+import { ApolloError } from '@apollo/client';
 
 export const onApolloError = (error: ApolloError) => {
-  if (error) {
-    // alert(error.message);
-    console.log(error.message);
-  }
+	if (error) {
+		// alert(error.message);
+		console.log(error.message);
+	}
 };
 
 /**
@@ -14,19 +14,19 @@ export const onApolloError = (error: ApolloError) => {
  * @returns 콤마가 붙은 숫자
  */
 export const formatToComma = (value: string | number, option?: { prefix?: string; suffix?: string }): string => {
-  let result = value;
+	let result = value;
 
-  switch (typeof result) {
-    case "string":
-      result = Number(result.replace(/[^0-9]/g, "")).toLocaleString();
-      break;
-    case "number":
-      result = result.toLocaleString();
-      break;
-    default:
-      result = "0";
-      break;
-  }
+	switch (typeof result) {
+		case 'string':
+			result = Number(result.replace(/[^0-9]/g, '')).toLocaleString();
+			break;
+		case 'number':
+			result = result.toLocaleString();
+			break;
+		default:
+			result = '0';
+			break;
+	}
 
-  return `${option?.prefix ?? ""}${result}${option?.suffix ?? ""}`;
+	return `${option?.prefix ?? ''}${result}${option?.suffix ?? ''}`;
 };

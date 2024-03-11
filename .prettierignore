@@ -1,2 +1,9 @@
 /src/router/private-route.tsx
 /src/component/common/sideMenuElement.tsx
+
+dist/
+build/
+node_modules/
+*.md
+*.html
+*.svg

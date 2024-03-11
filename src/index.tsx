@@ -1,18 +1,18 @@
-import React from "react";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-import { hydrate, render } from "react-dom";
+import { hydrate, render } from 'react-dom';
 
-import "./index.css";
-import "src/assets/styles/tailwind/main.css";
+import './index.css';
+import 'src/assets/styles/tailwind/main.css';
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 
 if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
+	hydrate(<App />, rootElement);
 } else {
-  render(<App />, rootElement);
+	render(<App />, rootElement);
 }
 
 // If you want your app to work offline and load faster, you can change
