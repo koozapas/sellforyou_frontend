@@ -11,13 +11,14 @@ import {
   AdminServicePay, 
   ManageAdmin, 
   AdminPreferences, 
-  
+  // AdminProduct,
   WrongPage } from "./code-split";
 const PrivateRoute = () => {
 
   return (
     <Switch>
       <Route exact path="/admin/customer" component={AdminCustomer} />
+      {/* <Route exact path="/admin/product" component={AdminProduct} /> */}
       {/* 관리자 - 결제관리 */}
       <Route exact path="/admin/payment/service-pay" component={AdminServicePay} />
       {/* 관리자 - 고객센터 */}

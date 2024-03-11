@@ -804,6 +804,35 @@ const QUERIES = {
     }
   `,
 
+  //상품관리
+  SELECT_MY_PRODUCT_BY_ADMIN: gql`
+    query SELECT_MY_PRODUCT_BY_ADMIN(
+      $where: ProductWhereInput
+      $orderBy: [ProductOrderByWithRelationInput!]
+      $take: Int
+      $skip: Int
+      $cursor: ProductWhereUniqueInput
+    ) {
+      selectMyProductByAdmin(where: $where, orderBy: $orderBy, take: $take, skip: $skip, cursor: $cursor) {
+        id
+        description
+        name
+        productCode
+        price
+        state
+
+        activeProductStore {
+          id
+          siteCode
+          state
+          storeProductId
+          etcVendorItemId
+          storeUrl
+        }
+      }
+    }
+  `,
+
   //고객관리
   USER_LIST_BY_ADMIN: gql`
     query USER_LIST_BY_ADMIN($where: UserWhereInput) {

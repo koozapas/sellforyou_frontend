@@ -20,13 +20,24 @@ const SideMenu = ({ sideMenuElement }: ISideMenu) => {
   const Dispatch = useDispatch();
   const sidemenu = useSelector((state: CoreState) => state.sidemenu);
 
-  const rootSubmenuKeys = ["공지사항", "마켓관리", "상품관리", "주문관리", "결제관리", "배송관리", "매출통계", "고객센터"];
+  const rootSubmenuKeys = [
+    "공지사항",
+    "마켓관리",
+    "상품관리",
+    "주문관리",
+    "결제관리",
+    "배송관리",
+    "매출통계",
+    "고객센터",
+  ];
 
   const [openKeys, setOpenKeys] = useState(["1"]);
   const [selectedKeys, setSelectedKeys] = useState("");
 
   const onOpenChange = (keys: any) => {
-    const latestOpenKey = keys.find((key: string) => openKeys.indexOf(key) === -1);
+    const latestOpenKey = keys.find(
+      (key: string) => openKeys.indexOf(key) === -1
+    );
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
     } else {
@@ -48,19 +59,34 @@ const SideMenu = ({ sideMenuElement }: ISideMenu) => {
         setOpenKeys(["1"]);
       } else if (window.location.pathname === "/admin/customer") {
         setSelectedKeys("유저관리");
-      } else if (window.location.pathname === ("/admin/product/product-collection" || "/admin/product/product-delivery")) {
-        setOpenKeys(["상품관리"]);
-      } else if (window.location.pathname === "/admin/order/order)") {
+      }
+      // else if (window.location.pathname === ("/admin/product/product-collection" || "/admin/product/product-delivery" || "/admin/product")) {
+      //   setOpenKeys(["상품관리"]);
+      // }
+      else if (window.location.pathname === "/admin/order/order)") {
         setOpenKeys(["주문관리"]);
-      } else if (window.location.pathname === ("/admin/payment/order-pay" || "/admin/payment/service-pay")) {
+      } else if (
+        window.location.pathname ===
+        ("/admin/payment/order-pay" || "/admin/payment/service-pay")
+      ) {
         setOpenKeys(["결제관리"]);
       }
       // else if (window.location.pathname === ()) {
       //   setOpenKeys(['배송관리'])
       // }
-      else if (window.location.pathname === ("/admin/sales/sales-by-term" || "/admin/sales/sales-by-product" || "/admin/sales/sales-by-store")) {
+      else if (
+        window.location.pathname ===
+        ("/admin/sales/sales-by-term" ||
+          "/admin/sales/sales-by-product" ||
+          "/admin/sales/sales-by-store")
+      ) {
         setOpenKeys(["매출통계"]);
-      } else if (window.location.pathname === ("/admin/customer-center/notice" || "/admin/customer-center/faq" || "/admin/customer-center/inquiry")) {
+      } else if (
+        window.location.pathname ===
+        ("/admin/customer-center/notice" ||
+          "/admin/customer-center/faq" ||
+          "/admin/customer-center/inquiry")
+      ) {
         setOpenKeys(["고객센터"]);
       } else if (window.location.pathname === "/admin/manage-admin") {
         setSelectedKeys("관리자설정");
@@ -111,11 +137,28 @@ const SideMenu = ({ sideMenuElement }: ISideMenu) => {
   };
 
   return (
-    <Sider theme="light" width={209} className="sidemenu" collapsed={sidemenu} onCollapse={() => Dispatch(toggleSidemenu())}>
+    <Sider
+      theme="light"
+      width={209}
+      className="sidemenu"
+      collapsed={sidemenu}
+      onCollapse={() => Dispatch(toggleSidemenu())}
+    >
       <div className={`app-log`} onClick={() => history.push("/")} />
 
-      <Menu style={{ width: "210px" }} theme="light" selectedKeys={[selectedKeys]} mode="inline" openKeys={openKeys} onOpenChange={onOpenChange}>
-        {sideMenuElement.map((value, index) => (value.list.length === 0 ? value?.grade && subMenuNoChild(value) : value?.grade && subMenuHasChild(value)))}
+      <Menu
+        style={{ width: "210px" }}
+        theme="light"
+        selectedKeys={[selectedKeys]}
+        mode="inline"
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
+      >
+        {sideMenuElement.map((value, index) =>
+          value.list.length === 0
+            ? value?.grade && subMenuNoChild(value)
+            : value?.grade && subMenuHasChild(value)
+        )}
         <Menu.Item key={-1} onClick={() => confirmLogout()}>
           <LogoutOutlined />
 

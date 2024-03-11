@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import moment from "moment";
 import MUTATIONS from "src/apis/mutations";
 
-import { Row, Col, Input, Select, Button, Tooltip, message, DatePicker } from "antd";
+import {
+  Row,
+  Col,
+  Input,
+  Select,
+  Button,
+  Tooltip,
+  message,
+  DatePicker,
+} from "antd";
 import { useMutation } from "@apollo/client";
 import {
   MutationSetMaxProductLimitByAdminArgs,
@@ -23,39 +32,61 @@ interface IProps {
   setPageSize: (e) => void;
 }
 
-const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, setPageSize }: IProps) => {
+const CustomerFilter = ({
+  userListRefetch,
+  selectedItemIds,
+  setSelectedItemIds,
+  setPageSize,
+}: IProps) => {
   const [expiredAt, setExpiredAt] = useState<Moment | null>(null);
   const [changeSelectBox, setChangeSelectBox] = useState<string>("email");
   const [purchaseInfoLevel, setPurchaseInfoLevel] = useState<number>(null);
   const [maxLimit, setMaxLimit] = useState<string>("");
-  const [isSetPurchaseInfoAvailable, setIsSetPurchaseInfoAvailable] = useState<boolean>(true);
-  const [isSetMaxProductLimitAvailable, setIsSetMaxProductLimitAvailable] = useState<boolean>(true);
-  const [isSetUserStopAvailable, setIsSetUserStopAvailable] = useState<boolean>(true);
-  const [isDeleteUserProductAvailable, setIsDeleteUserProductAvailable] = useState<boolean>(true);
-  const [isDeleteUserAvailable, setIsDeleteUserAvailable] = useState<boolean>(true);
+  const [isSetPurchaseInfoAvailable, setIsSetPurchaseInfoAvailable] =
+    useState<boolean>(true);
+  const [isSetMaxProductLimitAvailable, setIsSetMaxProductLimitAvailable] =
+    useState<boolean>(true);
+  const [isSetUserStopAvailable, setIsSetUserStopAvailable] =
+    useState<boolean>(true);
+  const [isDeleteUserProductAvailable, setIsDeleteUserProductAvailable] =
+    useState<boolean>(true);
+  const [isDeleteUserAvailable, setIsDeleteUserAvailable] =
+    useState<boolean>(true);
 
-  const [setPurchaseInfoByAdmin] = useMutation<{ setPurchaseInfoByAdmin: boolean }, MutationSetPurchaseInfoByAdminArgs>(MUTATIONS.SET_PURCHASE_INFO_BY_ADMIN, {
+  const [setPurchaseInfoByAdmin] = useMutation<
+    { setPurchaseInfoByAdmin: boolean },
+    MutationSetPurchaseInfoByAdminArgs
+  >(MUTATIONS.SET_PURCHASE_INFO_BY_ADMIN, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],
   });
 
-  const [setUserStopTest] = useMutation<{ setUserStopTest: Boolean }, MutationsetUserStopTest>(MUTATIONS.SET_USER_STOP_TEST, {
+  const [setUserStopTest] = useMutation<
+    { setUserStopTest: Boolean },
+    MutationsetUserStopTest
+  >(MUTATIONS.SET_USER_STOP_TEST, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],
   });
 
-  const [deleteUser] = useMutation<{ deleteUserByAdmin: Boolean }, MutationDeleteUser>(MUTATIONS.DELETE_USER_BY_ADMIN, {
+  const [deleteUser] = useMutation<
+    { deleteUserByAdmin: Boolean },
+    MutationDeleteUser
+  >(MUTATIONS.DELETE_USER_BY_ADMIN, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],
   });
 
-  const [deleteUserProduct] = useMutation<{ deleteUserProductByAdmin: Boolean }, MutationDeleteUserProduct>(MUTATIONS.DELETE_USER_PRODUCT_BY_ADMIN, {
+  const [deleteUserProduct] = useMutation<
+    { deleteUserProductByAdmin: Boolean },
+    MutationDeleteUserProduct
+  >(MUTATIONS.DELETE_USER_PRODUCT_BY_ADMIN, {
     refetchQueries: ["USER_LIST_BY_ADMIN"],
   });
 
-  const [setMaxProductLimitByAdmin] = useMutation<{ setMaxProductLimitByAdmin: boolean }, MutationSetMaxProductLimitByAdminArgs>(
-    MUTATIONS.SET_MAX_PRODUCT_LIMIT_BY_ADMIN,
-    {
-      refetchQueries: ["USER_LIST_BY_ADMIN"],
-    }
-  );
+  const [setMaxProductLimitByAdmin] = useMutation<
+    { setMaxProductLimitByAdmin: boolean },
+    MutationSetMaxProductLimitByAdminArgs
+  >(MUTATIONS.SET_MAX_PRODUCT_LIMIT_BY_ADMIN, {
+    refetchQueries: ["USER_LIST_BY_ADMIN"],
+  });
 
   const search = (e: string) => {
     const filtered = e.trim();
@@ -64,7 +95,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
       userListRefetch({ where: { email: { contains: filtered } } });
     } else if (changeSelectBox === "phone") {
       userListRefetch({
-        where: { userInfo: { phone: { contains: filtered === "" ? null : filtered } } },
+        where: {
+          userInfo: { phone: { contains: filtered === "" ? null : filtered } },
+        },
       });
     }
   };
@@ -162,7 +195,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                     variables: {
                       userId: v,
                       planInfoId: purchaseInfoLevel,
-                      expiredAt: expiredAt ? expiredAt.toISOString() : expiredAt,
+                      expiredAt: expiredAt
+                        ? expiredAt.toISOString()
+                        : expiredAt,
                     },
                   }).catch((e) => e as Error);
                   if (result instanceof Error) {
@@ -176,7 +211,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
                   if (successCount > 0) {
-                    message.info(`${successCount}명의 사용자 플랜을 설정하였습니다.`);
+                    message.info(
+                      `${successCount}명의 사용자 플랜을 설정하였습니다.`
+                    );
                   } else {
                     message.error(`사용자 플랜 설정 실패`);
                   }
@@ -192,7 +229,12 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
         </Col>
 
         <Col style={{ marginRight: "5px" }}>
-          <Tooltip trigger={["focus"]} title={"공백 입력시 무제한으로 적용됩니다."} placement="topLeft" overlayClassName="numeric-input">
+          <Tooltip
+            trigger={["focus"]}
+            title={"공백 입력시 무제한으로 적용됩니다."}
+            placement="topLeft"
+            overlayClassName="numeric-input"
+          >
             <Input
               placeholder="수집 제한"
               style={{ width: "100px" }}
@@ -201,8 +243,12 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 const { value } = e.target;
                 const reg = /^\d*$/;
 
-                if ((!isNaN(parseFloat(value)) && reg.test(value)) || value === "") {
-                  if (value === "" || parseInt(value) < 2147483647) setMaxLimit(value);
+                if (
+                  (!isNaN(parseFloat(value)) && reg.test(value)) ||
+                  value === ""
+                ) {
+                  if (value === "" || parseInt(value) < 2147483647)
+                    setMaxLimit(value);
                 }
               }}
             ></Input>
@@ -220,7 +266,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 return;
               }
 
-              const productLimit = isNaN(parseInt(maxLimit)) ? null : parseInt(maxLimit);
+              const productLimit = isNaN(parseInt(maxLimit))
+                ? null
+                : parseInt(maxLimit);
 
               setIsSetMaxProductLimitAvailable(false);
 
@@ -238,7 +286,10 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
               )
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
-                  if (successCount > 0) message.info(`${successCount}명의 사용자 수집 제한을 설정하였습니다.`);
+                  if (successCount > 0)
+                    message.info(
+                      `${successCount}명의 사용자 수집 제한을 설정하였습니다.`
+                    );
                   else message.error(`사용자 수집 제한 설정 실패`);
                 })
                 .finally(() => {
@@ -263,7 +314,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 return;
               }
 
-              const accept = window.confirm(`${selectedItemIds.length}명의 사용자를 이용 중지하시겠습니까?`);
+              const accept = window.confirm(
+                `${selectedItemIds.length}명의 사용자를 이용 중지하시겠습니까?`
+              );
 
               if (!accept) {
                 return;
@@ -289,7 +342,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
                   if (successCount > 0) {
-                    message.info(`${successCount}명의 사용자가 이용 중지되었습니다.`);
+                    message.info(
+                      `${successCount}명의 사용자가 이용 중지되었습니다.`
+                    );
                   } else {
                     message.error(`사용자 이용 중지 실패`);
                   }
@@ -314,7 +369,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 return;
               }
 
-              const accept = window.confirm(`${selectedItemIds.length}명의 사용자의 상품 데이터를 영구 삭제하시겠습니까?`);
+              const accept = window.confirm(
+                `${selectedItemIds.length}명의 사용자의 상품 데이터를 영구 삭제하시겠습니까?`
+              );
 
               if (!accept) {
                 return;
@@ -339,7 +396,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
                   if (successCount > 0) {
-                    message.info(`${successCount}명의 사용자의 상품 데이터가 영구 삭제되었습니다.`);
+                    message.info(
+                      `${successCount}명의 사용자의 상품 데이터가 영구 삭제되었습니다.`
+                    );
                   } else {
                     message.error(`상품 데이터 영구 삭제 실패`);
                   }
@@ -364,7 +423,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 return;
               }
 
-              const accept = window.confirm(`${selectedItemIds.length}명의 사용자를 영구 삭제하시겠습니까?`);
+              const accept = window.confirm(
+                `${selectedItemIds.length}명의 사용자를 영구 삭제하시겠습니까?`
+              );
 
               if (!accept) {
                 return;
@@ -389,7 +450,9 @@ const CustomerFilter = ({ userListRefetch, selectedItemIds, setSelectedItemIds, 
                 .then((result) => {
                   const successCount = result.filter((v) => v === true).length;
                   if (successCount > 0) {
-                    message.info(`${successCount}명의 사용자가 영구 삭제되었습니다.`);
+                    message.info(
+                      `${successCount}명의 사용자가 영구 삭제되었습니다.`
+                    );
                   } else {
                     message.error(`사용자 영구 삭제 실패`);
                   }

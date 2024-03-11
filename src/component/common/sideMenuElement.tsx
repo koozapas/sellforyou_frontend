@@ -29,6 +29,7 @@ const createMenu = (
 // 객체로 다 적게 되면 가독성 떨어짐
 export const adminSideMenu: IMenu[] = [
   createMenu("유저관리", "/admin/customer?", <StarOutlined />, [], 'A'),
+  // createMenu("상품관리", "/admin/product?", <StarOutlined />, [], 'B'),
 
   createMenu("결제관리", "", <StarOutlined />, [
   createMenu("이용료결제", "/admin/payment/service-pay?", <StarOutlined />, []),
